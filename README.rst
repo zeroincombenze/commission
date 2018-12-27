@@ -1,10 +1,7 @@
 
-========================
-|icon| Sales commissions
-========================
-
-
-.. |icon| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission/static/description/icon.png
+================================
+|Zeroincombenze| commission 10.0
+================================
 
 |Maturity| |Build Status| |Coverage Status| |Codecov Status| |license gpl| |Tech Doc| |Help| |Try Me|
 
@@ -14,21 +11,21 @@
 Overview / Panoramica
 =====================
 
-|en| This module allows to define sales agents with their commissions and assign
-them in customers and sales orders.
+|en| All management related with commisions and incentive in Odoo.
 
-You can then make the settlements of these commissions, and generate the
-corresponding supplier invoices to pay their commissions fees.
+|it| Moduli per la gestione delle provvigioni
 
-You can define which base amount is going to be taken into account: net amount
-(based on margin) or gross amount (line subtotal amount)
+Avaiable Addons / Moduli disponibili
+------------------------------------
 
-|
++-----------------+------------+------------+----------------------------------------------------+
+| Name / Nome     | Version    | OCA Ver.   | Description / Descrizione                          |
++-----------------+------------+------------+----------------------------------------------------+
+| hr_commission   | |halt|     | |no_check| | HR commissions                                     |
++-----------------+------------+------------+----------------------------------------------------+
+| sale_commission | 10.0.1.0.7 | |no_check| | Sales commissions                                  |
++-----------------+------------+------------+----------------------------------------------------+
 
-|it| Modulo per gestione provvigioni agenti
-
-
-|
 
 OCA comparation / Confronto con OCA
 -----------------------------------
@@ -39,8 +36,6 @@ OCA comparation / Confronto con OCA
 | Coverage / Copertura test                                       |  |Codecov Status| | |OCA Codecov Status|  | |OCA project|                  |
 +-----------------------------------------------------------------+-------------------+-----------------------+--------------------------------+
 
-|
-|
 
 Getting started / Come iniziare
 ===============================
@@ -54,8 +49,6 @@ Prerequisites / Prerequisiti
 
 * python
 * postgresql 9.2+
-
-|
 
 Installation / Installazione
 ----------------------------
@@ -89,13 +82,6 @@ Installation / Installazione
     done
     sudo manage_odoo requirements -b 10.0 -vsy -o /opt/odoo/10.0
 
-From UI: go to:
-
-* |menu| Setting > Activate Developer mode 
-* |menu| Apps > Update Apps List
-* |menu| Setting > Apps |right_do| Select **sale_commission** > Install
-
-|
 
 Upgrade / Aggiornamento
 -----------------------
@@ -114,13 +100,6 @@ Upgrade / Aggiornamento
     # Adjust following statements as per your system
     sudo systemctl restart odoo
 
-From UI: go to:
-
-* |menu| Setting > Activate Developer mode
-* |menu| Apps > Update Apps List
-* |menu| Setting > Apps |right_do| Select **sale_commission** > Update
-
-|
 
 Support / Supporto
 ------------------
@@ -129,8 +108,6 @@ Support / Supporto
 |Zeroincombenze| This module is maintained by the `SHS-AV s.r.l. <https://www.zeroincombenze.it/>`__ and free support is supplied through `Odoo Italia Associazione Forum <https://odoo-italia.org/index.php/kunena/recente>`__
 
 
-|
-|
 
 Get involved / Ci mettiamo in gioco
 ===================================
@@ -150,9 +127,6 @@ An Enhancement Proposal may be submitted if your idea gains ground.
 
 |it| Se hai proposte per migliorare questo modulo, puoi inviare una mail a <cc@shs-av.com> per un iniziale contatto.
 
-|
-|
-
 Credits / Titoli di coda
 ========================
 
@@ -161,32 +135,6 @@ Copyright
 
 Odoo is a trademark of `Odoo S.A. <https://www.odoo.com/>`__ (formerly OpenERP)
 
-
-
-|
-
-Authors / Autori
-----------------
-
-* `Pexego <http://www.pexego.es/>`__
-* `Savoir-faire <https://savoirfairelinux.com/>`__
-* `Abstract <https://www.abstract.it>`__
-* `Avanzosc <http://http://www.avanzosc.es/>`__
-* `Agile Business Group sagl <https://www.agilebg.com/>`__
-
-Contributors / Collaboratori
-----------------------------
-
-* Joao Alfredo Gama Batista <joao.gama@savoirfairelinux.com>
-* Sandy Carter <sandy.carter@savoirfairelinux.com>
-* Davide Corio <davide.corio@abstract.it>
-* Giorgio Borelli <giorgio.borelli@abstract.it>
-* Daniel Campos <danielcampos@avanzosc.es>
-* Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
-* Oihane Crucelaegui <oihanecruce@gmail.com>
-* Nicola Malcontenti <nicola.malcontenti@agilebg.com>
-
-|
 
 ----------------
 
@@ -206,7 +154,7 @@ La distribuzione `Zeroincombenze® è progettata per le esigenze del mercato ita
 
 |
 
-Last Update / Ultimo aggiornamento: 2018-12-26
+Last Update / Ultimo aggiornamento: 2018-12-27
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-red.png
     :target: https://odoo-community.org/page/development-status
