@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_invoice_commission" inherit_id="account.report_invoice_document">
+        <xpath expr="//div[@name='reference']" position="after">
+            <div t-if="o.invoice_line_ids[0].agents" name="agent" class="col-xs-2">
+                <strong>Agente:</strong>
+                <p t-field="o.invoice_line_ids[0].agents[0].agent.name"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>

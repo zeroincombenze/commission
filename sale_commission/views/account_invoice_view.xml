@@ -32,6 +32,10 @@
         <field name="model">account.invoice</field>
         <field name="inherit_id" ref="account.invoice_form" />
         <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_invoice_draft']" position="after">
+                <button name="recompute_lines_agents" type="object" string="Recompute lines agents"
+                        attrs="{'invisible':[('state', '=', 'cancel')]}"/>
+            </xpath>
             <field name="invoice_line_ids" position="attributes">
                 <attribute name="context">{'partner_id': partner_id}</attribute>
             </field>
@@ -42,9 +46,6 @@
             </xpath>
             <xpath expr="//field[@name='invoice_line_ids']/tree" position="attributes">
                     <attribute name="editable"/>
-            </xpath>
-            <xpath expr="//field[@name='invoice_line_ids']" position="after">
-                <button name="recompute_lines_agents" type="object" string="Recompute lines agents" states="draft"></button>
             </xpath>
             <field name="amount_total" position="after">
                 <field name="commission_total"

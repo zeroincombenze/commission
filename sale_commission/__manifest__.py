@@ -2,7 +2,7 @@
 
 {
     'name': 'Sales commissions',
-    'version': '10.0.1.0.7',
+    'version': '10.0.1.0.9',
     'author': 'Odoo Community Association (OCA)',
     'category': 'Sales Management',
     'license': 'AGPL-3',
@@ -21,6 +21,8 @@
         'views/settlement_view.xml',
         'wizard/wizard_settle.xml',
         'wizard/wizard_invoice.xml',
+        'report/report_sale.xml',
+        # 'report/report_invoice.xml',
     ],
     'demo': [
         'demo/sale_agent_demo.xml',

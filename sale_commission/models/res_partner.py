@@ -16,7 +16,9 @@ class ResPartner(models.Model):
         string="Creditor/Agent",
         help="Check this field if the partner is a creditor or an agent.")
     agent_type = fields.Selection(
-        selection=[("agent", "External agent")], string="Type", required=True,
+        selection=[("agent", "Agent"),
+                   ("External agent", "External Agent")],
+        string="Type", required=True,
         default="agent")
     commission = fields.Many2one(
         string="Commission", comodel_name="sale.commission",
@@ -32,6 +34,14 @@ class ResPartner(models.Model):
     settlements = fields.One2many(
         comodel_name="sale.commission.settlement", inverse_name="agent",
         readonly=True)
+    head_agent = fields.Many2one(
+        string="Head Agent", comodel_name="res.partner",
+        domain=[('agent_type', '=', 'agent')],
+        help="Head agent, if exists"
+        )
+    head_commission = fields.Many2one(
+        string="Head Commission", comodel_name="sale.commission",
+        help="Default commission assigned to head agent")
 
     @api.onchange('agent_type')
     def onchange_agent_type(self):

@@ -24,6 +24,9 @@
                             <field name="agent_type"/>
                             <field name="commission"
                                    attrs="{'required': [('agent', '=', True)]}"/>
+                            <field name="head_agent"/>
+                            <field name="head_commission"
+                                   attrs="{'required': [('head_agent', '=', True)]}"/>
                         </group>
                         <group>
                             <field name="settlement"/>

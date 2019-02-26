@@ -6,6 +6,10 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_done']" position="after">
+                <button name="recompute_lines_agents" type="object" string="Recompute lines agents"
+                        attrs="{'invisible':[('state', 'in', ['done', 'cancel'])]}"/>
+            </xpath>
             <field name="order_line" position="attributes">
                 <attribute name="context">{'partner_id': partner_id}</attribute>
             </field>
@@ -27,9 +31,6 @@
                        widget="monetary"
                        options="{'currency_field': 'currency_id'}"/>
             </field>
-            <xpath expr="//field[@name='order_line']" position="after">
-                <button name="recompute_lines_agents" type="object" string="Recompute lines agents" states="draft"></button>
-            </xpath>
         </field>
     </record>
 

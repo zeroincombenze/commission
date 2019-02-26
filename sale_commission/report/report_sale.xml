@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_saleorder_with_agent_document" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//div[@t-if='doc.user_id.name']" position="replace">
+            <div t-if="doc.order_line[0].agents" class="col-xs-3">
+                <strong>Commerciale:</strong>
+                <p t-field="doc.order_line[0].agents[0].agent.name"/>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
+
