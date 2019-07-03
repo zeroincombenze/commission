@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="invoice_form_hdr_agent_view" model="ir.ui.view">
+        <field name="name">invoice.form.hdr.agent.view</field>
+        <field name="model">account.invoice</field>
+        <field name="inherit_id" ref="account.invoice_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='other_info']/group[last()]" position="after">
+                <field name="agents" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

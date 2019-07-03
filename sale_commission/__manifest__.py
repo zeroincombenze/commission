@@ -2,7 +2,7 @@
 
 {
     'name': 'Sales commissions',
-    'version': '10.0.1.0.9',
+    'version': '10.0.11.0.0',
     'author': 'Odoo Community Association (OCA)',
     'category': 'Sales Management',
     'license': 'AGPL-3',
@@ -10,6 +10,7 @@
         'account',
         'product',
         'sale',
+        'stock_account',
     ],
     'data': [
         'security/ir.model.access.csv',

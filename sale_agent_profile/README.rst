@@ -1,13 +1,14 @@
 
 ====================================
-|icon| Sales commissions 10.0.11.0.0
+|icon| sale_agent_profile 10.0.0.1.1
 ====================================
 
 
-.. |icon| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission/static/description/icon.png
+**Set default agent authorization user profile**
 
-|Maturity| |Build Status| |Codecov Status| |license gpl| |Try Me|
+.. |icon| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_agent_profile/static/description/icon.png
 
+|Maturity| |Build Status| |Coverage Status| |Codecov Status| |license gpl| |Tech Doc| |Help| |Try Me|
 
 .. contents::
 
@@ -15,18 +16,23 @@
 Overview / Panoramica
 =====================
 
-|en| This module allows to define sales agents with their commissions and assign
-them in customers and sales orders.
+|en| Odoo Access rules for sale agents 
+---------------------------------------
 
-You can then make the settlements of these commissions, and generate the
-corresponding supplier invoices to pay their commissions fees.
+When agent does login into Odoo instance,
+it can just see documents which have agent code equal to its id.
+Agent can view sales orders and sales invoices from which it gets commissions.
 
-You can define which base amount is going to be taken into account: net amount
-(based on margin) or gross amount (line subtotal amount)
 
 |
 
-|it| Modulo per gestione provvigioni agenti
+|it| Regole di accesso per agenti
+---------------------------------
+
+Gli agenti che effettuano il login in Odoo possono solo vedere i documenti
+nei quali sono agenti.
+Gli agenti possono vedere ordini di vendite e fatture di vendita per le quali
+ottengono le provvigioni.
 
 
 |
@@ -35,11 +41,11 @@ OCA comparation / Confronto con OCA
 -----------------------------------
 
 
-+-----------------------------------------------------------------+-------------------+----------------+--------------------------------+
-| Description / Descrizione                                       | Zeroincombenze    | OCA            | Notes / Note                   |
-+-----------------------------------------------------------------+-------------------+----------------+--------------------------------+
-| Coverage / Copertura test                                       |  |Codecov Status| | |OCA Codecov|  |                                |
-+-----------------------------------------------------------------+-------------------+----------------+--------------------------------+
++-----------------------------------------------------------------+-------------------+-----------------------+--------------------------------+
+| Description / Descrizione                                       | Zeroincombenze    | OCA                   | Notes / Note                   |
++-----------------------------------------------------------------+-------------------+-----------------------+--------------------------------+
+| Coverage / Copertura test                                       |  |Codecov Status| | |OCA Codecov Status|  | |OCA project|                  |
++-----------------------------------------------------------------+-------------------+-----------------------+--------------------------------+
 
 |
 |
@@ -49,6 +55,13 @@ Getting started / Come iniziare
 
 |Try Me|
 
+
+Prerequisites / Prerequisiti
+----------------------------
+
+
+* python2.7+
+* postgresql 9.2+
 
 |
 
@@ -88,7 +101,7 @@ From UI: go to:
 
 * |menu| Setting > Activate Developer mode 
 * |menu| Apps > Update Apps List
-* |menu| Setting > Apps |right_do| Select **sale_commission** > Install
+* |menu| Setting > Apps |right_do| Select **sale_agent_profile** > Install
 
 |
 
@@ -113,7 +126,7 @@ From UI: go to:
 
 * |menu| Setting > Activate Developer mode
 * |menu| Apps > Update Apps List
-* |menu| Setting > Apps |right_do| Select **sale_commission** > Update
+* |menu| Setting > Apps |right_do| Select **sale_agent_profile** > Update
 
 |
 
@@ -145,15 +158,6 @@ An Enhancement Proposal may be submitted if your idea gains ground.
 
 |it| Se hai proposte per migliorare questo modulo, puoi inviare una mail a <cc@shs-av.com> per un iniziale contatto.
 
-ChangeLog History / Cronologia modifiche
-----------------------------------------
-
-10.0.11.0.0
-~~~~~~~~~~~
-
-* [IMP] Model account.invoice.line.agent with new fields / Campi aggiuntivi nella struttura provvigione riga fattura
-
-
 |
 |
 
@@ -172,23 +176,14 @@ Odoo is a trademark of `Odoo S.A. <https://www.odoo.com/>`__ (formerly OpenERP)
 Authors / Autori
 ----------------
 
-* `Pexego <http://www.pexego.es/>`__
-* `Savoir-faire <https://savoirfairelinux.com/>`__
-* `Abstract <https://www.abstract.it>`__
-* `Avanzosc <http://http://www.avanzosc.es/>`__
-* `Agile Business Group sagl <https://www.agilebg.com/>`__
+* SHS-AV s.r.l. <https://www.zeroincombenze.it/>
 
 Contributors / Collaboratori
 ----------------------------
 
-* Joao Alfredo Gama Batista <joao.gama@savoirfairelinux.com>
-* Sandy Carter <sandy.carter@savoirfairelinux.com>
-* Davide Corio <davide.corio@abstract.it>
-* Giorgio Borelli <giorgio.borelli@abstract.it>
-* Daniel Campos <danielcampos@avanzosc.es>
-* Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
-* Oihane Crucelaegui <oihanecruce@gmail.com>
-* Nicola Malcontenti <nicola.malcontenti@agilebg.com>
+* trigg3r <trigg3r@protonmail.com>
+* Antonio Maria Vigliotti <antoniomaria.vigliotti@gmail.com>
+
 
 |
 
@@ -212,7 +207,7 @@ La distribuzione `Zeroincombenze® <https://wiki.zeroincombenze.org/en/Odoo>`__ 
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2019-07-03
+Last Update / Ultimo aggiornamento: 2019-05-06
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-red.png
     :target: https://odoo-community.org/page/development-status
@@ -230,8 +225,11 @@ Last Update / Ultimo aggiornamento: 2019-07-03
     :target: https://coveralls.io/github/zeroincombenze/commission?branch=10.0
     :alt: Coverage
 .. |Codecov Status| image:: https://codecov.io/gh/zeroincombenze/commission/branch/10.0/graph/badge.svg
-    :target: https://codecov.io/gh/zeroincombenze/commission/branch/10.0
+    :target: https://codecov.io/gh/OCA/commission/branch/10.0
     :alt: Codecov
+.. |OCA project| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_agent_profile/static/description/Unknown badge-OCA
+    :target: https://github.com/OCA/commission/tree/10.0
+    :alt: OCA
 .. |Tech Doc| image:: https://www.zeroincombenze.it/wp-content/uploads/ci-ct/prd/button-docs-10.svg
     :target: https://wiki.zeroincombenze.org/en/Odoo/10.0/dev
     :alt: Technical Documentation
@@ -241,7 +239,7 @@ Last Update / Ultimo aggiornamento: 2019-07-03
 .. |Try Me| image:: https://www.zeroincombenze.it/wp-content/uploads/ci-ct/prd/button-try-it-10.svg
     :target: https://erp10.zeroincombenze.it
     :alt: Try Me
-.. |OCA Codecov| image:: https://codecov.io/gh/OCA/commission/branch/10.0/graph/badge.svg
+.. |OCA Codecov Status| image:: https://codecov.io/gh/OCA/commission/branch/10.0/graph/badge.svg
     :target: https://codecov.io/gh/OCA/commission/branch/10.0
     :alt: Codecov
 .. |Odoo Italia Associazione| image:: https://www.odoo-italia.org/images/Immagini/Odoo%20Italia%20-%20126x56.png
@@ -251,9 +249,9 @@ Last Update / Ultimo aggiornamento: 2019-07-03
    :target: https://www.zeroincombenze.it/
    :alt: Zeroincombenze
 .. |en| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/flags/en_US.png
-   :target: https://www.facebook.com/Zeroincombenze-Software-gestionale-online-249494305219415/
+   :target: https://www.facebook.com/groups/openerp.italia/
 .. |it| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/flags/it_IT.png
-   :target: https://www.facebook.com/Zeroincombenze-Software-gestionale-online-249494305219415/
+   :target: https://www.facebook.com/groups/openerp.italia/
 .. |check| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/awesome/check.png
 .. |no_check| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/awesome/no_check.png
 .. |menu| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/awesome/menu.png

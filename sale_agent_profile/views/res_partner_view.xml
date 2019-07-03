@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form_agent_user" model="ir.ui.view">
+        <field name="name">res.partner.form.agent</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="/form/*" position="before">
+                <header>
+                    <button name="create_user" string="Create User" type="object"
+                            attrs="{'invisible': [('user_id', '!=', False)]}"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

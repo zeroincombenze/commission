@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="group_sale_agent" model="res.groups">
+        <field name="name">Assigned Documents by Agent</field>
+        <!--
+        <field name="category_id" ref="base.module_category_sales_management"/>
+        -->
+        <field name="category_id" ref="base.module_category_hidden"/>
+        <!-- <field name="implied_ids" eval="[(6,0,[ref('sales_team.group_sale_salesman')])]"/> -->
+        <field name="comment">Extend access to documents which have agent code equal to its id.</field>
+    </record>
+
+    <!--
+    <data noupdate="1">
+        <record id="sales_team.group_sale_salesman_all_leads" model="res.groups">
+            <field name="name">User: All Documents</field>
+            <field name="category_id" ref="base.module_category_sales_management"/>
+            <field name="implied_ids" eval="[6,0,[ref('group_sale_agent')]]"/>
+            <field name="comment">the user will have access to all records of everyone in the sales application.</field>
+        </record>
+    </data>
+    -->
+
+    <record model="ir.rule" id="sale_order_by_agent">
+        <field name="name">Sales Order by Agent</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="groups" eval="[(4, ref('group_sale_agent'))]"/>
+        <field name="domain_force">[(('agents', 'child_of', user.partner_id.id))]</field>
+    </record>
+
+    <record model="ir.rule" id="sale_order_lines_by_agent">
+        <field name="name">Sales Order Lines by Agent</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="groups" eval="[(4, ref('group_sale_agent'))]"/>
+        <field name="domain_force">[('order_id.agents', 'child_of', user.partner_id.id)]</field>
+    </record>
+
+    <record model="ir.rule" id="account_invoice_by_agent">
+        <field name="name">Account Invoice by Agent</field>
+        <field name="model_id" ref="account.model_account_invoice"/>
+        <field name="groups" eval="[(4, ref('group_sale_agent'))]"/>
+        <field name="domain_force">[(('agents', 'child_of', user.partner_id.id))]</field>
+    </record>
+
+    <record model="ir.rule" id="account_invoice_lines_by_agent">
+        <field name="name">Account Invoice Lines by Agent</field>
+        <field name="model_id" ref="account.model_account_invoice_line"/>
+        <field name="groups" eval="[(4, ref('group_sale_agent'))]"/>
+        <field name="domain_force">[('invoice_id.agents', 'child_of', user.partner_id.id)]</field>
+    </record>
+
+    <record model="ir.rule" id="all_partners_no_agent">
+        <field name="name">Partners no agent</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="global" eval="True"/>
+        <field name="domain_force">[(user.partner_id.agent, '=', False)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="True"/>
+        <field name="perm_unlink" eval="True"/>
+        <field name="perm_write" eval="True"/>
+    </record>
+
+    <record model="ir.rule" id="partners_by_agent">
+        <field name="name">Partners by Agent</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="global" eval="True"/>
+        <!-- <field name="groups" eval="[(4, ref('group_sale_agent'))]"/> -->
+        <field name="domain_force">['|',
+        						    ('agents', 'in', user.partner_id.id),
+                                    ('user_id.partner_id.id', 'child_of', user.partner_id.id)]</field>
+        <field name="perm_read" eval="True"/>
+        <field name="perm_create" eval="False"/>
+        <field name="perm_unlink" eval="False"/>
+        <field name="perm_write" eval="False"/>
+    </record>
+
+    <record model="ir.rule" id="commission_settlement_by_agent">
+        <field name="name">Commission Settlement by Agent</field>
+        <field name="model_id" ref="sale_commission.model_sale_commission_settlement"/>
+        <field name="groups" eval="[(4, ref('group_sale_agent'))]"/>
+        <field name="domain_force">[('agent.id', '=', user.partner_id.id)]</field>
+    </record>
+
+    <!-- 
+    <record id="res_partner_grade_access" model="ir.model.access">
+        <field name="name">odoo.portal.res.partner.grade</field>
+        <field name="model_id" ref="website_crm_partner_assign.model_res_partner_grade"/>
+        <field name="group_id" ref="base.group_portal"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_create" eval="0"/>
+        <field name="perm_write" eval="0"/>
+        <field name="perm_unlink" eval="0"/>
+    </record>
+    -->
+
+</odoo>

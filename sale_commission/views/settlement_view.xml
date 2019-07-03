@@ -67,9 +67,19 @@
                 <group string="Commission lines" colspan="4">
                     <field name="lines" nolabel="1">
                         <tree string="Settlement lines">
+                            <!-- <field name="company_id"/>  -->
+                            <field name="customer"/>
+                            <field name="customer_state"/>
                             <field name="date"/>
                             <field name="invoice"/>
                             <field name="invoice_line"/>
+                            <field name="inv_line_quantity"/>
+                            <field name="inv_line_price_unit"/>
+                            <field name="inv_line_discount"/>
+                            <field name="inv_line_subtotal"/>
+                            <!-- 
+                            <field name="inv_line_currency_id"/>
+                            -->
                             <field name="commission"/>
                             <field name="settled_amount"/>
                         </tree>
@@ -91,9 +101,14 @@
         <field name="arch" type="xml">
             <tree string="Settlement lines" create="false">
                 <field name="date"/>
+                <field name="customer"/>
                 <field name="agent"/>
                 <field name="invoice"/>
                 <field name="invoice_line"/>
+                <field name="inv_line_quantity" sum="Quantity total"/>
+                <field name="inv_line_price_unit"/>
+                <field name="inv_line_discount"/>
+                <field name="inv_line_subtotal" sum="Taxable total"/>
                 <field name="commission"/>
                 <field name="settled_amount" sum="Settled total"/>
             </tree>

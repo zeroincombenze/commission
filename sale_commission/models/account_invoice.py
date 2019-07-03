@@ -170,15 +170,29 @@ class AccountInvoiceLineAgent(models.Model):
     settled = fields.Boolean(
         compute="_compute_settled",
         store=True, copy=False)
+    company_id = fields.Many2one(
+        related='invoice.company_id', store=True, readonly=True)
+    currency_id = fields.Many2one(
+        related='invoice.currency_id', store=True, readonly=True)
+    inv_line_subtotal = fields.Monetary(string='Line Amount',
+        # compute="_compute_subtotal")
+        compute="_compute_amount")
+
 
     @api.onchange('agent')
     def onchange_agent(self):
         self.commission = self.agent.commission
 
+    # @api.one
+    # @api.depends('invoice')
+    # def _compute_subtotal(self):
+    #     self.subtotal = self.invoice_line.price_subtotal
+
     @api.depends('invoice_line.price_subtotal')
     def _compute_amount(self):
         for line in self:
             line.amount = 0.0
+            line.inv_line_subtotal = line.invoice_line.price_subtotal
             if (not line.invoice_line.product_id.commission_free and
                     line.commission):
                 if line.commission.amount_base_type == 'net_amount':

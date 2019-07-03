@@ -2,8 +2,8 @@
 ================================
 |Zeroincombenze| commission 10.0
 ================================
+|Build Status| |Codecov Status| |license gpl| |Try Me|
 
-|Maturity| |Build Status| |Coverage Status| |Codecov Status| |license gpl| |Tech Doc| |Help| |Try Me|
 
 .. contents::
 
@@ -11,30 +11,35 @@
 Overview / Panoramica
 =====================
 
-|en| All management related with commisions and incentive in Odoo.
+|en| All management related with commissions and incentive in Odoo.
 
 |it| Moduli per la gestione delle provvigioni
 
 Avaiable Addons / Moduli disponibili
 ------------------------------------
 
-+-----------------+------------+------------+----------------------------------------------------+
-| Name / Nome     | Version    | OCA Ver.   | Description / Descrizione                          |
-+-----------------+------------+------------+----------------------------------------------------+
-| hr_commission   | |halt|     | |no_check| | HR commissions                                     |
-+-----------------+------------+------------+----------------------------------------------------+
-| sale_commission | 10.0.1.0.7 | |no_check| | Sales commissions                                  |
-+-----------------+------------+------------+----------------------------------------------------+
++-------------------------+------------+------------+----------------------------------------------------------------------------------+
+| Name / Nome             | Version    | OCA Ver.   | Description / Descrizione                                                        |
++-------------------------+------------+------------+----------------------------------------------------------------------------------+
+| hr_commission           | |halt|     | |halt|     | HR commissions                                                                   |
++-------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_agent_profile      | 10.0.0.1.1 | |no_check| | Set default agent authorization user profile                                     |
++-------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_commission         | 10.0.11.0. | 10.0.11.0. | Sales commissions                                                                |
++-------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_commission_formula | |no_check| | 10.0.11.0. | Sale commissions computed by formulas                                            |
++-------------------------+------------+------------+----------------------------------------------------------------------------------+
 
 
 OCA comparation / Confronto con OCA
 -----------------------------------
 
-+-----------------------------------------------------------------+-------------------+-----------------------+--------------------------------+
-| Description / Descrizione                                       | Odoo Italia       | OCA                   | Notes / Note                   |
-+-----------------------------------------------------------------+-------------------+-----------------------+--------------------------------+
-| Coverage / Copertura test                                       |  |Codecov Status| | |OCA Codecov Status|  | |OCA project|                  |
-+-----------------------------------------------------------------+-------------------+-----------------------+--------------------------------+
+
++-----------------------------------------------------------------+-------------------+----------------+--------------------------------+
+| Description / Descrizione                                       | Zeroincombenze    | OCA            | Notes / Note                   |
++-----------------------------------------------------------------+-------------------+----------------+--------------------------------+
+| Coverage / Copertura test                                       |  |Codecov Status| | |OCA Codecov|  |                                |
++-----------------------------------------------------------------+-------------------+----------------+--------------------------------+
 
 
 Getting started / Come iniziare
@@ -47,8 +52,9 @@ Prerequisites / Prerequisiti
 ----------------------------
 
 
-* python
-* postgresql 9.2+
+* python 2.7+ (best 2.7.5+)
+* postgresql 9.2+ (best 9.5)
+
 
 Installation / Installazione
 ----------------------------
@@ -105,7 +111,7 @@ Support / Supporto
 ------------------
 
 
-|Zeroincombenze| This module is maintained by the `SHS-AV s.r.l. <https://www.zeroincombenze.it/>`__ and free support is supplied through `Odoo Italia Associazione Forum <https://odoo-italia.org/index.php/kunena/recente>`__
+|Zeroincombenze| This project is mainly maintained by the `SHS-AV s.r.l. <https://www.zeroincombenze.it/>`__
 
 
 
@@ -122,13 +128,13 @@ Proposals for enhancement
 -------------------------
 
 
-|en| If you have a proposal to change this module, you may want to send an email to <cc@shs-av.com> for initial feedback.
+|en| If you have a proposal to change on oh these modules, you may want to send an email to <cc@shs-av.com> for initial feedback.
 An Enhancement Proposal may be submitted if your idea gains ground.
 
-|it| Se hai proposte per migliorare questo modulo, puoi inviare una mail a <cc@shs-av.com> per un iniziale contatto.
+|it| Se hai proposte per migliorare uno dei moduli, puoi inviare una mail a <cc@shs-av.com> per un iniziale contatto.
 
-Credits / Titoli di coda
-========================
+Credits / Didascalie
+====================
 
 Copyright
 ---------
@@ -144,9 +150,9 @@ which distributes and promotes ready-to-use **Odoo** on own cloud infrastructure
 `Zeroincombenze® distribution of Odoo <https://wiki.zeroincombenze.org/en/Odoo>`__
 is mainly designed to cover Italian law and markeplace.
 
-|it| **zeroincombenze®** è un marchio registrato di `SHS-AV s.r.l. <https://www.shs-av.com/>`__
-che distribuisce e promuove **Odoo** pronto all'uso sullla propria infrastuttura.
-La distribuzione `Zeroincombenze® è progettata per le esigenze del mercato italiano.
+|it| **zeroincombenze®** è un marchio registrato da `SHS-AV s.r.l. <https://www.shs-av.com/>`__
+che distribuisce e promuove **Odoo** pronto all'uso sulla propria infrastuttura.
+La distribuzione `Zeroincombenze® <https://wiki.zeroincombenze.org/en/Odoo>`__ è progettata per le esigenze del mercato italiano.
 
 
 |chat_with_us|
@@ -154,7 +160,8 @@ La distribuzione `Zeroincombenze® è progettata per le esigenze del mercato ita
 
 |
 
-Last Update / Ultimo aggiornamento: 2018-12-27
+
+Last Update / Ultimo aggiornamento: 2019-07-03
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-red.png
     :target: https://odoo-community.org/page/development-status
@@ -172,11 +179,8 @@ Last Update / Ultimo aggiornamento: 2018-12-27
     :target: https://coveralls.io/github/zeroincombenze/commission?branch=10.0
     :alt: Coverage
 .. |Codecov Status| image:: https://codecov.io/gh/zeroincombenze/commission/branch/10.0/graph/badge.svg
-    :target: https://codecov.io/gh/OCA/commission/branch/10.0
+    :target: https://codecov.io/gh/zeroincombenze/commission/branch/10.0
     :alt: Codecov
-.. |OCA project| image:: Unknown badge-OCA
-    :target: https://github.com/OCA/commission/tree/10.0
-    :alt: OCA
 .. |Tech Doc| image:: https://www.zeroincombenze.it/wp-content/uploads/ci-ct/prd/button-docs-10.svg
     :target: https://wiki.zeroincombenze.org/en/Odoo/10.0/dev
     :alt: Technical Documentation
@@ -186,7 +190,7 @@ Last Update / Ultimo aggiornamento: 2018-12-27
 .. |Try Me| image:: https://www.zeroincombenze.it/wp-content/uploads/ci-ct/prd/button-try-it-10.svg
     :target: https://erp10.zeroincombenze.it
     :alt: Try Me
-.. |OCA Codecov Status| image:: https://codecov.io/gh/OCA/commission/branch/10.0/graph/badge.svg
+.. |OCA Codecov| image:: https://codecov.io/gh/OCA/commission/branch/10.0/graph/badge.svg
     :target: https://codecov.io/gh/OCA/commission/branch/10.0
     :alt: Codecov
 .. |Odoo Italia Associazione| image:: https://www.odoo-italia.org/images/Immagini/Odoo%20Italia%20-%20126x56.png
@@ -196,9 +200,9 @@ Last Update / Ultimo aggiornamento: 2018-12-27
    :target: https://www.zeroincombenze.it/
    :alt: Zeroincombenze
 .. |en| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/flags/en_US.png
-   :target: https://www.facebook.com/groups/openerp.italia/
+   :target: https://www.facebook.com/Zeroincombenze-Software-gestionale-online-249494305219415/
 .. |it| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/flags/it_IT.png
-   :target: https://www.facebook.com/groups/openerp.italia/
+   :target: https://www.facebook.com/Zeroincombenze-Software-gestionale-online-249494305219415/
 .. |check| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/awesome/check.png
 .. |no_check| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/awesome/no_check.png
 .. |menu| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/awesome/menu.png

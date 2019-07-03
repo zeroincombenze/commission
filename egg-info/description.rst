@@ -1,1 +1,1 @@
-All management related with commisions and incentive in Odoo.
+All management related with commissions and incentive in Odoo.

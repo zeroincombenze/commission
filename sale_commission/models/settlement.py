@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, exceptions, fields, models, _
+import odoo.addons.decimal_precision as dp
 
 
 class Settlement(models.Model):
@@ -147,15 +148,43 @@ class SettlementLine(models.Model):
         column2='agent_line_id', required=True)
     date = fields.Date(related="agent_line.invoice_date", store=True)
     invoice_line = fields.Many2one(
-        comodel_name='account.invoice.line', store=True,
+        comodel_name='account.invoice.line', store=True, copy=False,
         related='agent_line.invoice_line')
     invoice = fields.Many2one(
         comodel_name='account.invoice', store=True, string="Invoice",
-        related='invoice_line.invoice_id')
+        related='invoice_line.invoice_id', copy=False)
     agent = fields.Many2one(
-        comodel_name="res.partner", readonly=True, related="agent_line.agent",
-        store=True)
+        comodel_name="res.partner",
+        related="agent_line.agent",
+        readonly=True, copy=False, store=True)
     settled_amount = fields.Float(
         related="agent_line.amount", readonly=True, store=True)
     commission = fields.Many2one(
         comodel_name="sale.commission", related="agent_line.commission")
+    company_id = fields.Many2one(
+        related='agent_line.invoice_line.company_id',
+        readonly=True, store=True)
+    currency_id = fields.Many2one(
+        related='agent_line.invoice_line.currency_id',
+        readonly=True, store=True)
+    customer = fields.Many2one(related="invoice.partner_id",
+        readonly=True, copy=False, store=True)
+    inv_line_quantity = fields.Float(
+        related="agent_line.invoice_line.quantity",
+        readonly=True, copy=False, store=True,
+        digits=dp.get_precision('Product Unit of Measure'))
+    inv_line_currency_id = fields.Many2one(
+        related="agent_line.invoice_line.currency_id",
+        readonly=True, copy=False, store=True)
+    inv_line_price_unit = fields.Float(
+        related="agent_line.invoice_line.price_unit",
+        readonly=True, copy=False, store=True,
+        digits=dp.get_precision('Product Price'))
+    inv_line_discount = fields.Float(
+        related="agent_line.invoice_line.discount",
+        readonly=True, store=True,
+        digits=dp.get_precision('Discount'))
+    inv_line_subtotal = fields.Monetary(string='Line Amount',
+       related="agent_line.inv_line_subtotal")
+    customer_state = fields.Many2one(related="invoice.partner_id.state_id",
+        readonly=True, copy=False, store=True)

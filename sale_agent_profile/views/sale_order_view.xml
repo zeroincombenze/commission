@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="order_form_hdr_agent_view" model="ir.ui.view">
+        <field name="name">order.form.hdr.agent.view</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page/group/group[@name='sale_pay']" position="after">
+                <field name="agents" readonly="1"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
