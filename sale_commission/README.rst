@@ -148,6 +148,12 @@ An Enhancement Proposal may be submitted if your idea gains ground.
 ChangeLog History / Cronologia modifiche
 ----------------------------------------
 
+10.0.11.0.1
+~~~~~~~~~~~
+
+* [IMP] Evaluate commission include move in "Date to" too / Calcolo data provvigioni comprende anche i movimenti in data "sino a "
+
+
 10.0.11.0.0
 ~~~~~~~~~~~
 
@@ -177,6 +183,8 @@ Authors / Autori
 * `Abstract <https://www.abstract.it>`__
 * `Avanzosc <http://http://www.avanzosc.es/>`__
 * `Agile Business Group sagl <https://www.agilebg.com/>`__
+* `SHS-AV s.r.l. <https://www.zeroincombenze.it/>`__
+
 
 Contributors / Collaboratori
 ----------------------------
@@ -189,6 +197,8 @@ Contributors / Collaboratori
 * Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>
 * Oihane Crucelaegui <oihanecruce@gmail.com>
 * Nicola Malcontenti <nicola.malcontenti@agilebg.com>
+* Antonio Maria Vigliotti <antoniomaria.vigliotti@gmail.com>
+
 
 |
 
@@ -212,7 +222,7 @@ La distribuzione `Zeroincombenze® <https://wiki.zeroincombenze.org/en/Odoo>`__ 
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2019-07-03
+Last Update / Ultimo aggiornamento: 2019-09-02
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-red.png
     :target: https://odoo-community.org/page/development-status

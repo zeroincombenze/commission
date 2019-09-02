@@ -15,6 +15,7 @@ class SaleCommissionMakeSettle(models.TransientModel):
     def _get_period_start(self, agent, date_to):
         if isinstance(date_to, basestring):
             date_to = fields.Date.from_string(date_to)
+        date_to = date_to + timedelta(days=1)
         if agent.settlement == 'monthly':
             return date(month=date_to.month, year=date_to.year, day=1)
         elif agent.settlement == 'quaterly':

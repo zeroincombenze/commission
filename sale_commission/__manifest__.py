@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
-
 {
     'name': 'Sales commissions',
     'version': '10.0.11.0.0',
-    'author': 'Odoo Community Association (OCA)',
     'category': 'Sales Management',
+    'author': 'Odoo Community Association (OCA) and other subjects',
     'license': 'AGPL-3',
     'depends': [
         'account',
@@ -23,10 +22,7 @@
         'wizard/wizard_settle.xml',
         'wizard/wizard_invoice.xml',
         'report/report_sale.xml',
-        # 'report/report_invoice.xml',
     ],
-    'demo': [
-        'demo/sale_agent_demo.xml',
-    ],
+    'demo': ['demo/sale_agent_demo.xml'],
     'installable': True,
 }
