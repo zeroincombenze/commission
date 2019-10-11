@@ -81,11 +81,8 @@ Installation / Installazione
     git clone https://github.com/zeroincombenze/tools.git
     cd ./tools
     ./install_tools.sh -p
-    export PATH=$HOME/dev:$PATH
+    source /opt/odoo/dev/activate_tools
     odoo_install_repository commission -b 10.0 -O zero
-    for pkg in os0 z0lib; do
-        pip install $pkg -U
-    done
     sudo manage_odoo requirements -b 10.0 -vsy -o /opt/odoo/10.0
 
 
@@ -161,7 +158,7 @@ La distribuzione `Zeroincombenze® <https://wiki.zeroincombenze.org/en/Odoo>`__ 
 |
 
 
-Last Update / Ultimo aggiornamento: 2019-09-02
+Last Update / Ultimo aggiornamento: 2019-10-11
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-red.png
     :target: https://odoo-community.org/page/development-status

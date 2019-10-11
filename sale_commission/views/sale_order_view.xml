@@ -25,6 +25,7 @@
                 <field name="commission_free"/>
                 <field name="agents"
                        attrs="{'readonly': [('commission_free', '=', True)]}"/>
+                <field name="reval_commission"/>
             </xpath>
             <field name="amount_total" position="after">
                 <field name="commission_total"

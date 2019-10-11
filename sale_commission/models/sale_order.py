@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
 
     commission_total = fields.Float(
         string="Commissions", compute="_compute_commission_total",
-        store=True)
+        store=True, copy=False)
 
     @api.multi
     @api.onchange('partner_id')
@@ -25,6 +25,7 @@ class SaleOrder(models.Model):
         # workaround for https://github.com/odoo/odoo/issues/17618
         for order_line in self.order_line:
             order_line.agents = None
+            order_line.reval_commission = True
         return res
 
     @api.onchange('fiscal_position_id')
@@ -34,10 +35,11 @@ class SaleOrder(models.Model):
         # workaround for https://github.com/odoo/odoo/issues/17618
         for order_line in self.order_line:
             order_line.agents = None
+            order_line.reval_commission = True
         return res
 
     @api.model
-    def _prepare_line_agents_data(self, line):
+    def _prepare_line_agents_data(self):
         rec = []
         for agent in self.partner_id.agents:
             rec.append({
@@ -46,16 +48,18 @@ class SaleOrder(models.Model):
             })
         return rec
 
+    @api.model
+    def _set_lines_agents(self):
+        for line in self.order_line:
+            line.agents.unlink()
+            line_agents_data = self._prepare_line_agents_data()
+            line.agents = [(0, 0, line_agent_data)
+                           for line_agent_data in line_agents_data]
+
     @api.multi
     def recompute_lines_agents(self):
         for order in self:
-            for line in order.order_line:
-                line.agents.unlink()
-                line_agents_data = order._prepare_line_agents_data(line)
-                line.agents = [(
-                    0,
-                    0,
-                    line_agent_data) for line_agent_data in line_agents_data]
+            order._set_lines_agents()
 
 
 class SaleOrderLine(models.Model):
@@ -63,14 +67,8 @@ class SaleOrderLine(models.Model):
 
     @api.model
     def _default_agents(self):
-        agents = []
-        if self.env.context.get('partner_id'):
-            partner = self.env['res.partner'].browse(
-                self.env.context['partner_id'])
-            for agent in partner.agents:
-                agents.append({'agent': agent.id,
-                               'commission': agent.commission.id})
-        return [(0, 0, x) for x in agents]
+        return self.get_commission_values(
+            {'reval_commission': True}).get('agents') or []
 
     agents = fields.One2many(
         string="Agents & commissions",
@@ -79,6 +77,8 @@ class SaleOrderLine(models.Model):
     commission_free = fields.Boolean(
         string="Comm. free", related="product_id.commission_free",
         store=True, readonly=True)
+    reval_commission = fields.Boolean(
+        string="Set Default Commission")
 
     @api.multi
     def _prepare_invoice_line(self, qty):
@@ -87,6 +87,64 @@ class SaleOrderLine(models.Model):
             (0, 0, {'agent': x.agent.id,
                     'commission': x.commission.id}) for x in self.agents]
         return vals
+
+    @api.multi
+    @api.onchange('product_id')
+    def product_id_change(self):
+        res = super(SaleOrderLine, self).product_id_change()
+        vals = self.get_commission_values({'reval_commission': True})
+        for nm in vals:
+            self[nm] = vals[nm]
+        return res
+
+    def get_commission_values(self, vals):
+        sale_order_model = self.env['sale.order']
+        partner_model = self.env['res.partner']
+        product_model = self.env['product.product']
+        if self.env.context.get('partner_id'):
+            partner = partner_model.browse(self.env.context['partner_id'])
+        elif vals.get('order_id'):
+            partner = sale_order_model.browse(vals['order_id']).partner_id
+        elif self.order_id:
+            partner = self.order_id.partner_id
+        else:
+            partner = None
+        if partner and vals.get('reval_commission'):
+            if vals.get('product_id'):
+                product = product_model.browse(vals['product_id'])
+            elif self.product_id:
+                product = self.product_id
+            else:
+                product = None
+            if product:
+                vals['commission_free'] = product.commission_free
+            if not vals.get('commission_free'):
+                agents = []
+                for agent in partner.agents:
+                    agents.append((0, 0, {'agent': agent.id,
+                                   'commission': agent.commission.id}))
+                    vals['agents'] = agents
+        # Issue https://github.com/odoo/odoo/issues/17618
+        # Sometimes agents contains command list, i.e. [[[4, 1], [2, 2]]
+        # Sometime just above command list like (0, 0 {...})
+        # Only for the case (0, 0, {...}) delete link is inserted to avoid
+        # error when update line with existent links
+        # For furthermore info about *2many special commands see
+        # https://www.odoo.com/documentation/10.0/reference/orm.html 
+        if vals.get('agents') and vals['agents'][0][0] == 0:
+            vals['agents'].insert(0, (5, 0))
+        vals['reval_commission'] = False
+        return vals
+
+    @api.multi
+    def write(self, vals):
+        vals = self.get_commission_values(vals)
+        return super(SaleOrderLine, self).write(vals)
+
+    @api.multi
+    def create(self, vals):
+        vals = self.get_commission_values(vals)
+        return super(SaleOrderLine, self).create(vals)
 
 
 class SaleOrderLineAgent(models.Model):

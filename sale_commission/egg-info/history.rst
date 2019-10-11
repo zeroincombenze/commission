@@ -1,3 +1,11 @@
+10.0.11.0.2
+~~~~~~~~~~~
+
+* [REF] When product id is changed recalculate commission / Al cambio di prodotto ricalcola la provvigione
+* [REF] Solved Issue https://github.com/odoo/odoo/issues/17618
+* [REF] On change partner all the commission are recalucalted / Al cambio di cliente sono ricalcolate tutte le provvigioni
+
+
 10.0.11.0.1
 ~~~~~~~~~~~
 
