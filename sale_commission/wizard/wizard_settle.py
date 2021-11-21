@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, exceptions, _
 from datetime import date, timedelta
@@ -7,6 +6,7 @@ from dateutil.relativedelta import relativedelta
 
 class SaleCommissionMakeSettle(models.TransientModel):
     _name = "sale.commission.make.settle"
+    _description = "Wizard for settling commissions in invoices"
 
     date_to = fields.Date('Up to', required=True, default=fields.Date.today())
     agents = fields.Many2many(
@@ -47,6 +47,23 @@ class SaleCommissionMakeSettle(models.TransientModel):
         else:
             raise exceptions.Warning(_("Settlement period not valid."))
 
+    def _get_settlement(self, agent, company, sett_from, sett_to):
+        return self.env['sale.commission.settlement'].search([
+            ('agent', '=', agent.id),
+            ('date_from', '=', sett_from),
+            ('date_to', '=', sett_to),
+            ('company_id', '=', company.id),
+            ('state', '=', 'settled')
+        ], limit=1)
+
+    def _prepare_settlement_vals(self, agent, company, sett_from, sett_to):
+        return {
+            'agent': agent.id,
+            'date_from': sett_from,
+            'date_to': sett_to,
+            'company_id': company.id,
+        }
+
     @api.multi
     def action_settle(self):
         self.ensure_one()
@@ -67,7 +84,7 @@ class SaleCommissionMakeSettle(models.TransientModel):
                  ('settled', '=', False)], order='invoice_date')
             for company in agent_lines.mapped('company_id'):
                 agent_lines_company = agent_lines.filtered(
-                    lambda r: r.invoice_line.company_id == company)
+                    lambda r: r.object_id.company_id == company)
                 if not agent_lines_company:
                     continue
                 pos = 0
@@ -76,11 +93,8 @@ class SaleCommissionMakeSettle(models.TransientModel):
                                                      day=1))
                 while pos < len(agent_lines_company):
                     line = agent_lines_company[pos]
-                    if (
-                        line.commission.invoice_state == 'paid' and
-                        line.invoice.state != 'paid'
-                    ):
-                        pos += 1
+                    pos += 1
+                    if line._skip_settlement():
                         continue
                     if line.invoice_date > sett_to:
                         sett_from = self._get_period_start(
@@ -89,25 +103,17 @@ class SaleCommissionMakeSettle(models.TransientModel):
                             self._get_next_period_date(
                                 agent, sett_from) - timedelta(days=1))
                         sett_from = fields.Date.to_string(sett_from)
-                        settlement = settlement_obj.search([
-                            ('agent', '=', agent.id),
-                            ('date_from', '=', sett_from),
-                            ('date_to', '=', sett_to),
-                            ('company_id', '=', company.id)
-                        ], limit=1)
+                        settlement = self._get_settlement(
+                            agent, company, sett_from, sett_to)
                         if not settlement:
-                            settlement = settlement_obj.create({
-                                'agent': agent.id,
-                                'date_from': sett_from,
-                                'date_to': sett_to,
-                                'company_id': company.id,
-                            })
+                            settlement = settlement_obj.create(
+                                self._prepare_settlement_vals(
+                                    agent, company, sett_from, sett_to))
                         settlement_ids.append(settlement.id)
                     settlement_line_obj.create({
                         'settlement': settlement.id,
                         'agent_line': [(6, 0, [line.id])],
                     })
-                    pos += 1
         # go to results
         if len(settlement_ids):
             return {

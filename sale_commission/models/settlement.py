@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+# Copyright 2014-2018 Tecnativa - Pedro M. Baeza
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, exceptions, fields, models, _
 from odoo.exceptions import UserError
@@ -35,6 +36,7 @@ class Settlement(models.Model):
         default=_default_currency)
     company_id = fields.Many2one(
         comodel_name='res.company',
+        default=lambda self: self.env.user.company_id,
         required=True
     )
 
@@ -80,8 +82,9 @@ class Settlement(models.Model):
             'company_id': settlement.company_id.id,
             'state': 'draft',
         })
-        # Get other invoice values from partner onchange
+        # Get other invoice values from onchanges
         invoice._onchange_partner_id()
+        invoice._onchange_journal_id()
         return invoice._convert_to_write(invoice._cache)
 
     def _prepare_invoice_line(self, settlement, invoice, product):
@@ -116,31 +119,41 @@ class Settlement(models.Model):
         """
         return []
 
+    def create_invoice_header(self, journal, date):
+        """Hook that can be used in order to group invoices or
+        find open invoices
+        """
+        invoice_vals = self._prepare_invoice_header(self, journal, date=date)
+        return self.env['account.invoice'].create(invoice_vals)
+
     @api.multi
     def make_invoices(self, journal, product, date=False):
-        invoice_obj = self.env['account.invoice']
         invoice_line_obj = self.env['account.invoice.line']
         for settlement in self:
             # select the proper journal according to settlement's amount
             # considering _add_extra_invoice_lines sum of values
             extra_invoice_lines = self._add_extra_invoice_lines(settlement)
-            extra_total = sum(x['price_unit'] for x in extra_invoice_lines)
-            if (settlement.total + extra_total) < 0:
-                raise UserError(_('Value cannot be negative'))
-            invoice_vals = self._prepare_invoice_header(
-                settlement, journal, date=date)
-            invoice = invoice_obj.create(invoice_vals)
+            invoice = settlement.create_invoice_header(journal, date)
             invoice_line_vals = self._prepare_invoice_line(
                 settlement, invoice, product)
             invoice_line_obj.create(invoice_line_vals)
+            invoice.compute_taxes()
             for invoice_line_vals in extra_invoice_lines:
                 invoice_line_obj.create(invoice_line_vals)
-            settlement.state = 'invoiced'
-            settlement.invoice = invoice.id
+            settlement.write({
+                'state': 'invoiced',
+                'invoice': invoice.id,
+            })
+        if self.env.context.get('no_check_negative', False):
+            return
+        for settlement in self:
+            if settlement.invoice.amount_total < 0:
+                raise UserError(_('Value cannot be negative'))
 
 
 class SettlementLine(models.Model):
     _name = "sale.commission.settlement.line"
+    _description = "Line of a commission settlement"
 
     settlement = fields.Many2one(
         "sale.commission.settlement", readonly=True, ondelete="cascade",
@@ -152,23 +165,29 @@ class SettlementLine(models.Model):
     date = fields.Date(related="agent_line.invoice_date", store=True)
     invoice_line = fields.Many2one(
         comodel_name='account.invoice.line', store=True,
-        related='agent_line.invoice_line')
+        related='agent_line.object_id')
     invoice = fields.Many2one(
         comodel_name='account.invoice', store=True, string="Invoice",
         related='invoice_line.invoice_id')
     agent = fields.Many2one(
         comodel_name="res.partner", readonly=True, related="agent_line.agent",
         store=True)
-    settled_amount = fields.Float(
+    settled_amount = fields.Monetary(
         related="agent_line.amount", readonly=True, store=True)
+    currency_id = fields.Many2one(
+        related="agent_line.currency_id",
+        store=True,
+        readonly=True,
+    )
     commission = fields.Many2one(
         comodel_name="sale.commission", related="agent_line.commission")
     company_id = fields.Many2one(
         comodel_name='res.company',
-        related='settlement.company_id'
+        related='settlement.company_id',
+        readonly=True,
     )
 
-    @api.constrains('company_id', 'agent_line')
+    @api.constrains('settlement', 'agent_line')
     def _check_company(self):
         for record in self:
             if record.agent_line.company_id != record.company_id:
