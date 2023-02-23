@@ -22,7 +22,7 @@
             <field name="company_id" position="after">
                 <field name="commission_free"/>
                 <field name="agents"
-                       attrs="{'invisible': [('commission_free', '=', True)]}"/>
+                       attrs="{'readonly': [('commission_free', '=', True)]}"/>
             </field>
         </field>
     </record>
@@ -32,22 +32,20 @@
         <field name="model">account.invoice</field>
         <field name="inherit_id" ref="account.invoice_form" />
         <field name="arch" type="xml">
+            <xpath expr="//button[@name='action_invoice_draft']" position="after">
+                <button name="recompute_lines_agents" type="object" string="Recompute lines agents"
+                        attrs="{'invisible':[('state', '=', 'cancel')]}"/>
+            </xpath>
             <field name="invoice_line_ids" position="attributes">
                 <attribute name="context">{'partner_id': partner_id}</attribute>
             </field>
             <xpath expr="//field[@name='invoice_line_ids']/tree//field[@name='price_subtotal']" position="after">
-                <!-- Due to the issue https://github.com/odoo/odoo/issues/17618,
-                     we can't add agents field to this view, but using this
-                     computed field with the same information purposes makes
-                     the same work or event better, as we can include more info.
-                 -->
-                <field name="commission_status"/>
+                <field name="commission_free"/>
+                <field name="agents"
+                       attrs="{'readonly': [('commission_free', '=', True)]}"/>
             </xpath>
             <xpath expr="//field[@name='invoice_line_ids']/tree" position="attributes">
-                    <attribute name="editable"/>
-            </xpath>
-            <xpath expr="//field[@name='invoice_line_ids']" position="after">
-                <button name="recompute_lines_agents" type="object" string="Recompute lines agents" states="draft"/>
+                <attribute name="editable"/>
             </xpath>
             <field name="amount_total" position="after">
                 <field name="commission_total"
@@ -57,16 +55,5 @@
         </field>
     </record>
 
-    <record model="ir.ui.view" id="view_account_invoice_filter">
-        <field name="name">Commission filter on account invoices</field>
-        <field name="model">account.invoice</field>
-        <field name="inherit_id" ref="account.view_account_invoice_filter"/>
-        <field name="arch" type="xml">
-            <search position="inside">
-                <field string="Line agents" name="invoice_line_ids"
-                       filter_domain="[('invoice_line_ids.agents.agent', 'like', self)]"/>
-            </search>
-        </field>
-    </record>
-
 </odoo>
+
