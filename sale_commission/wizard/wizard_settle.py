@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+from past.builtins import basestring
 from odoo import models, fields, api, exceptions, _
 from datetime import date, timedelta
 from dateutil.relativedelta import relativedelta

@@ -130,7 +130,7 @@ class SaleOrderLine(models.Model):
         # Only for the case (0, 0, {...}) delete link is inserted to avoid
         # error when update line with existent links
         # For furthermore info about *2many special commands see
-        # https://www.odoo.com/documentation/10.0/reference/orm.html 
+        # https://www.odoo.com/documentation/10.0/reference/orm.html
         if vals.get('agents') and vals['agents'][0][0] == 0:
             vals['agents'].insert(0, (5, 0))
         vals['reval_commission'] = False

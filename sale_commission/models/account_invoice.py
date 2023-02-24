@@ -174,10 +174,10 @@ class AccountInvoiceLineAgent(models.Model):
         related='invoice.company_id', store=True, readonly=True)
     currency_id = fields.Many2one(
         related='invoice.currency_id', store=True, readonly=True)
-    inv_line_subtotal = fields.Monetary(string='Line Amount',
+    inv_line_subtotal = fields.Monetary(
+        string='Line Amount',
         # compute="_compute_subtotal")
         compute="_compute_amount")
-
 
     @api.onchange('agent')
     def onchange_agent(self):

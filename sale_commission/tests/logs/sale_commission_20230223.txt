@@ -1,0 +1,526 @@
+2023-02-23 20:22:08,868 26982 INFO ? odoo: Odoo version 10.0
+2023-02-23 20:22:08,868 26982 INFO ? odoo: Using configuration file at /home/odoo/10.0/commission/sale_commission/tests/logs/zero10.commission.sale_commission.conf
+2023-02-23 20:22:08,868 26982 INFO ? odoo: addons paths: ['/home/odoo/.local/share/Odoo10/addons/10.0', u'/home/odoo/10.0/odoo/addons', u'/home/odoo/10.0/addons', u'/home/odoo/10.0/account-analytic', u'/home/odoo/10.0/account-budgeting', u'/home/odoo/10.0/account-closing', u'/home/odoo/10.0/account-consolidation', u'/home/odoo/10.0/account-financial-reporting', u'/home/odoo/10.0/account-financial-tools', u'/home/odoo/10.0/account-fiscal-rule', u'/home/odoo/10.0/account-invoice-reporting', u'/home/odoo/10.0/account-invoicing', u'/home/odoo/10.0/account-payment', u'/home/odoo/10.0/account-reconcile', u'/home/odoo/10.0/apps-store', u'/home/odoo/10.0/bank-payment', u'/home/odoo/10.0/bank-statement-import', u'/home/odoo/10.0/business-requirement', u'/home/odoo/10.0/calendar', u'/home/odoo/10.0/commission', u'/home/odoo/10.0/community-data-files', u'/home/odoo/10.0/connector', u'/home/odoo/10.0/contract', u'/home/odoo/10.0/credit-control', u'/home/odoo/10.0/crm', u'/home/odoo/10.0/currency', u'/home/odoo/10.0/data-protection', u'/home/odoo/10.0/delivery-carrier', u'/home/odoo/10.0/donation', u'/home/odoo/10.0/e-commerce', u'/home/odoo/10.0/edi', u'/home/odoo/10.0/event', u'/home/odoo/10.0/geospatial', u'/home/odoo/10.0/helpdesk', u'/home/odoo/10.0/hr', u'/home/odoo/10.0/infrastructure', u'/home/odoo/10.0/intrastat-extrastat', u'/home/odoo/10.0/knowledge', u'/home/odoo/10.0/l10n-italy', u'/home/odoo/10.0/l10n-italy-supplemental', u'/home/odoo/10.0/maintenance', u'/home/odoo/10.0/management-system', u'/home/odoo/10.0/manufacture', u'/home/odoo/10.0/manufacture-reporting', u'/home/odoo/10.0/margin-analysis', u'/home/odoo/10.0/mgmtsystem', u'/home/odoo/10.0/multi-company', u'/home/odoo/10.0/operating-unit', u'/home/odoo/10.0/partner-contact', u'/home/odoo/10.0/pos', u'/home/odoo/10.0/product-attribute', u'/home/odoo/10.0/product-kitting', u'/home/odoo/10.0/product-variant', u'/home/odoo/10.0/profiles', u'/home/odoo/10.0/project', u'/home/odoo/10.0/project-agile', u'/home/odoo/10.0/project-reporting', u'/home/odoo/10.0/purchase-reporting', u'/home/odoo/10.0/purchase-workflow', u'/home/odoo/10.0/queue', u'/home/odoo/10.0/report-print-send', u'/home/odoo/10.0/reporting-engine', u'/home/odoo/10.0/rma', u'/home/odoo/10.0/sale-financial', u'/home/odoo/10.0/sale-reporting', u'/home/odoo/10.0/sale-workflow', u'/home/odoo/10.0/search-engine', u'/home/odoo/10.0/server-auth', u'/home/odoo/10.0/server-tools', u'/home/odoo/10.0/server-ux', u'/home/odoo/10.0/social', u'/home/odoo/10.0/stock-logistics-barcode', u'/home/odoo/10.0/stock-logistics-reporting', u'/home/odoo/10.0/stock-logistics-tracking', u'/home/odoo/10.0/stock-logistics-transport', u'/home/odoo/10.0/stock-logistics-warehouse', u'/home/odoo/10.0/stock-logistics-workflow', u'/home/odoo/10.0/storage', u'/home/odoo/10.0/timesheet', u'/home/odoo/10.0/uncovered', u'/home/odoo/10.0/web', u'/home/odoo/10.0/webhook', u'/home/odoo/10.0/webkit-tools', u'/home/odoo/10.0/website', u'/home/odoo/10.0/website-cms', u'/home/odoo/10.0/wms', u'/home/odoo/10.0/zerobug-test']
+2023-02-23 20:22:08,868 26982 INFO ? odoo: database: odoo10@localhost:default
+2023-02-23 20:22:08,887 26982 INFO ? odoo.service.server: HTTP service (werkzeug) running on nb200z0.:42720
+2023-02-23 20:22:08,905 26982 INFO test_sale_commission_10 odoo.modules.loading: loading 1 modules...
+2023-02-23 20:22:09,045 26982 INFO test_sale_commission_10 odoo.modules.loading: 1 modules loaded in 0.14s, 0 queries
+2023-02-23 20:22:10,410 26982 INFO test_sale_commission_10 odoo.modules.loading: loading 39 modules...
+2023-02-23 20:22:10,560 26982 INFO test_sale_commission_10 odoo.addons.report.models.report: Will use the Wkhtmltopdf binary at /usr/local/bin/wkhtmltopdf
+2023-02-23 20:22:10,804 26982 INFO test_sale_commission_10 odoo.modules.loading: 39 modules loaded in 0.39s, 0 queries
+2023-02-23 20:22:10,809 26982 INFO test_sale_commission_10 odoo.modules.loading: loading 40 modules...
+2023-02-23 20:22:11,434 26982 INFO test_sale_commission_10 odoo.modules.registry: module sale_commission: creating or updating database tables
+2023-02-23 20:22:12,695 26982 INFO test_sale_commission_10 odoo.addons.auth_crypt.models.res_users: Hashing passwords, may be slow for databases with many users...
+2023-02-23 20:22:12,848 26982 INFO test_sale_commission_10 odoo.models: Storing computed values of sale.commission.settlement fields total
+2023-02-23 20:22:12,850 26982 INFO test_sale_commission_10 odoo.models: Storing computed values of account.invoice fields commission_total
+2023-02-23 20:22:12,851 26982 INFO test_sale_commission_10 odoo.models: Storing computed values of sale.order.line fields commission_free
+2023-02-23 20:22:12,853 26982 INFO test_sale_commission_10 odoo.models: Storing computed values of sale.order.line.agent fields amount
+2023-02-23 20:22:12,853 26982 INFO test_sale_commission_10 odoo.models: Storing computed values of account.invoice.line fields commission_free
+2023-02-23 20:22:12,855 26982 INFO test_sale_commission_10 odoo.models: Storing computed values of account.invoice.line.agent fields amount, company_id, currency_id, invoice, invoice_date, settled
+2023-02-23 20:22:12,856 26982 INFO test_sale_commission_10 odoo.models: Storing computed values of sale.commission.settlement.line fields agent, company_id, currency_id, customer, customer_state, date, inv_line_currency_id, inv_line_discount, inv_line_price_unit, inv_line_quantity, invoice, invoice_line, settled_amount
+2023-02-23 20:22:12,856 26982 INFO test_sale_commission_10 odoo.models: Storing computed values of sale.order fields commission_total
+2023-02-23 20:22:13,122 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/security/ir.model.access.csv
+2023-02-23 20:22:13,491 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/views/sale_commission_view.xml
+2023-02-23 20:22:13,595 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/views/product_template_view.xml
+2023-02-23 20:22:13,674 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/views/res_partner_view.xml
+2023-02-23 20:22:13,863 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/views/sale_order_view.xml
+2023-02-23 20:22:13,977 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/views/account_invoice_view.xml
+2023-02-23 20:22:14,129 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/views/settlement_view.xml
+2023-02-23 20:22:14,366 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/wizard/wizard_settle.xml
+2023-02-23 20:22:14,430 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/wizard/wizard_invoice.xml
+2023-02-23 20:22:14,487 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/report/report_sale.xml
+2023-02-23 20:22:14,532 26982 INFO test_sale_commission_10 odoo.modules.loading: loading sale_commission/demo/sale_agent_demo.xml
+2023-02-23 20:22:15,866 26982 INFO test_sale_commission_10 odoo.modules.module: odoo.addons.sale_commission.tests.test_sale_commission running tests.
+2023-02-23 20:22:15,867 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: test_res_partner_onchange (odoo.addons.sale_commission.tests.test_sale_commission.TestSaleCommission)
+2023-02-23 20:22:15,973 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(38)/setUp()
+['        self.declare_all_data(data)\n']
+2023-02-23 20:22:15,973 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🐜 declare_all_data(sale.commission,group=base)
+2023-02-23 20:22:15,974 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.commission] = [u'name']
+2023-02-23 20:22:15,974 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:22:15,974 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:22:15,974 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺🎺 Starting test v2.0.6 (debug_level=2)
+2023-02-23 20:22:15,979 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺 Testing module: sale_commission (10.0.11.0.2)
+2023-02-23 20:22:15,980 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:15,982 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: ⚠ account.payment.term.line._cvt_account_payment_term_line(all)
+2023-02-23 20:22:15,984 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:15,985 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:15,986 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:15,989 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:15,995 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:22:15,996 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:15,997 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:15,998 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:16,001 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:16,005 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:22:16,512 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:16,513 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:16,514 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:16,516 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_resource[sale.order] = sale.order.line
+2023-02-23 20:22:16,516 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_name[sale.order] = order_line
+2023-02-23 20:22:16,518 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line] = sale.order
+2023-02-23 20:22:16,518 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line] = order_id
+2023-02-23 20:22:16,518 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order.line] = [u'sequence']
+2023-02-23 20:22:16,518 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order] = [u'name']
+2023-02-23 20:22:16,521 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:16,522 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line.agent] = sale.order.line
+2023-02-23 20:22:16,522 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line.agent] = sale_line
+2023-02-23 20:22:16,859 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[mail.followers] = [u'partner_id']
+2023-02-23 20:22:16,859 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.order.store_resource_data(z0bug.saleorder1,name=sale.order,group=base)
+2023-02-23 20:22:17,155 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:17,156 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:17,158 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:17,163 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:17,439 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.order.store_resource_data(z0bug.saleorder3,name=sale.order,group=base)
+2023-02-23 20:22:17,446 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:17,447 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:17,448 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:17,455 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:17,739 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.order.store_resource_data(z0bug.saleorder4,name=sale.order,group=base)
+2023-02-23 20:22:18,373 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: test_sale_commission_gross_amount_invoice (odoo.addons.sale_commission.tests.test_sale_commission.TestSaleCommission)
+2023-02-23 20:22:18,375 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(38)/setUp()
+['        self.declare_all_data(data)\n']
+2023-02-23 20:22:18,375 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🐜 declare_all_data(sale.commission,group=base)
+2023-02-23 20:22:18,375 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.commission] = [u'name']
+2023-02-23 20:22:18,376 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:22:18,376 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:22:18,376 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺🎺 Starting test v2.0.6 (debug_level=2)
+2023-02-23 20:22:18,380 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺 Testing module: sale_commission (10.0.11.0.2)
+2023-02-23 20:22:18,381 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:18,383 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: ⚠ account.payment.term.line._cvt_account_payment_term_line(all)
+2023-02-23 20:22:18,384 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:18,384 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:18,385 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:18,388 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:18,390 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:18,391 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:18,854 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:18,855 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:18,856 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:18,860 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_resource[sale.order] = sale.order.line
+2023-02-23 20:22:18,860 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_name[sale.order] = order_line
+2023-02-23 20:22:18,862 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line] = sale.order
+2023-02-23 20:22:18,862 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line] = order_id
+2023-02-23 20:22:18,862 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order.line] = [u'sequence']
+2023-02-23 20:22:18,862 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order] = [u'name']
+2023-02-23 20:22:18,863 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line.agent] = sale.order.line
+2023-02-23 20:22:18,863 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line.agent] = sale_line
+2023-02-23 20:22:19,340 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:19,342 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:19,344 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:19,609 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:19,610 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:19,611 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:23,223 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: test_sale_commission_gross_amount_payment (odoo.addons.sale_commission.tests.test_sale_commission.TestSaleCommission)
+2023-02-23 20:22:23,224 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(38)/setUp()
+['        self.declare_all_data(data)\n']
+2023-02-23 20:22:23,224 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🐜 declare_all_data(sale.commission,group=base)
+2023-02-23 20:22:23,225 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.commission] = [u'name']
+2023-02-23 20:22:23,225 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:22:23,225 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:22:23,225 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺🎺 Starting test v2.0.6 (debug_level=2)
+2023-02-23 20:22:23,230 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺 Testing module: sale_commission (10.0.11.0.2)
+2023-02-23 20:22:23,230 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:23,233 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: ⚠ account.payment.term.line._cvt_account_payment_term_line(all)
+2023-02-23 20:22:23,234 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:23,235 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:23,236 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:23,239 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:23,240 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:23,241 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:23,739 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:23,741 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:23,743 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:23,745 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_resource[sale.order] = sale.order.line
+2023-02-23 20:22:23,745 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_name[sale.order] = order_line
+2023-02-23 20:22:23,747 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line] = sale.order
+2023-02-23 20:22:23,747 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line] = order_id
+2023-02-23 20:22:23,747 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order.line] = [u'sequence']
+2023-02-23 20:22:23,747 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order] = [u'name']
+2023-02-23 20:22:23,748 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line.agent] = sale.order.line
+2023-02-23 20:22:23,748 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line.agent] = sale_line
+2023-02-23 20:22:24,274 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:24,275 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:24,276 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:24,532 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:24,533 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:24,534 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:30,261 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: test_sale_commission_net_amount_invoice (odoo.addons.sale_commission.tests.test_sale_commission.TestSaleCommission)
+2023-02-23 20:22:30,263 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(38)/setUp()
+['        self.declare_all_data(data)\n']
+2023-02-23 20:22:30,263 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🐜 declare_all_data(sale.commission,group=base)
+2023-02-23 20:22:30,264 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.commission] = [u'name']
+2023-02-23 20:22:30,264 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:22:30,264 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:22:30,264 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺🎺 Starting test v2.0.6 (debug_level=2)
+2023-02-23 20:22:30,270 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺 Testing module: sale_commission (10.0.11.0.2)
+2023-02-23 20:22:30,271 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:30,273 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: ⚠ account.payment.term.line._cvt_account_payment_term_line(all)
+2023-02-23 20:22:30,275 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:30,276 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:30,277 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:30,281 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:30,282 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:30,283 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:30,834 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:30,835 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:30,836 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:30,838 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_resource[sale.order] = sale.order.line
+2023-02-23 20:22:30,838 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_name[sale.order] = order_line
+2023-02-23 20:22:30,839 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line] = sale.order
+2023-02-23 20:22:30,839 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line] = order_id
+2023-02-23 20:22:30,839 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order.line] = [u'sequence']
+2023-02-23 20:22:30,839 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order] = [u'name']
+2023-02-23 20:22:30,840 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line.agent] = sale.order.line
+2023-02-23 20:22:30,840 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line.agent] = sale_line
+2023-02-23 20:22:32,135 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:32,136 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:32,137 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:32,420 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:32,421 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:32,422 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:38,742 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: test_sale_commission_net_amount_payment (odoo.addons.sale_commission.tests.test_sale_commission.TestSaleCommission)
+2023-02-23 20:22:38,744 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(38)/setUp()
+['        self.declare_all_data(data)\n']
+2023-02-23 20:22:38,744 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🐜 declare_all_data(sale.commission,group=base)
+2023-02-23 20:22:38,745 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.commission] = [u'name']
+2023-02-23 20:22:38,745 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:22:38,745 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:22:38,745 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺🎺 Starting test v2.0.6 (debug_level=2)
+2023-02-23 20:22:38,750 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺 Testing module: sale_commission (10.0.11.0.2)
+2023-02-23 20:22:38,750 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:38,752 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: ⚠ account.payment.term.line._cvt_account_payment_term_line(all)
+2023-02-23 20:22:38,753 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:38,754 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:38,755 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:38,760 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:38,761 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:38,762 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:39,303 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:39,304 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:39,305 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:39,307 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_resource[sale.order] = sale.order.line
+2023-02-23 20:22:39,307 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_name[sale.order] = order_line
+2023-02-23 20:22:39,309 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line] = sale.order
+2023-02-23 20:22:39,309 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line] = order_id
+2023-02-23 20:22:39,309 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order.line] = [u'sequence']
+2023-02-23 20:22:39,309 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order] = [u'name']
+2023-02-23 20:22:39,310 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line.agent] = sale.order.line
+2023-02-23 20:22:39,310 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line.agent] = sale_line
+2023-02-23 20:22:40,701 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:40,702 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:40,703 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:40,997 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:40,998 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:40,999 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:49,464 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: test_sale_commission_section_invoice (odoo.addons.sale_commission.tests.test_sale_commission.TestSaleCommission)
+2023-02-23 20:22:49,466 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(38)/setUp()
+['        self.declare_all_data(data)\n']
+2023-02-23 20:22:49,466 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🐜 declare_all_data(sale.commission,group=base)
+2023-02-23 20:22:49,467 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.commission] = [u'name']
+2023-02-23 20:22:49,467 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:22:49,467 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:22:49,467 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺🎺 Starting test v2.0.6 (debug_level=2)
+2023-02-23 20:22:49,471 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺 Testing module: sale_commission (10.0.11.0.2)
+2023-02-23 20:22:49,472 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:49,474 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: ⚠ account.payment.term.line._cvt_account_payment_term_line(all)
+2023-02-23 20:22:49,476 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:49,477 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:49,478 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:49,481 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:49,482 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:49,483 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:50,046 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:50,047 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:50,048 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:50,050 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_resource[sale.order] = sale.order.line
+2023-02-23 20:22:50,050 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_name[sale.order] = order_line
+2023-02-23 20:22:50,051 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line] = sale.order
+2023-02-23 20:22:50,052 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line] = order_id
+2023-02-23 20:22:50,052 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order.line] = [u'sequence']
+2023-02-23 20:22:50,052 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order] = [u'name']
+2023-02-23 20:22:50,052 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line.agent] = sale.order.line
+2023-02-23 20:22:50,052 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line.agent] = sale_line
+2023-02-23 20:22:51,337 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:51,339 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:51,340 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:52,315 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:52,316 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:52,318 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:56,640 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: test_sale_commission_section_payment (odoo.addons.sale_commission.tests.test_sale_commission.TestSaleCommission)
+2023-02-23 20:22:56,641 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(38)/setUp()
+['        self.declare_all_data(data)\n']
+2023-02-23 20:22:56,642 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🐜 declare_all_data(sale.commission,group=base)
+2023-02-23 20:22:56,642 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.commission] = [u'name']
+2023-02-23 20:22:56,642 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:22:56,642 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:22:56,642 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺🎺 Starting test v2.0.6 (debug_level=2)
+2023-02-23 20:22:56,646 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺 Testing module: sale_commission (10.0.11.0.2)
+2023-02-23 20:22:56,647 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:56,649 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: ⚠ account.payment.term.line._cvt_account_payment_term_line(all)
+2023-02-23 20:22:56,650 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:56,651 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:56,652 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:56,656 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:56,656 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:56,657 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:22:57,203 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:57,204 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:57,205 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:22:57,207 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_resource[sale.order] = sale.order.line
+2023-02-23 20:22:57,207 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_name[sale.order] = order_line
+2023-02-23 20:22:57,208 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line] = sale.order
+2023-02-23 20:22:57,208 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line] = order_id
+2023-02-23 20:22:57,208 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order.line] = [u'sequence']
+2023-02-23 20:22:57,208 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order] = [u'name']
+2023-02-23 20:22:57,209 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line.agent] = sale.order.line
+2023-02-23 20:22:57,209 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line.agent] = sale_line
+2023-02-23 20:22:58,441 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:58,442 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:58,443 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:22:59,501 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:59,502 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:22:59,503 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:23:04,267 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: test_sale_default_agent (odoo.addons.sale_commission.tests.test_sale_commission.TestSaleCommission)
+2023-02-23 20:23:04,268 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(38)/setUp()
+['        self.declare_all_data(data)\n']
+2023-02-23 20:23:04,269 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🐜 declare_all_data(sale.commission,group=base)
+2023-02-23 20:23:04,269 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.commission] = [u'name']
+2023-02-23 20:23:04,269 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:23:04,269 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:23:04,270 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺🎺 Starting test v2.0.6 (debug_level=2)
+2023-02-23 20:23:04,273 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺 Testing module: sale_commission (10.0.11.0.2)
+2023-02-23 20:23:04,274 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:04,276 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: ⚠ account.payment.term.line._cvt_account_payment_term_line(all)
+2023-02-23 20:23:04,277 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:04,279 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:04,281 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:04,284 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:04,286 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:04,287 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:04,773 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:23:04,774 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:23:04,775 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:23:04,777 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_resource[sale.order] = sale.order.line
+2023-02-23 20:23:04,777 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_name[sale.order] = order_line
+2023-02-23 20:23:04,778 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line] = sale.order
+2023-02-23 20:23:04,778 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line] = order_id
+2023-02-23 20:23:04,778 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order.line] = [u'sequence']
+2023-02-23 20:23:04,778 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order] = [u'name']
+2023-02-23 20:23:04,779 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line.agent] = sale.order.line
+2023-02-23 20:23:04,779 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line.agent] = sale_line
+2023-02-23 20:23:06,070 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:23:06,071 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:23:06,072 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:23:07,051 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:23:07,052 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:23:07,053 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:23:08,902 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: test_wrong_section (odoo.addons.sale_commission.tests.test_sale_commission.TestSaleCommission)
+2023-02-23 20:23:08,904 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(38)/setUp()
+['        self.declare_all_data(data)\n']
+2023-02-23 20:23:08,904 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🐜 declare_all_data(sale.commission,group=base)
+2023-02-23 20:23:08,905 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.commission] = [u'name']
+2023-02-23 20:23:08,905 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_invoice,name=sale.commission,group=base)
+2023-02-23 20:23:08,905 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 💼 sale.commission.store_resource_data(z0bug.commission_net_paid,name=sale.commission,group=base)
+2023-02-23 20:23:08,905 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺🎺 Starting test v2.0.6 (debug_level=2)
+2023-02-23 20:23:08,909 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🎺🎺 Testing module: sale_commission (10.0.11.0.2)
+2023-02-23 20:23:08,910 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:08,912 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: ⚠ account.payment.term.line._cvt_account_payment_term_line(all)
+2023-02-23 20:23:08,913 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:08,914 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:08,915 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:08,919 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:08,920 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:08,921 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(39)/setUp()
+['        self.setup_env()\n']
+2023-02-23 20:23:09,467 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:23:09,469 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:23:09,470 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(153)/setUp()
+['                                            "sale_commission.demo_commission_paid"\n']
+2023-02-23 20:23:09,471 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_resource[sale.order] = sale.order.line
+2023-02-23 20:23:09,472 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 childs_name[sale.order] = order_line
+2023-02-23 20:23:09,473 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line] = sale.order
+2023-02-23 20:23:09,473 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line] = order_id
+2023-02-23 20:23:09,473 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order.line] = [u'sequence']
+2023-02-23 20:23:09,473 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 skeys[sale.order] = [u'name']
+2023-02-23 20:23:09,473 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_resource[sale.order.line.agent] = sale.order.line
+2023-02-23 20:23:09,473 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv:  🌍 parent_name[sale.order.line.agent] = sale_line
+2023-02-23 20:23:10,833 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:23:10,835 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:23:10,836 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(214)/setUp()
+['                                        "commission": "z0bug.commission_net_paid",\n']
+2023-02-23 20:23:11,885 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:23:11,886 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:23:11,887 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.testenv: 🚧 test_sale_commission.py(244)/setUp()
+['                                        "commission": "z0bug.commission_net_invoice",\n']
+2023-02-23 20:23:13,541 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: Ran 9 tests in 57.674s
+2023-02-23 20:23:13,541 26982 INFO test_sale_commission_10 odoo.addons.sale_commission.tests.test_sale_commission: OK
+2023-02-23 20:23:13,541 26982 INFO test_sale_commission_10 odoo.modules.module: odoo.addons.sale_commission.tests.test_sale_commission tested in 57.68s, 53801 queries
+2023-02-23 20:23:13,578 26982 INFO test_sale_commission_10 odoo.modules.loading: 40 modules loaded in 62.77s, 53835 queries
+2023-02-23 20:23:14,261 26982 INFO test_sale_commission_10 odoo.modules.loading: Modules loaded.
+2023-02-23 20:23:14,268 26982 INFO test_sale_commission_10 odoo.modules.loading: All post-tested in 0.00s, 0 queries
+2023-02-23 20:23:14,269 26982 INFO test_sale_commission_10 odoo.models: Computing parent left and right for table ir_ui_menu...
+2023-02-23 20:23:14,486 26982 INFO test_sale_commission_10 odoo.modules.registry: Registry changed, signaling through the database
+2023-02-23 20:23:14,487 26982 INFO test_sale_commission_10 odoo.service.server: Initiating shutdown
+2023-02-23 20:23:14,487 26982 INFO test_sale_commission_10 odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+
++===================================================================
+| please test [36msale_commission[0m (10.0): [32mSUCCESS![0m
++===================================================================
+
+Name                                                    Stmts   Miss  Cover   Missing
+-------------------------------------------------------------------------------------
+commission/sale_commission/models/account_invoice.py      120     34    72%   11, 22-27, 30, 38, 43, 57, 66, 71, 75, 80-81, 85, 93-100, 103-108, 118, 121-124, 183-184, 192, 214
+commission/sale_commission/models/product_template.py       4      0   100%
+commission/sale_commission/models/res_partner.py           15      1    93%   47
+commission/sale_commission/models/sale_commission.py       32      3    91%   31, 35, 50
+commission/sale_commission/models/sale_order.py           122     40    67%   10, 22-29, 32-39, 42-49, 52-56, 60-62, 69, 84, 93, 111, 114, 140-142, 145, 169-170, 173
+commission/sale_commission/models/settlement.py            87     13    85%   38, 43-47, 50-55, 58-59, 94, 134
+commission/sale_commission/wizard/wizard_invoice.py        25      2    92%   14, 40
+commission/sale_commission/wizard/wizard_settle.py         67     11    84%   27, 33, 37, 40-47, 50
+-------------------------------------------------------------------------------------
+TOTAL                                                     472    104    78%

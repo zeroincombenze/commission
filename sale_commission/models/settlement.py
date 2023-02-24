@@ -168,7 +168,7 @@ class SettlementLine(models.Model):
         related='agent_line.invoice_line.currency_id',
         readonly=True, store=True)
     customer = fields.Many2one(related="invoice.partner_id",
-        readonly=True, copy=False, store=True)
+                               readonly=True, copy=False, store=True)
     inv_line_quantity = fields.Float(
         related="agent_line.invoice_line.quantity",
         readonly=True, copy=False, store=True,
@@ -185,6 +185,7 @@ class SettlementLine(models.Model):
         readonly=True, store=True,
         digits=dp.get_precision('Discount'))
     inv_line_subtotal = fields.Monetary(string='Line Amount',
-       related="agent_line.inv_line_subtotal")
-    customer_state = fields.Many2one(related="invoice.partner_id.state_id",
+                                        related="agent_line.inv_line_subtotal")
+    customer_state = fields.Many2one(
+        related="invoice.partner_id.state_id",
         readonly=True, copy=False, store=True)
