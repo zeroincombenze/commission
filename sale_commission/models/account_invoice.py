@@ -16,7 +16,7 @@ class AccountInvoice(models.Model):
 
     commission_total = fields.Float(
         string="Commissions", compute="_compute_commission_total",
-        store=True)
+        store=True, copy=False)
 
     @api.multi
     def action_cancel(self):
@@ -59,7 +59,7 @@ class AccountInvoice(models.Model):
         res = super(AccountInvoice, self)._onchange_partner_id()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.invoice_line_ids:
-            line.agents = None
+            line.reval_commission = True
         return res
 
     @api.onchange('journal_id')
@@ -68,17 +68,16 @@ class AccountInvoice(models.Model):
         res = super(AccountInvoice, self)._onchange_journal_id()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.invoice_line_ids:
-            line.agents = None
+            line.reval_commission = True
         return res
 
-    @api.onchange('payment_term_id', 'date_invoice')
-    def _onchange_payment_term_date_invoice(self):
+    @api.onchange('fiscal_position_id', 'payment_term_id', 'date_invoice')
+    def _onchange_others(self):
         self.ensure_one()
-        res = super(AccountInvoice, self)._onchange_payment_term_date_invoice()
-        if not self.env.context.get('skip_agents_delete'):
-            # workaround for https://github.com/odoo/odoo/issues/17618
-            for line in self.invoice_line_ids:
-                line.agents = None
+        res = super(AccountInvoice, self)._onchange_others()
+        # workaround for https://github.com/odoo/odoo/issues/17618
+        for line in self.invoice_line_ids:
+            line.reval_commission = True
         return res
 
     @api.multi
@@ -90,25 +89,15 @@ class AccountInvoice(models.Model):
         })).action_date_assign()
 
     @api.model
-    def _prepare_line_agents_data(self, line):
-        rec = []
-        for agent in self.partner_id.agents:
-            rec.append({
-                'agent': agent.id,
-                'commission': agent.commission.id,
-            })
-        return rec
+    def _recompute_lines_agents(self):
+        for line in self.invoice_line_ids:
+            line.agents = line._prepare_line_agents(self.partner_id._line_agents())
+            line.reval_commission = False
 
     @api.multi
     def recompute_lines_agents(self):
         for invoice in self:
-            for line in invoice.invoice_line_ids:
-                line.agents.unlink()
-                line_agents_data = invoice._prepare_line_agents_data(line)
-                line.agents = [(
-                    0,
-                    0,
-                    line_agent_data) for line_agent_data in line_agents_data]
+            invoice._recompute_lines_agents()
 
 
 class AccountInvoiceLine(models.Model):
@@ -116,23 +105,124 @@ class AccountInvoiceLine(models.Model):
 
     @api.model
     def _default_agents(self):
-        agents = []
-        if self.env.context.get('partner_id'):
-            partner = self.env['res.partner'].browse(
-                self.env.context['partner_id'])
-            for agent in partner.agents:
-                agents.append({'agent': agent.id,
-                               'commission': agent.commission.id})
-        return [(0, 0, x) for x in agents]
+        return self.get_commission_values(
+            {'reval_commission': True}).get('agents') or []
 
     agents = fields.One2many(
-        comodel_name="account.invoice.line.agent",
-        inverse_name="invoice_line", string="Agents & commissions",
+        string="Agents & commissions",
+        comodel_name="account.invoice.line.agent", inverse_name="invoice_line",
         help="Agents/Commissions related to the invoice line.",
-        default=_default_agents, copy=True)
+        copy=True,
+        default=_default_agents)
     commission_free = fields.Boolean(
         string="Comm. free", related="product_id.commission_free",
         store=True, readonly=True)
+    reval_commission = fields.Boolean(
+        string="Set Default Commission")
+
+    @api.model
+    def _prepare_line_agents(self, agents):
+        # Issue https://github.com/odoo/odoo/issues/17618
+        values = []
+        agent_ids = [x.id for x in self.agents]
+        for agent in agents:
+            if isinstance(agent, dict):
+                agent_vals = agent
+            else:
+                agent_vals = {
+                    "agent": agent.id,
+                    "commission": agent.commission.id
+                }
+            if agent_ids:
+                rec_id = agent_ids.pop(0)
+                values.append((1, rec_id, agent_vals))
+            else:
+                values.append((0, 0, agent_vals))
+        if agent_ids:
+            for rec_id in agent_ids:
+                values.append((2, rec_id))
+        return values
+
+    @api.multi
+    def set_line_agents(self, agents):
+        for line in self:
+            line.agents = line._prepare_line_agents(agents)
+            line.reval_commission = False
+
+    @api.multi
+    def _prepare_invoice_line(self, qty):
+        vals = super(AccountInvoiceLine, self)._prepare_invoice_line(qty)
+        vals['agents'] = [
+            (0, 0, {'agent': x.agent.id,
+                    'commission': x.commission.id}) for x in self.agents]
+        return vals
+
+    @api.onchange('product_id')
+    def product_id_change(self):
+        res = super(AccountInvoiceLine, self).product_id_change()
+        self.agents = self._prepare_line_agents(self.order_id.partner_id._line_agents())
+        self.reval_commission = False
+        return res
+
+    @api.model
+    def _unbug_agents(self, agents):
+        new_agents = []
+        for item in agents:
+            if isinstance(item, (list, tuple)):
+                if item[0] == 5:
+                    continue
+                elif item[0] == 4:
+                    rec_id = item[1]
+                    rec = self.env["sale.order.line.agent"].browse(rec_id)
+                    new_agents.append((1, rec_id, {
+                        "agent": rec.agent.id,
+                        "commission": rec.commission.id
+                    }))
+                else:
+                    new_agents.append(item)
+            else:
+                new_agents.append(item)
+        return new_agents
+
+    @api.model
+    def get_commission_values(self, vals):
+        sale_order_model = self.env['sale.order']
+        partner_model = self.env['res.partner']
+        product_model = self.env['product.product']
+        if self.env.context.get('partner_id'):
+            partner = partner_model.browse(self.env.context['partner_id'])
+        elif vals.get('invoice_id'):
+            partner = sale_order_model.browse(vals['invoice_id']).partner_id
+        elif self.invoice_id:
+            partner = self.invoice_id.partner_id
+        else:
+            partner = None
+        if partner and vals.get('reval_commission'):
+            if vals.get('product_id'):
+                product = product_model.browse(vals['product_id'])
+            elif self.product_id:
+                product = self.product_id
+            else:
+                product = None
+            if product:
+                vals['commission_free'] = product.commission_free
+            if not vals.get('commission_free'):
+                vals["agents"] = self._prepare_line_agents(partner._line_agents())
+        elif "agents" in vals:
+            # Issue https://github.com/odoo/odoo/issues/17618
+            vals["agents"] = self._unbug_agents(vals["agents"])
+        vals['reval_commission'] = False
+        return vals
+
+    @api.multi
+    def write(self, vals):
+        vals = self.get_commission_values(vals)
+        return super(AccountInvoiceLine, self).write(vals)
+
+    @api.model
+    def create(self, vals):
+        vals = self.get_commission_values(vals)
+        return super(AccountInvoiceLine, self).create(vals)
 
 
 class AccountInvoiceLineAgent(models.Model):
@@ -182,11 +272,6 @@ class AccountInvoiceLineAgent(models.Model):
     @api.onchange('agent')
     def onchange_agent(self):
         self.commission = self.agent.commission
-
-    # @api.one
-    # @api.depends('invoice')
-    # def _compute_subtotal(self):
-    #     self.subtotal = self.invoice_line.price_subtotal
 
     @api.depends('invoice_line.price_subtotal')
     def _compute_amount(self):

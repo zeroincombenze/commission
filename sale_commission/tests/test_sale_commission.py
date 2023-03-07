@@ -95,7 +95,7 @@ class TestSaleCommission(SingleTransactionCase):
                 "name": "Test Agent - Quaterly",
                 "agent": True,
                 "settlement": "quaterly",
-                "lang": "en_US",
+                # "lang": "en_US",
             }
         )
         agent_semi = self.res_partner_model.create(
@@ -103,7 +103,7 @@ class TestSaleCommission(SingleTransactionCase):
                 "name": "Test Agent - Semi-annual",
                 "agent": True,
                 "settlement": "semi",
-                "lang": "en_US",
+                # "lang": "en_US",
             }
         )
         agent_annual = self.res_partner_model.create(
@@ -111,7 +111,7 @@ class TestSaleCommission(SingleTransactionCase):
                 "name": "Test Agent - Annual",
                 "agent": True,
                 "settlement": "annual",
-                "lang": "en_US",
+                # "lang": "en_US",
             }
         )
         self.sale_order_model = self.env["sale.order"]
