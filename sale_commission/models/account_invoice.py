@@ -74,11 +74,9 @@ class AccountInvoice(models.Model):
     @api.onchange('fiscal_position_id', 'payment_term_id', 'date_invoice')
     def _onchange_others(self):
         self.ensure_one()
-        res = super(AccountInvoice, self)._onchange_others()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.invoice_line_ids:
             line.reval_commission = True
-        return res
 
     @api.multi
     def action_date_assign(self):
