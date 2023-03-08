@@ -20,7 +20,6 @@ class SaleOrder(models.Model):
     @api.onchange('partner_id', 'company_id')
     def onchange_partner_id(self):
         self.ensure_one()
-        res = super(SaleOrder, self).onchange_partner_id()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.order_line:
             line.reval_commission = True
@@ -29,7 +28,6 @@ class SaleOrder(models.Model):
     @api.onchange('fiscal_position_id', 'payment_term_id', 'date_invoice')
     def _onchange_others(self):
         self.ensure_one()
-        res = super(SaleOrder, self)._onchange_others()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.order_line:
             line.reval_commission = True
