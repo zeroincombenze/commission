@@ -102,10 +102,8 @@ class SaleOrderLine(models.Model):
 
     @api.onchange('product_id')
     def product_id_change(self):
-        res = super(SaleOrderLine, self).product_id_change()
         self.agents = self._prepare_line_agents(self.order_id.partner_id._line_agents())
         self.reval_commission = False
-        return res
 
     @api.model
     def _unbug_agents(self, agents):

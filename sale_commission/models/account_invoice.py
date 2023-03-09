@@ -153,10 +153,9 @@ class AccountInvoiceLine(models.Model):
 
     @api.onchange('product_id')
     def product_id_change(self):
-        res = super(AccountInvoiceLine, self).product_id_change()
-        self.agents = self._prepare_line_agents(self.order_id.partner_id._line_agents())
+        self.agents = self._prepare_line_agents(
+            self.invoice_id.partner_id._line_agents())
         self.reval_commission = False
-        return res
 
     @api.model
     def _unbug_agents(self, agents):
