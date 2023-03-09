@@ -38,19 +38,6 @@ class TestSaleCommission(SingleTransactionCase):
         self.declare_all_data(data)
         self.setup_env()
         self.commission_model = self.env["sale.commission"]
-        # commission_net_paid = self.commission_model.create({
-        #     'name': '20% fixed commission (Net amount) - Payment Based',
-        #     'fix_qty': 20.0,
-        #     'invoice_state': 'paid',
-        #     'amount_base_type': 'net_amount',
-        # })
-        # commission_net_invoice = self.commission_model.create(
-        #     {
-        #         "name": "10% fixed commission (Net amount) - Invoice Based",
-        #         "fix_qty": 10.0,
-        #         "amount_base_type": "net_amount",
-        #     }
-        # )
         commission_section_paid = self.commission_model.create(
             {
                 "name": "Section commission - Payment Based",

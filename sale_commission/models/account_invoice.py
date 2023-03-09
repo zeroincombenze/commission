@@ -56,20 +56,16 @@ class AccountInvoice(models.Model):
     @api.onchange('partner_id', 'company_id')
     def _onchange_partner_id(self):
         self.ensure_one()
-        res = super(AccountInvoice, self)._onchange_partner_id()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.invoice_line_ids:
             line.reval_commission = True
-        return res
 
     @api.onchange('journal_id')
     def _onchange_journal_id(self):
         self.ensure_one()
-        res = super(AccountInvoice, self)._onchange_journal_id()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.invoice_line_ids:
             line.reval_commission = True
-        return res
 
     @api.onchange('fiscal_position_id', 'payment_term_id', 'date_invoice')
     def _onchange_others(self):
@@ -184,13 +180,13 @@ class AccountInvoiceLine(models.Model):
 
     @api.model
     def get_commission_values(self, vals):
-        sale_order_model = self.env['sale.order']
+        invoice_model = self.env['account.invoice']
         partner_model = self.env['res.partner']
         product_model = self.env['product.product']
         if self.env.context.get('partner_id'):
             partner = partner_model.browse(self.env.context['partner_id'])
         elif vals.get('invoice_id'):
-            partner = sale_order_model.browse(vals['invoice_id']).partner_id
+            partner = invoice_model.browse(vals['invoice_id']).partner_id
         elif self.invoice_id:
             partner = self.invoice_id.partner_id
         else:
