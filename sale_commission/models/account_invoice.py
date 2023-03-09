@@ -56,23 +56,30 @@ class AccountInvoice(models.Model):
     @api.onchange('partner_id', 'company_id')
     def _onchange_partner_id(self):
         self.ensure_one()
+        res = super(AccountInvoice, self)._onchange_partner_id()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.invoice_line_ids:
             line.reval_commission = True
+        return res
 
     @api.onchange('journal_id')
     def _onchange_journal_id(self):
         self.ensure_one()
+        res = super(AccountInvoice, self)._onchange_journal_id()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.invoice_line_ids:
             line.reval_commission = True
+        return res
 
     @api.onchange('fiscal_position_id', 'payment_term_id', 'date_invoice')
-    def _onchange_others(self):
+    def _onchange_payment_term_date_invoice(self):
         self.ensure_one()
-        # workaround for https://github.com/odoo/odoo/issues/17618
-        for line in self.invoice_line_ids:
-            line.reval_commission = True
+        res = super(AccountInvoice, self)._onchange_payment_term_date_invoice()
+        if not self.env.context.get('skip_agents_delete'):
+            # workaround for https://github.com/odoo/odoo/issues/17618
+            for line in self.invoice_line_ids:
+                line.reval_commission = True
+        return res
 
     @api.multi
     def action_date_assign(self):

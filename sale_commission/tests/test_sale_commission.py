@@ -38,8 +38,11 @@ class TestSaleCommission(SingleTransactionCase):
         self.declare_all_data(data)
         self.setup_env()
         self.commission_model = self.env["sale.commission"]
-        commission_section_paid = self.commission_model.create(
-            {
+        # commission_section_paid = self.commission_model.create(
+        self.resource_create(
+            "sale.commission",
+            xref="z0bug.commission_section_paid",
+            values={
                 "name": "Section commission - Payment Based",
                 "commission_type": "section",
                 "invoice_state": "paid",
@@ -55,7 +58,7 @@ class TestSaleCommission(SingleTransactionCase):
                     )
                 ],
                 "amount_base_type": "net_amount",
-            }
+            },
         )
         commission_section_invoice = self.commission_model.create(
             {
@@ -147,8 +150,10 @@ class TestSaleCommission(SingleTransactionCase):
                 ],
             },
         )
-        self.saleorder2 = self.sale_order_model.create(
-            {
+        self.saleorder2 = self.resource_make(
+            "sale.order",
+            xref="z0bug.saleorder2",
+            values={
                 "partner_id": self.partner.id,
                 "order_line": [
                     (
@@ -237,8 +242,10 @@ class TestSaleCommission(SingleTransactionCase):
                 ],
             }
         )
-        self.saleorder5 = self.sale_order_model.create(
-            {
+        self.saleorder5 = self.resource_make(
+            "sale.order",
+            xref="z0bug.saleorder5",
+            values={
                 "partner_id": self.partner.id,
                 "order_line": [
                     (
@@ -259,7 +266,7 @@ class TestSaleCommission(SingleTransactionCase):
                                             "sale_commission"
                                             ".res_partner_pritesh_sale_agent"
                                         ),
-                                        "commission": commission_section_paid.id,
+                                        "commission": "z0bug.commission_section_paid",
                                     },
                                 )
                             ],
@@ -268,8 +275,10 @@ class TestSaleCommission(SingleTransactionCase):
                 ],
             }
         )
-        self.saleorder6 = self.sale_order_model.create(
-            {
+        self.saleorder6 = self.resource_make(
+            "sale.order",
+            xref="z0bug.saleorder6",
+            values={
                 "partner_id": self.partner.id,
                 "order_line": [
                     (

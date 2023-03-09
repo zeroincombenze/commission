@@ -20,16 +20,30 @@ class SaleOrder(models.Model):
     @api.onchange('partner_id', 'company_id')
     def onchange_partner_id(self):
         self.ensure_one()
+        res = super(SaleOrder, self).onchange_partner_id()
         # workaround for https://github.com/odoo/odoo/issues/17618
         for line in self.order_line:
             line.reval_commission = True
+        return res
 
     @api.onchange('fiscal_position_id', 'payment_term_id', 'date_invoice')
-    def _onchange_others(self):
+    def _compute_tax_id(self):
         self.ensure_one()
+        res = super(SaleOrder, self)._compute_tax_id()
         # workaround for https://github.com/odoo/odoo/issues/17618
-        for line in self.order_line:
-            line.reval_commission = True
+        for order_line in self.order_line:
+            order_line.reval_commission = True
+        return res
+
+    @api.model
+    def _prepare_line_agents_data(self):
+        rec = []
+        for agent in self.partner_id.agents:
+            rec.append({
+                'agent': agent.id,
+                'commission': agent.commission.id,
+            })
+        return rec
 
     @api.model
     def _recompute_lines_agents(self):
@@ -102,8 +116,10 @@ class SaleOrderLine(models.Model):
 
     @api.onchange('product_id')
     def product_id_change(self):
+        res = super(SaleOrderLine, self).product_id_change()
         self.agents = self._prepare_line_agents(self.order_id.partner_id._line_agents())
         self.reval_commission = False
+        return res
 
     @api.model
     def _unbug_agents(self, agents):
