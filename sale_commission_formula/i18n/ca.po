@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-14 15:14+0000\n"
+"POT-Creation-Date: 2021-02-04 17:16+0000\n"
 "PO-Revision-Date: 2017-12-14 15:14+0000\n"
 "Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
 "Language-Team: Catalan (https://www.transifex.com/oca/teams/23907/ca/)\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid ""
 "<span class=\"instructions\">\n"
 "  Use 'line' to access all the line fields.\n"
@@ -33,9 +33,15 @@ msgid ""
 msgstr ""
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Account Invoice Line common fields"
 msgstr "Camps comuns de la factura"
+
+#. module: sale_commission_formula
+#: selection:sale.commission,commission_type:0
+#, fuzzy
+msgid "By sections"
+msgstr "Instruccions"
 
 #. module: sale_commission_formula
 #: model:ir.model,name:sale_commission_formula.model_sale_commission
@@ -43,27 +49,33 @@ msgid "Commission in sales"
 msgstr "Comissió de les vendes"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Discount (%)"
 msgstr "Descompte (%)"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Field"
 msgstr "Camp"
 
 #. module: sale_commission_formula
-#: model:ir.model.fields,field_description:sale_commission_formula.field_sale_commission_formula
+#: selection:sale.commission,commission_type:0
+msgid "Fixed percentage"
+msgstr ""
+
+#. module: sale_commission_formula
+#: model:ir.model.fields,field_description:sale_commission_formula.field_sale_commission__formula
+#: selection:sale.commission,commission_type:0
 msgid "Formula"
 msgstr "Fórmula"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Instructions"
 msgstr "Instruccions"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Label"
 msgstr "Etiqueta"
 
@@ -75,46 +87,41 @@ msgid ""
 msgstr ""
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Quantity"
 msgstr "Quantitat"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Sale Oder Line common fields"
 msgstr "Camps comuns de la línia de comanda de venda"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Subtotal"
 msgstr "Subtotal"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model:ir.model.fields,field_description:sale_commission_formula.field_sale_commission__commission_type
+msgid "Type"
+msgstr ""
+
+#. module: sale_commission_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Unit Price"
 msgstr "Preu unitari"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "discount"
-msgstr "Descompte"
+#~ msgid "discount"
+#~ msgstr "Descompte"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "price_subtotal"
-msgstr "price_subtotal"
+#~ msgid "price_subtotal"
+#~ msgstr "price_subtotal"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "price_unit"
-msgstr "price_unit"
+#~ msgid "price_unit"
+#~ msgstr "price_unit"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "product_uom_qty"
-msgstr "product_uom_qty"
+#~ msgid "product_uom_qty"
+#~ msgstr "product_uom_qty"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "quantity"
-msgstr "quantitat"
+#~ msgid "quantity"
+#~ msgstr "quantitat"

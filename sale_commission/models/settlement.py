@@ -184,13 +184,11 @@ class SettlementLine(models.Model):
     company_id = fields.Many2one(
         comodel_name='res.company',
         related='settlement.company_id',
-        readonly=True,
     )
 
     @api.constrains('settlement', 'agent_line')
     def _check_company(self):
         for record in self:
-            if record.agent_line.company_id != record.company_id:
-                raise UserError(_(
-                    'Company must be the same'
-                ))
+            for line in record.agent_line:
+                if line.company_id != record.company_id:
+                    raise UserError(_("Company must be the same"))

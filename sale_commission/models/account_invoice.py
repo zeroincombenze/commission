@@ -19,9 +19,28 @@ class AccountInvoice(models.Model):
         compute="_compute_commission_total",
         store=True,
     )
+    agent_ids = fields.Many2many(
+        "res.partner", string="Agents", compute="_compute_agents",
+        search="_search_agents")
+
+    @api.multi
+    def _compute_agents(self):
+        for so in self:
+            so.agent_ids = [(6, 0, so.mapped("invoice_line_ids.agents.agent").ids)]
+
+    @api.model
+    def _search_agents(self, operator, value):
+        ail_agents = self.env["account.invoice.line.agent"].search(
+            [("agent", operator, value)])
+        return [('id', 'in', ail_agents.mapped("object_id.invoice_id").ids)]
 
     def action_cancel(self):
-        """Put settlements associated to the invoices in exception."""
+        """Put settlements associated to the invoices in exception
+        and check settled lines"""
+        if any(self.mapped("invoice_line_ids.any_settled")):
+            raise exceptions.ValidationError(
+                _("You can't cancel an invoice with settled lines"),
+            )
         settlements = self.env['sale.commission.settlement'].search(
             [('invoice', 'in', self.ids)])
         settlements.write({'state': 'except_invoice'})
@@ -70,6 +89,13 @@ class AccountInvoiceLine(models.Model):
         compute="_compute_any_settled",
     )
 
+    @api.model
+    def _default_agents(self):
+        """Don't populate agents for supplier invoices."""
+        if self.env.context.get('type', '')[:2] == 'in':
+            return []
+        return super()._default_agents()
+
     @api.depends('agents', 'agents.settled')
     def _compute_any_settled(self):
         for record in self:
@@ -89,11 +115,12 @@ class AccountInvoiceLine(models.Model):
     def _prepare_agents_vals(self, vals=None):
         res = super()._prepare_agents_vals(vals=vals)
         if self:
-            partner = self.invoice_id.partner_id
+            invoice = self.invoice_id
         else:
             invoice = self.env['account.invoice'].browse(vals['invoice_id'])
-            partner = invoice.partner_id
-        return res + self._prepare_agents_vals_partner(partner)
+        if invoice.type[:3] != "out":
+            return [(6, 0, [])]
+        return res + self._prepare_agents_vals_partner(invoice.partner_id)
 
 
 class AccountInvoiceLineAgent(models.Model):

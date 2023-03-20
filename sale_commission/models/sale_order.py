@@ -20,6 +20,20 @@ class SaleOrder(models.Model):
         compute="_compute_commission_total",
         store=True,
     )
+    agent_ids = fields.Many2many(
+        "res.partner", string="Agents", compute="_compute_agents",
+        search="_search_agents")
+
+    @api.multi
+    def _compute_agents(self):
+        for so in self:
+            so.agent_ids = [(6, 0, so.mapped("order_line.agents.agent").ids)]
+
+    @api.model
+    def _search_agents(self, operator, value):
+        sol_agents = self.env["sale.order.line.agent"].search(
+            [("agent", operator, value)])
+        return [('id', 'in', sol_agents.mapped("object_id.order_id").ids)]
 
     def recompute_lines_agents(self):
         self.mapped('order_line').recompute_agents()
@@ -40,9 +54,10 @@ class SaleOrder(models.Model):
         if view_type == 'form':
             doc = etree.XML(res['arch'])
             for node in doc.xpath("//field[@name='order_line']"):
-                node_val = node.get('context', '{}')
-                node_val.replace("{", "{'partner_id': partner_id, ", 1,)
-                node.set('context', node_val)
+                node_val = node.get('context', '{}').strip()[1:-1]
+                elems = node_val.split(',') if node_val else []
+                to_add = ["'partner_id': partner_id"]
+                node.set('context', '{' + ', '.join(elems + to_add) + '}')
             res['arch'] = etree.tostring(doc)
         return res
 

@@ -11,7 +11,7 @@ class SaleOrderLine(models.Model):
     def _get_commission_from_pricelist(self):
         self.ensure_one()
         if not self.product_id or not self.order_id.pricelist_id:
-            return False
+            return False    # pragma: no cover
         rule_id = self.order_id.pricelist_id.get_product_price_rule(
             product=self.product_id,
             quantity=self.product_uom_qty or 1.0,
@@ -30,9 +30,9 @@ class SaleOrderLine(models.Model):
             })
 
     def _prepare_agents_vals(self, vals=None):
-        res = super(SaleOrderLine, self)._prepare_agents_vals(vals=vals)
+        res = super()._prepare_agents_vals(vals=vals)
         commission = self._get_commission_from_pricelist() if self else False
         if commission:
             for vals in res:
-                vals['commission'] = commission.id
+                vals[2]['commission'] = commission.id
         return res
