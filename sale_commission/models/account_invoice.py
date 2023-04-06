@@ -173,7 +173,7 @@ class AccountInvoiceLine(models.Model):
                     continue
                 elif item[0] == 4:
                     rec_id = item[1]
-                    rec = self.env["sale.order.line.agent"].browse(rec_id)
+                    rec = self.env["account.invoice.line.agent"].browse(rec_id)
                     new_agents.append((1, rec_id, {
                         "agent": rec.agent.id,
                         "commission": rec.commission.id
