@@ -52,6 +52,6 @@
     'test': [
         'test/sale_commission_demo.yml',
     ],
-    "installable": False,
+    "installable": True,
     "pre_init_hook": "set_commission_total",
 }
