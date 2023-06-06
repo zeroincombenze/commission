@@ -20,6 +20,6 @@
         "security/ir.model.access.csv",
         "views/product_view.xml",
     ],
-    "installable": True,
+    "installable": False,
     "auto_install": False,
 }

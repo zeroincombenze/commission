@@ -16,6 +16,6 @@
     'contributors': [
         "Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>",
     ],
-    "installable": True,
+    "installable": False,
     "auto_install": True,
 }

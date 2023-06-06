@@ -35,6 +35,6 @@
     "data": [
         "views/res_partner_view.xml",
     ],
-    "installable": True,
+    "installable": False,
     "auto_install": True,
 }

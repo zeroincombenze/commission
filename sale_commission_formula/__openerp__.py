@@ -17,6 +17,6 @@
         'views/sale_commission_view.xml'],
     'demo': [
         'demo/commission_demo.xml'],
-    'installable': True,
+    'installable': False,
     'active': False,
 }
