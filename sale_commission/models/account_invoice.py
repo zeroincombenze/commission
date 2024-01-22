@@ -14,9 +14,30 @@ class AccountInvoice(models.Model):
             for line in record.invoice_line_ids:
                 record.commission_total += sum(x.amount for x in line.agents)
 
+    @api.depends('invoice_line_ids.agents')
+    def _compute_sale_agent(self):
+        for record in self:
+            sale_agent_id = None
+            for line in record.invoice_line_ids:
+                for agent in line.agents:
+                    if not sale_agent_id:
+                        sale_agent_id = agent.agent
+                    elif sale_agent_id != agent.agent:
+                        sale_agent_id = False
+                        break
+                if sale_agent_id is False:
+                    break
+            if sale_agent_id is not None:
+                record.sale_agent_id = sale_agent_id
+
     commission_total = fields.Float(
         string="Commissions", compute="_compute_commission_total",
         store=True, copy=False)
+    sale_agent_id = fields.Many2one(
+        comodel_name="res.partner",
+        string="Sale Agent",
+        compute="_compute_sale_agent",
+        store=True, readonly=True)
 
     @api.multi
     def action_cancel(self):
@@ -49,7 +70,7 @@ class AccountInvoice(models.Model):
             for agent in agents:
                 agent_vals = agent[2]
                 del agent_vals['invoice']
-                del agent_vals['invoice_line']
+                del agent_vals['object_id']
             vals['agents'] = agents
         return res
 
@@ -111,7 +132,8 @@ class AccountInvoiceLine(models.Model):
 
     agents = fields.One2many(
         string="Agents & commissions",
-        comodel_name="account.invoice.line.agent", inverse_name="invoice_line",
+        comodel_name="account.invoice.line.agent",
+        inverse_name="object_id",
         help="Agents/Commissions related to the invoice line.",
         copy=True,
         default=_default_agents)
@@ -228,21 +250,23 @@ class AccountInvoiceLine(models.Model):
 class AccountInvoiceLineAgent(models.Model):
     _name = "account.invoice.line.agent"
 
-    invoice_line = fields.Many2one(
+    object_id = fields.Many2one(
         comodel_name="account.invoice.line",
         ondelete="cascade",
-        required=True, copy=False)
+        required=True, copy=False,
+        oldname="invoice_line")
     invoice = fields.Many2one(
         string="Invoice", comodel_name="account.invoice",
-        related="invoice_line.invoice_id",
+        related="object_id.invoice_id",
         store=True)
     invoice_date = fields.Date(
         string="Invoice date",
         related="invoice.date_invoice",
-        store=True, readonly=True)
+        store=True,
+        readonly=True)
     product = fields.Many2one(
         comodel_name='product.product',
-        related="invoice_line.product_id")
+        related="object_id.product_id")
     agent = fields.Many2one(
         comodel_name="res.partner",
         domain="[('agent', '=', True)]",
@@ -255,15 +279,20 @@ class AccountInvoiceLineAgent(models.Model):
     agent_line = fields.Many2many(
         comodel_name='sale.commission.settlement.line',
         relation='settlement_agent_line_rel',
-        column1='agent_line_id', column2='settlement_id',
+        column1='agent_line_id',
+        column2='settlement_id',
         copy=False)
     settled = fields.Boolean(
         compute="_compute_settled",
         store=True, copy=False)
     company_id = fields.Many2one(
-        related='invoice.company_id', store=True, readonly=True)
+        related='object_id.company_id',
+        store=True,
+        readonly=True)
     currency_id = fields.Many2one(
-        related='invoice.currency_id', store=True, readonly=True)
+        related='object_id.currency_id',
+        store=True,
+        readonly=True)
     inv_line_subtotal = fields.Monetary(
         string='Line Amount',
         # compute="_compute_subtotal")
@@ -273,19 +302,19 @@ class AccountInvoiceLineAgent(models.Model):
     def onchange_agent(self):
         self.commission = self.agent.commission
 
-    @api.depends('invoice_line.price_subtotal')
+    @api.depends('object_id.price_subtotal')
     def _compute_amount(self):
         for line in self:
             line.amount = 0.0
-            line.inv_line_subtotal = line.invoice_line.price_subtotal
-            if (not line.invoice_line.product_id.commission_free and
+            line.inv_line_subtotal = line.object_id.price_subtotal
+            if (not line.object_id.product_id.commission_free and
                     line.commission):
                 if line.commission.amount_base_type == 'net_amount':
-                    subtotal = (line.invoice_line.price_subtotal -
-                                (line.invoice_line.product_id.standard_price *
-                                 line.invoice_line.quantity))
+                    subtotal = (line.object_id.price_subtotal -
+                                (line.object_id.product_id.standard_price *
+                                 line.object_id.quantity))
                 else:
-                    subtotal = line.invoice_line.price_subtotal
+                    subtotal = line.object_id.price_subtotal
                 if line.commission.commission_type == 'fixed':
                     line.amount = subtotal * (line.commission.fix_qty / 100.0)
                 else:
@@ -305,6 +334,6 @@ class AccountInvoiceLineAgent(models.Model):
                                 for x in line.agent_line))
 
     _sql_constraints = [
-        ('unique_agent', 'UNIQUE(invoice_line, agent)',
+        ('unique_agent', 'UNIQUE(object_id, agent)',
          'You can only add one time each agent.')
     ]

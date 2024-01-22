@@ -30,7 +30,7 @@ TEST_SETUP_LIST = [
 class TestSaleCommission(SingleTransactionCase):
     def setUp(self):
         super(TestSaleCommission, self).setUp()
-        self.debug_level = 2
+        self.debug_level = 0
         data = {"TEST_SETUP_LIST": TEST_SETUP_LIST}
         for resource in TEST_SETUP_LIST:
             item = "TEST_%s" % resource.upper().replace(".", "_")
@@ -316,7 +316,7 @@ class TestSaleCommission(SingleTransactionCase):
             self.env.cr.commit()  # pylint: disable=invalid-commit
             _logger.info("✨ Test data committed")
 
-    def test_sale_commission_gross_amount_payment(self):
+    def _test_sale_commission_gross_amount_payment(self):
         self.saleorder1.action_confirm()
         self.assertEquals(
             len(self.saleorder1.invoice_ids),
@@ -366,7 +366,7 @@ class TestSaleCommission(SingleTransactionCase):
         self.assertTrue(self.saleorder1.invoice_ids, "Order is not invoiced.")
         self.assertEqual(self.saleorder1.invoice_ids[:1].state, "paid")
 
-    def test_sale_commission_gross_amount_invoice(self):
+    def _test_sale_commission_gross_amount_invoice(self):
         self.saleorder2.action_confirm()
         self.assertEquals(
             len(self.saleorder2.invoice_ids),
@@ -405,7 +405,7 @@ class TestSaleCommission(SingleTransactionCase):
                 len(settlement.invoice), 0, "Settlements need to be in Invoiced State."
             )
 
-    def test_sale_commission_net_amount_payment(self):
+    def _test_sale_commission_net_amount_payment(self):
         self.saleorder3.action_confirm()
         self.assertEquals(
             len(self.saleorder3.invoice_ids),
@@ -460,7 +460,7 @@ class TestSaleCommission(SingleTransactionCase):
             )
             refund_wiz.invoice_refund()
 
-    def test_sale_commission_net_amount_invoice(self):
+    def _test_sale_commission_net_amount_invoice(self):
         self.saleorder4.action_confirm()
         self.assertEquals(
             len(self.saleorder4.invoice_ids),
@@ -499,7 +499,7 @@ class TestSaleCommission(SingleTransactionCase):
                 len(settlement.invoice), 0, "Settlements need to be in Invoiced State."
             )
 
-    def test_sale_commission_section_payment(self):
+    def _test_sale_commission_section_payment(self):
         self.saleorder5.action_confirm()
         payment = self.advance_inv_model.create(
             {
@@ -548,7 +548,7 @@ class TestSaleCommission(SingleTransactionCase):
         self.assertTrue(self.saleorder5.invoice_ids, "Order is not invoiced.")
         self.assertEqual(self.saleorder5.invoice_ids[:1].state, "paid")
 
-    def test_sale_commission_section_invoice(self):
+    def _test_sale_commission_section_invoice(self):
         self.saleorder6.action_confirm()
         self.assertEquals(
             len(self.saleorder6.invoice_ids),
@@ -587,14 +587,14 @@ class TestSaleCommission(SingleTransactionCase):
                 len(settlement.invoice), 0, "Settlements need to be in Invoiced State."
             )
 
-    def test_res_partner_onchange(self):
+    def _test_res_partner_onchange(self):
         self.assertFalse(self.partner.supplier)
         self.assertFalse(self.partner.agent)
         self.partner.agent = True
         self.partner.onchange_agent_type()
         self.assertTrue(self.partner.supplier)
 
-    def test_sale_default_agent(self):
+    def _test_sale_default_agent(self):
         sale_agent = self.browse_ref("sale_commission.res_partner_pritesh_sale_agent")
         self.partner.agents = [(6, 0, [sale_agent.id])]
         saleorder = self.sale_order_model.with_context(
@@ -626,7 +626,7 @@ class TestSaleCommission(SingleTransactionCase):
             "Sale agent in partner should be assigned in lines.",
         )
 
-    def test_wrong_section(self):
+    def _test_wrong_section(self):
         with self.assertRaises(exceptions.ValidationError):
             self.commission_model.create(
                 {
@@ -645,3 +645,14 @@ class TestSaleCommission(SingleTransactionCase):
                     ],
                 }
             )
+
+    def test_sale_commition(self):
+        self._test_sale_commission_gross_amount_payment()
+        self._test_sale_commission_gross_amount_invoice()
+        self._test_sale_commission_net_amount_payment()
+        self._test_sale_commission_net_amount_invoice()
+        self._test_sale_commission_section_payment()
+        self._test_sale_commission_section_invoice()
+        self._test_res_partner_onchange()
+        self._test_sale_default_agent()
+        self._test_wrong_section()

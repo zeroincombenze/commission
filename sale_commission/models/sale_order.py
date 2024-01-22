@@ -67,7 +67,7 @@ class SaleOrderLine(models.Model):
 
     agents = fields.One2many(
         string="Agents & commissions",
-        comodel_name="sale.order.line.agent", inverse_name="sale_line",
+        comodel_name="sale.order.line.agent", inverse_name="object_id",
         help="Agents/Commissions related to the sale order line.",
         copy=True, readonly=True,
         default=_default_agents)
@@ -186,8 +186,9 @@ class SaleOrderLineAgent(models.Model):
     _name = "sale.order.line.agent"
     _rec_name = "agent"
 
-    sale_line = fields.Many2one(
+    object_id = fields.Many2one(
         comodel_name="sale.order.line",
+        oldname='sale_line',
         ondelete="cascade",
         required=True, copy=False)
     agent = fields.Many2one(
@@ -198,7 +199,7 @@ class SaleOrderLineAgent(models.Model):
     amount = fields.Float(compute="_compute_amount", store=True)
 
     _sql_constraints = [
-        ('unique_agent', 'UNIQUE(sale_line, agent)',
+        ('unique_agent', 'UNIQUE(object_id, agent)',
          'You can only add one time each agent.')
     ]
 
@@ -206,18 +207,18 @@ class SaleOrderLineAgent(models.Model):
     def onchange_agent(self):
         self.commission = self.agent.commission
 
-    @api.depends('sale_line.price_subtotal')
+    @api.depends('object_id.price_subtotal')
     def _compute_amount(self):
         for line in self:
             line.amount = 0.0
-            if (not line.sale_line.product_id.commission_free and
+            if (not line.object_id.product_id.commission_free and
                     line.commission):
                 if line.commission.amount_base_type == 'net_amount':
-                    subtotal = (line.sale_line.price_subtotal -
-                                (line.sale_line.product_id.standard_price *
-                                 line.sale_line.product_uom_qty))
+                    subtotal = (line.object_id.price_subtotal -
+                                (line.object_id.product_id.standard_price *
+                                 line.object_id.product_uom_qty))
                 else:
-                    subtotal = line.sale_line.price_subtotal
+                    subtotal = line.object_id.price_subtotal
                 if line.commission.commission_type == 'fixed':
                     line.amount = subtotal * (line.commission.fix_qty / 100.0)
                 else:

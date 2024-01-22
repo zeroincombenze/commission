@@ -1,8 +1,10 @@
-================================================
-|icon| Sales commissions/Provvigioni 10.0.11.0.5
-================================================
+===================================================
+|icon| Sale Commission BI/BI provvigioni 10.0.0.1.0
+===================================================
 
-.. |icon| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission/static/description/icon.png
+**Add commission values in invoice BI**
+
+.. |icon| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission_bi/static/description/icon.png
 
 
 .. contents::
@@ -12,22 +14,15 @@
 Overview | Panoramica
 =====================
 
-|en| This module allows to define sales agents with their commissions and assign
-them in customers and sales orders.
-
-You can then make the settlements of these commissions, and generate the
-corresponding supplier invoices to pay their commissions fees.
-
-You can define which base amount is going to be taken into account: net amount
-(based on margin) or gross amount (line subtotal amount)
+|en| Missed description
 
 
-|it| Modulo per gestione provvigioni agenti
+|it| Descrizione non disponibile
 
 
 |thumbnail|
 
-.. |thumbnail| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission/static/description/description.png
+.. |thumbnail| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission_bi/static/description/description.png
 
 
 Getting started | Primi passi
@@ -125,22 +120,10 @@ An Enhancement Proposal may be submitted if your idea gains ground.
 ChangeLog History | Cronologia modifiche
 ----------------------------------------
 
-10.0.11.0.5 (2024-01-22)
-~~~~~~~~~~~~~~~~~~~~~~~~
+10.0.0.1.0 (2024-01-15)
+~~~~~~~~~~~~~~~~~~~~~~~
 
-* [IMP] Integration with OCA module
-* [IMP] sale_agent_id on invoice header
-
-10.0.11.0.4 (2023-04-06)
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-* [FIX] Error in invoice update / Errore in cambio dati fattura
-
-10.0.11.0.3 (2023-03-06)
-~~~~~~~~~~~~~~~~~~~~~~~~
-
-* [FIX] Crash after change shipping or invoice address / Crash al cambio di indirizzo
-* [QUA] Test coverage 72% (589: 163+426) [11 TestPoints] - quality rating 47 (target 100)
+* Initial implementation / Implementazione iniziale
 
 
 
@@ -156,12 +139,6 @@ Odoo is a trademark of `Odoo S.A. <https://www.odoo.com/>`__ (formerly OpenERP)
 Authors | Autori
 ----------------
 
-* Odoo Community Association (OCA) and other subjects <False>
-* `Pexego <https://www.pexego.es>`__
-* `Savoir-faire <https://savoirfairelinux.com>`__
-* `Abstract <https://www.abstract.it>`__
-* `Avanzosc <https://https:>`__
-* `Agile Business Group sagl <https://www.agilebg.com>`__
 * `SHS-AV s.r.l. <https://www.zeroincombenze.it>`__
 
 
@@ -169,14 +146,6 @@ Authors | Autori
 Contributors | Contributi da
 ----------------------------
 
-* `Joao Alfredo Gama Batista <joao.gama@savoirfairelinux.com>`__
-* `Sandy Carter <sandy.carter@savoirfairelinux.com>`__
-* `Davide Corio <davide.corio@abstract.it>`__
-* `Giorgio Borelli <giorgio.borelli@abstract.it>`__
-* `Daniel Campos <danielcampos@avanzosc.es>`__
-* `Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>`__
-* `Oihane Crucelaegui <oihanecruce@gmail.com>`__
-* `Nicola Malcontenti <nicola.malcontenti@agilebg.com>`__
 * `Antonio Maria Vigliotti <antoniomaria.vigliotti@gmail.com>`__
 
 
@@ -205,7 +174,7 @@ La distribuzione `Zeroincombenze® <https://www.zeroincombenze.it/>`__ è proget
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2024-01-22
+Last Update / Ultimo aggiornamento: 2024-01-21
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-black.png
     :target: https://odoo-community.org/page/development-status

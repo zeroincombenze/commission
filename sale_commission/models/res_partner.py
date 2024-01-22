@@ -10,15 +10,13 @@ class ResPartner(models.Model):
     agents = fields.Many2many(
         comodel_name="res.partner", relation="partner_agent_rel",
         column1="partner_id", column2="agent_id",
-        domain="[('agent', '=', True)]")
+        domain=[('agent', '=', True)])
     # Fields for the partner when it acts as an agent
     agent = fields.Boolean(
         string="Creditor/Agent",
         help="Check this field if the partner is a creditor or an agent.")
     agent_type = fields.Selection(
-        selection=[("agent", "Agent"),
-                   ("External agent", "External Agent")],
-        string="Type", required=True,
+        selection=[("agent", "External agent")], string="Type", required=True,
         default="agent")
     commission = fields.Many2one(
         string="Commission", comodel_name="sale.commission",

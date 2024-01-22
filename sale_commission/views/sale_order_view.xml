@@ -6,10 +6,6 @@
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//button[@name='action_done']" position="after">
-                <button name="recompute_lines_agents" type="object" string="Recompute lines agents"
-                        attrs="{'invisible':[('state', 'in', ['done', 'cancel'])]}"/>
-            </xpath>
             <field name="order_line" position="attributes">
                 <attribute name="context">{'partner_id': partner_id}</attribute>
             </field>
@@ -24,7 +20,7 @@
             <xpath expr="//field[@name='order_line']/form//field[@name='customer_lead']/.." position="after">
                 <field name="commission_free"/>
                 <field name="agents"
-                       attrs="{'readonly': [('commission_free', '=', True)]}"/>
+                       attrs="{'invisible': [('commission_free', '=', True)]}"/>
                 <field name="reval_commission"/>
             </xpath>
             <field name="amount_total" position="after">
@@ -32,6 +28,10 @@
                        widget="monetary"
                        options="{'currency_field': 'currency_id'}"/>
             </field>
+            <xpath expr="//field[@name='order_line']" position="after">
+                <button name="recompute_lines_agents" type="object" string="Recompute lines agents"
+                        attrs="{'invisible':[('state', 'in', ['done', 'cancel'])]}"/>
+            </xpath>
         </field>
     </record>
 
@@ -43,6 +43,18 @@
                 <field name="agent"/>
                 <field name="commission"/>
             </tree>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="view_sales_order_filter">
+        <field name="name">Commission filter on sale orders</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_sales_order_filter"/>
+        <field name="arch" type="xml">
+            <search position="inside">
+                <field string="Line agents" name="order_line"
+                       filter_domain="[('order_line.agents.agent', 'like', self)]"/>
+            </search>
         </field>
     </record>
 
