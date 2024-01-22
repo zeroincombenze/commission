@@ -7,8 +7,6 @@
     "website": "https://www.zeroincombenze.it/crm",
     "development_status": "Alpha",
     "license": "LGPL-3",
-    'depends': [
-        'account',
-    ],
+    "depends": ["account", "sale_commission"],
     "maintainer": "Antonio M. Vigliotti <antoniomaria.vigliotti@gmail.com>",
 }
