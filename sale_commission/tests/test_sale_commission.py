@@ -656,3 +656,5 @@ class TestSaleCommission(SingleTransactionCase):
         self._test_res_partner_onchange()
         self._test_sale_default_agent()
         self._test_wrong_section()
+
+

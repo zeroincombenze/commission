@@ -124,12 +124,12 @@ ChangeLog History | Cronologia modifiche
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 * Initial implementation / Implementazione iniziale
-* [QUA] Test coverage 100% (4: 0+4) [0 TestPoints] - quality rating 61 (target 100)
+* [QUA] Test coverage 100% (10: 0+10) [0 TestPoints] - quality rating 61 (target 100)
 
 
 
-Credits | Didascalie
-====================
+Credits | Ringraziamenti
+========================
 
 Copyright
 ---------
@@ -144,8 +144,8 @@ Authors | Autori
 
 
 
-Contributors | Contributi da
-----------------------------
+Contributors | Partecipanti
+---------------------------
 
 * `Antonio Maria Vigliotti <antoniomaria.vigliotti@gmail.com>`__
 
@@ -175,7 +175,7 @@ La distribuzione `Zeroincombenze® <https://www.zeroincombenze.it/>`__ è proget
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2024-01-22
+Last Update / Ultimo aggiornamento: 2024-02-05
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-black.png
     :target: https://odoo-community.org/page/development-status

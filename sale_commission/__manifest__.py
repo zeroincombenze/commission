@@ -4,8 +4,8 @@
     "version": "10.0.11.0.5",
     "category": "Sales Management",
     "summary": "Sales commissions",
-    "author": ("Odoo Community Association (OCA) and other subjects,Pexego"
-               ",Savoir-faire,Abstract,Avanzosc,Agile Business Group sagl,SHS-AV s.r.l."),
+    "author": ("Odoo Community Association (OCA),Pexego,Savoir-faire,Abstract"
+               ",Avanzosc,Agile Business Group sagl,SHS-AV s.r.l."),
     "website": "https://www.zeroincombenze.it/crm",
     "development_status": "Alpha",
     "license": "AGPL-3",

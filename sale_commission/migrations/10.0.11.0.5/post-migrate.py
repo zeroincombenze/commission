@@ -15,15 +15,3 @@ def migrate(cr, version):
         for invoice in account_invoice_model.search(
                 [('sale_agent_id', '=', False)]):
             invoice._compute_sale_agent()
-            # sale_agent_id = None
-            # for line in invoice.invoice_line_ids:
-            #     for agent in line.agents:
-            #         if not sale_agent_id:
-            #             sale_agent_id = agent.agent
-            #         elif sale_agent_id != agent.agent:
-            #             sale_agent_id = False
-            #             break
-            #     if sale_agent_id is False:
-            #         break
-            # if sale_agent_id is not None:
-            #     invoice.write({"sale_agent_id": sale_agent_id.id})

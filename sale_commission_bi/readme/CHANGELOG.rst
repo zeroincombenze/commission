@@ -1,4 +1,4 @@
-10.0.0.1.0 (2024-01-22)
+10.0.0.1.0 (2024-02-05)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 * Initial implementation / Implementazione iniziale

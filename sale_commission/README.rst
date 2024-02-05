@@ -125,7 +125,7 @@ An Enhancement Proposal may be submitted if your idea gains ground.
 ChangeLog History | Cronologia modifiche
 ----------------------------------------
 
-10.0.11.0.5 (2024-01-22)
+10.0.11.0.5 (2024-02-05)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
 * [IMP] Integration with OCA module
@@ -141,11 +141,12 @@ ChangeLog History | Cronologia modifiche
 
 * [FIX] Crash after change shipping or invoice address / Crash al cambio di indirizzo
 * [QUA] Test coverage 72% (589: 163+426) [11 TestPoints] - quality rating 47 (target 100)
+* [QUA] Test coverage 72% (593: 164+429) [11 TestPoints] - quality rating 47 (target 100)
 
 
 
-Credits | Didascalie
-====================
+Credits | Ringraziamenti
+========================
 
 Copyright
 ---------
@@ -156,18 +157,19 @@ Odoo is a trademark of `Odoo S.A. <https://www.odoo.com/>`__ (formerly OpenERP)
 Authors | Autori
 ----------------
 
-* Odoo Community Association (OCA) and other subjects <False>
+* `Odoo Community Association (OCA) <https://odoo-community.org>`__
 * `Pexego <https://www.pexego.es>`__
 * `Savoir-faire <https://savoirfairelinux.com>`__
 * `Abstract <https://www.abstract.it>`__
 * `Avanzosc <https://https:>`__
 * `Agile Business Group sagl <https://www.agilebg.com>`__
 * `SHS-AV s.r.l. <https://www.zeroincombenze.it>`__
+* Odoo Community Association (OCA) and other subjects <False>
 
 
 
-Contributors | Contributi da
-----------------------------
+Contributors | Partecipanti
+---------------------------
 
 * `Joao Alfredo Gama Batista <joao.gama@savoirfairelinux.com>`__
 * `Sandy Carter <sandy.carter@savoirfairelinux.com>`__
@@ -205,7 +207,7 @@ La distribuzione `Zeroincombenze® <https://www.zeroincombenze.it/>`__ è proget
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2024-01-22
+Last Update / Ultimo aggiornamento: 2024-02-05
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-black.png
     :target: https://odoo-community.org/page/development-status
