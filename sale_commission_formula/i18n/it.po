@@ -9,61 +9,75 @@ msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-12-14 15:14+0000\n"
-"PO-Revision-Date: 2017-12-14 15:14+0000\n"
-"Last-Translator: OCA Transbot <transbot@odoo-community.org>, 2017\n"
+"PO-Revision-Date: 2023-05-24 12:08+0000\n"
+"Last-Translator: Francesco Foresti <francesco.foresti@ooops404.com>\n"
 "Language-Team: Italian (https://www.transifex.com/oca/teams/23907/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.17\n"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
+#, fuzzy
 msgid ""
 "<span class=\"instructions\">\n"
 "  Use 'line' to access all the line fields.\n"
 "  As field names may vary, you should differentiate the\n"
-"  formulas for sale.order.line and account.invoice.line.\n"
+"  formulas for sale.order.line and account.move.line.\n"
 "  You can, for instance, use line._name == 'sale.order.line'\n"
-"  or line._name == 'account.invoice.line'.\n"
+"  or line._name == 'account.move.line'.\n"
 "\n"
 "  Use 'result' to return the commission amount.\n"
 "                        </span>"
 msgstr ""
+"<span class=\"instructions\">\n"
+"  Utilizza 'line' per accedere a tutti i campi della riga.\n"
+"  Visto che i nomi dei campi potrebbero variare, potrebbe essere necessario "
+"differenziare\n"
+"  le formule per sale.order.line e account.invoice.line.\n"
+"  È possibile, per esempio, usare line._name == 'sale.order.line'\n"
+"  or line._name == 'account.invoice.line'.\n"
+"\n"
+"  Utilizzare 'result' per ritornare l'importo della commissione.\n"
+"                        </span>"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "Account Invoice Line common fields"
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
+#, fuzzy
+msgid "Account Move Line common fields"
 msgstr "Campi comuni righe fattura"
 
 #. module: sale_commission_formula
 #: model:ir.model,name:sale_commission_formula.model_sale_commission
 msgid "Commission in sales"
-msgstr "Commissioni nelle Vendite"
+msgstr "Provvigione nelle vendite"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Discount (%)"
 msgstr "Sconto (%)"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Field"
 msgstr "Campo"
 
 #. module: sale_commission_formula
-#: model:ir.model.fields,field_description:sale_commission_formula.field_sale_commission_formula
+#: model:ir.model.fields,field_description:sale_commission_formula.field_sale_commission__formula
+#: model:ir.model.fields.selection,name:sale_commission_formula.selection__sale_commission__commission_type__formula
 msgid "Formula"
 msgstr "Formula"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Instructions"
 msgstr "Istruzioni"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Label"
 msgstr "Etichetta"
 
@@ -75,49 +89,50 @@ msgid ""
 msgstr ""
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Quantity"
 msgstr "Quantità"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Sale Oder Line common fields"
 msgstr "Campi Usuali Delle Righe di Ordine di Vendita"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Subtotal"
-msgstr "Totale"
+msgstr "Subtotale"
 
 #. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
+#: model:ir.model.fields,field_description:sale_commission_formula.field_sale_commission__commission_type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: sale_commission_formula
+#: model_terms:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form
 msgid "Unit Price"
-msgstr "Prezzo Unitario"
+msgstr "Prezzo unitario"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "discount"
-msgstr "sconto"
+#~ msgid "discount"
+#~ msgstr "sconto"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "price_subtotal"
-msgstr "Prezzo Totale"
+#~ msgid "price_subtotal"
+#~ msgstr "price_subtotal"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "price_unit"
-msgstr "Prezzo Unitario"
+#~ msgid "price_unit"
+#~ msgstr "price_unit"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "product_uom_qty"
-msgstr "Quantità Unità di Misura"
+#~ msgid "product_uom_qty"
+#~ msgstr "product_uom_qty"
 
-#. module: sale_commission_formula
-#: model:ir.ui.view,arch_db:sale_commission_formula.sale_commission_form_formula
-msgid "quantity"
-msgstr "Quantità"
+#~ msgid "quantity"
+#~ msgstr "quantità"
+
+#~ msgid "By sections"
+#~ msgstr "Per sezioni"
+
+#~ msgid "Fixed percentage"
+#~ msgstr "Percentuale fissa"
 
 #~ msgid "account.invoice.line.agent"
 #~ msgstr "account.invoice.line.agent"
