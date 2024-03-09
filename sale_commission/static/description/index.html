@@ -41,7 +41,19 @@ You can define which base amount is going to be taken into account: net amount
             <p align="center">
                 <img src="/l10n_it/static/description/icon.png" alt="Italiano" style="width:16px;height:16px;"/>
             </p>
-            <p class="oe_mt16" align="justify">Modulo per gestione provvigioni agenti</p>
+            <p class="oe_mt16" align="justify">Modulo per gestione provvigioni agenti
+<p align="justify">
+Si pu&#242; assegnare un agente in anagrafica cliente per permettere di calcolare
+la provvigione nelle righe degli ordini di vendita e di conseguenza nelle
+relative fatture.
+</p><p align="justify">
+I dati sono modificabili per ogni riga del documento.
+</p><p align="justify">
+Si possono generare le liquidazioni agenti per il pagamento delle stesse.
+La liquidazione pu&#242; essere calcolata sulla vendita oppure sul pagato.
+</p><p align="justify">
+I provvigioni sono calcolate al prezzo o al margine del prodotto.
+</p></p>
         </div>
     </div>
 </section>
@@ -50,25 +62,39 @@ You can define which base amount is going to be taken into account: net amount
     <div class="oe_row oe_spaced">
         <h3 align="center" style="color:#162832;font-size: 26px;font-weight: 300;">ChangeLog History | Cronologia modifiche</h3>
         <div class="oe_span12">
-<h4>10.0.11.0.5 (2024-02-05)</h4>
+<h4>10.0.1.0.7 (2024-03-09)</h4>
 <p align="justify">
+<ul>
+<li>[IMP] head_agent moved into sale_commission_plus module</li>
+<li>[IMP[ agent_id moved into sale_commision_plus module</li>
+<li>[QUA] Test coverage 71% (663: 193+470) [11 TestPoints] - quality rating 46 (target 100)</li>
+</ul>
+</p><p align="justify">
+<h4>10.0.1.0.6 (2024-02-07)</h4>
+</p><p align="justify">
+<ul>
+<li>[FIX] Sale order cannot update commisions</li>
+<li>[QUA] Test coverage 70% (677: 204+473) [11 TestPoints] - quality rating 45 (target 100)</li>
+</ul>
+</p><p align="justify">
+<h4>10.0.1.0.5 (2024-02-05)</h4>
+</p><p align="justify">
 <ul>
 <li>[IMP] Integration with OCA module</li>
 <li>[IMP] sale_agent_id on invoice header</li>
+<li>[QUA] Test coverage 72% (589: 163+426) [11 TestPoints] - quality rating 47 (target 100)</li>
 </ul>
 </p><p align="justify">
-<h4>10.0.11.0.4 (2023-04-06)</h4>
+<h4>10.0.1.0.4 (2023-04-06)</h4>
 </p><p align="justify">
 <ul>
 <li>[FIX] Error in invoice update / Errore in cambio dati fattura</li>
 </ul>
 </p><p align="justify">
-<h4>10.0.11.0.3 (2023-03-06)</h4>
+<h4>10.0.1.0.3 (2023-03-06)</h4>
 </p><p align="justify">
 <ul>
 <li>[FIX] Crash after change shipping or invoice address / Crash al cambio di indirizzo</li>
-<li>[QUA] Test coverage 72% (589: 163+426) [11 TestPoints] - quality rating 47 (target 100)</li>
-<li>[QUA] Test coverage 72% (593: 164+429) [11 TestPoints] - quality rating 47 (target 100)</li>
 </ul>
 </p>
         </div>
@@ -82,9 +108,7 @@ You can define which base amount is going to be taken into account: net amount
             <p class="oe_mt16"><b>Authors | Autori:</b></p>
             <p class="oe_mt16"><ul>
 <li><a href="https://odoo-community.org">Odoo Community Association (OCA)</a></li>
-<li><a href="https://www.pexego.es">Pexego</a></li>
-<li><a href="https://savoirfairelinux.com">Savoir-faire</a></li>
-<li><a href="https://www.abstract.it">Abstract</a></li>
+<li>Tecnativa &lt;False&gt;</li>
 <li><a href="https://https:">Avanzosc</a></li>
 <li><a href="https://www.agilebg.com">Agile Business Group sagl</a></li>
 <li><a href="https://www.zeroincombenze.it">SHS-AV s.r.l.</a></li>
@@ -94,14 +118,15 @@ You can define which base amount is going to be taken into account: net amount
         <div class="oe_span6" align="left">
             <p class="oe_mt16"><b>Contributors | Partecipanti:</b></p>
             <p class="oe_mt16"><ul>
+<li><a href="mailto:davide.corio@domsense.com">Davide Corio</a></li>
 <li><a href="mailto:joao.gama@savoirfairelinux.com">Joao Alfredo Gama Batista</a></li>
 <li><a href="mailto:sandy.carter@savoirfairelinux.com">Sandy Carter</a></li>
-<li><a href="mailto:davide.corio@abstract.it">Davide Corio</a></li>
 <li><a href="mailto:giorgio.borelli@abstract.it">Giorgio Borelli</a></li>
 <li><a href="mailto:danielcampos@avanzosc.es">Daniel Campos</a></li>
 <li><a href="mailto:pedro.baeza@serviciosbaeza.com">Pedro M. Baeza</a></li>
 <li><a href="mailto:oihanecruce@gmail.com">Oihane Crucelaegui</a></li>
 <li><a href="mailto:nicola.malcontenti@agilebg.com">Nicola Malcontenti</a></li>
+<li><a href="mailto:aitor.bouzas@adaptivecity.com">Aitor Bouzas</a></li>
 <li><a href="mailto:antoniomaria.vigliotti@gmail.com">Antonio Maria Vigliotti</a></li>
 </ul></p>
         </div>
@@ -113,6 +138,6 @@ You can define which base amount is going to be taken into account: net amount
     </div>
     <div class="oe_row oe_spaced">
         <p>This module is part of <a href="https://github.com/zeroincombenze/commission">commission</a> project.</p>
-        <p>Published information on | Informazioni pubblicate: 2024-02-05</p>
+        <p>Published information on | Informazioni pubblicate: 2024-03-09</p>
     </div>
 </section>

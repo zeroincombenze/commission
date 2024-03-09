@@ -1,0 +1,170 @@
+2024-03-09 09:11:00,000 493877 DAEMON test_sale_commission_plus_10 run_odoo_debug.sh: cd /home/odoo/10.0/venv_odoo && source ./bin/activate
+2024-03-09 08:12:20,852 502333 INFO ? odoo: Odoo version 10.0
+2024-03-09 08:12:20,853 502333 INFO ? odoo: Using configuration file at /home/odoo/10.0/commission/sale_commission_plus/tests/logs/zero10.commission.sale_commission_plus.conf
+2024-03-09 08:12:20,853 502333 INFO ? odoo: addons paths: ['/home/odoo/.local/share/Odoo10/addons/addons/10.0', u'/home/odoo/10.0/odoo/addons', u'/home/odoo/10.0/addons', u'/home/odoo/.local/share/Odoo10/addons', u'/home/odoo/10.0/account-analytic', u'/home/odoo/10.0/account-budgeting', u'/home/odoo/10.0/account-closing', u'/home/odoo/10.0/account-consolidation', u'/home/odoo/10.0/account-financial-reporting', u'/home/odoo/10.0/account-financial-tools', u'/home/odoo/10.0/account-fiscal-rule', u'/home/odoo/10.0/account-invoice-reporting', u'/home/odoo/10.0/account-invoicing', u'/home/odoo/10.0/account-payment', u'/home/odoo/10.0/account-reconcile', u'/home/odoo/10.0/bank-payment', u'/home/odoo/10.0/bank-statement-import', u'/home/odoo/10.0/calendar', u'/home/odoo/10.0/commission', u'/home/odoo/10.0/community-data-files', u'/home/odoo/10.0/connector', u'/home/odoo/10.0/contract', u'/home/odoo/10.0/crm', u'/home/odoo/10.0/currency', u'/home/odoo/10.0/data-protection', u'/home/odoo/10.0/delivery-carrier', u'/home/odoo/10.0/e-commerce', u'/home/odoo/10.0/edi', u'/home/odoo/10.0/hr', u'/home/odoo/10.0/intrastat-extrastat', u'/home/odoo/10.0/knowledge', u'/home/odoo/10.0/l10n-italy', u'/home/odoo/10.0/l10n-italy-supplemental', u'/home/odoo/10.0/maintenance', u'/home/odoo/10.0/management-system', u'/home/odoo/10.0/manufacture', u'/home/odoo/10.0/margin-analysis', u'/home/odoo/10.0/mis-builder', u'/home/odoo/10.0/multi-company', u'/home/odoo/10.0/partner-contact', u'/home/odoo/10.0/product-attribute', u'/home/odoo/10.0/product-variant', u'/home/odoo/10.0/profiles', u'/home/odoo/10.0/project', u'/home/odoo/10.0/purchase-reporting', u'/home/odoo/10.0/purchase-workflow', u'/home/odoo/10.0/queue', u'/home/odoo/10.0/report-print-send', u'/home/odoo/10.0/reporting-engine', u'/home/odoo/10.0/rma', u'/home/odoo/10.0/sale-financial', u'/home/odoo/10.0/sale-reporting', u'/home/odoo/10.0/sale-workflow', u'/home/odoo/10.0/search-engine', u'/home/odoo/10.0/server-auth', u'/home/odoo/10.0/server-tools', u'/home/odoo/10.0/server-ux', u'/home/odoo/10.0/social', u'/home/odoo/10.0/stock-logistics-barcode', u'/home/odoo/10.0/stock-logistics-reporting', u'/home/odoo/10.0/stock-logistics-tracking', u'/home/odoo/10.0/stock-logistics-transport', u'/home/odoo/10.0/stock-logistics-warehouse', u'/home/odoo/10.0/stock-logistics-workflow', u'/home/odoo/10.0/storage', u'/home/odoo/10.0/timesheet', u'/home/odoo/10.0/uncovered', u'/home/odoo/10.0/web', u'/home/odoo/10.0/website', u'/home/odoo/10.0/wms', u'/home/odoo/10.0/zerobug-test']
+2024-03-09 08:12:20,853 502333 INFO ? odoo: database: odoo10@localhost:default
+2024-03-09 08:12:21,009 502333 INFO ? odoo.service.server: HTTP service (werkzeug) running on nb200z0.:32853
+2024-03-09 08:12:21,077 502333 INFO ? odoo.modules.loading: init db
+2024-03-09 08:12:30,637 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading 1 modules...
+2024-03-09 08:12:30,844 502333 INFO test_sale_commission_plus_10 odoo.modules.registry: module base: creating or updating database tables
+2024-03-09 08:12:31,578 502333 INFO test_sale_commission_plus_10 odoo.models: Computing parent left and right for table ir_ui_menu...
+2024-03-09 08:12:35,412 502333 INFO test_sale_commission_plus_10 odoo.models: Computing parent left and right for table res_partner_category...
+2024-03-09 08:12:37,733 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of res.users fields share
+2024-03-09 08:12:37,737 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of res.company fields email, logo_web, phone
+2024-03-09 08:12:37,738 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of res.partner.bank fields sanitized_acc_number
+2024-03-09 08:12:37,739 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of ir.attachment fields res_name
+2024-03-09 08:12:37,740 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of ir.ui.view fields model_data_id
+2024-03-09 08:12:37,741 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of ir.actions.server fields crud_model_name, wkf_model_name
+2024-03-09 08:12:37,741 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of ir.rule fields global
+2024-03-09 08:12:37,742 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of ir.module.module fields menus_by_module, reports_by_module, views_by_module
+2024-03-09 08:12:37,750 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of ir.actions.report.xml fields report_file
+2024-03-09 08:12:37,752 502333 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of res.partner fields commercial_company_name, commercial_partner_id, display_name, partner_share
+2024-03-09 08:12:38,537 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res.lang.csv
+2024-03-09 08:12:39,110 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/base_data.xml
+2024-03-09 08:12:39,537 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_currency_data.xml
+2024-03-09 08:12:40,265 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_country_data.xml
+2024-03-09 08:12:44,621 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/security/base_security.xml
+2024-03-09 08:12:45,168 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/base_menu.xml
+2024-03-09 08:12:45,507 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_config.xml
+2024-03-09 08:12:45,571 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res.country.state.csv
+2024-03-09 08:12:49,137 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_actions.xml
+2024-03-09 08:12:49,858 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_config_parameter_view.xml
+2024-03-09 08:12:49,977 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_cron_view.xml
+2024-03-09 08:12:50,134 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_filters.xml
+2024-03-09 08:12:50,347 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_mail_server_view.xml
+2024-03-09 08:12:50,472 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_model_view.xml
+2024-03-09 08:12:51,290 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_attachment_view.xml
+2024-03-09 08:12:51,428 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_rule_view.xml
+2024-03-09 08:12:51,572 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_sequence_view.xml
+2024-03-09 08:12:51,713 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_translation_view.xml
+2024-03-09 08:12:51,887 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_ui_menu_view.xml
+2024-03-09 08:12:52,023 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_ui_view_view.xml
+2024-03-09 08:12:52,282 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_values_view.xml
+2024-03-09 08:12:52,501 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_autovacuum.xml
+2024-03-09 08:12:52,515 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_model_report.xml
+2024-03-09 08:12:52,538 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/report_ir_model.xml
+2024-03-09 08:12:52,572 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_logging_view.xml
+2024-03-09 08:12:52,702 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/ir/ir_qweb.xml
+2024-03-09 08:12:52,736 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/workflow/workflow_view.xml
+2024-03-09 08:12:53,403 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/module_view.xml
+2024-03-09 08:12:53,696 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/module_data.xml
+2024-03-09 08:12:53,961 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/module_report.xml
+2024-03-09 08:12:53,982 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/report/report_ir_module_reference.xml
+2024-03-09 08:12:54,018 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/wizard/base_module_update_view.xml
+2024-03-09 08:12:54,084 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/wizard/base_language_install_view.xml
+2024-03-09 08:12:54,170 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/wizard/base_import_language_view.xml
+2024-03-09 08:12:54,237 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/wizard/base_module_upgrade_view.xml
+2024-03-09 08:12:54,339 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/wizard/base_module_configuration_view.xml
+2024-03-09 08:12:54,376 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/wizard/base_export_language_view.xml
+2024-03-09 08:12:54,453 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/wizard/base_update_translations_view.xml
+2024-03-09 08:12:54,523 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/module/wizard/base_module_immediate_install.xml
+2024-03-09 08:12:54,551 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_company_view.xml
+2024-03-09 08:12:54,682 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_request_view.xml
+2024-03-09 08:12:54,811 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_lang_view.xml
+2024-03-09 08:12:54,945 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_partner_view.xml
+2024-03-09 08:12:55,450 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_bank_view.xml
+2024-03-09 08:12:55,652 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_country_view.xml
+2024-03-09 08:12:55,893 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_currency_view.xml
+2024-03-09 08:12:56,222 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_users_view.xml
+2024-03-09 08:12:56,890 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_partner_data.xml
+2024-03-09 08:12:56,927 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/ir_property_view.xml
+2024-03-09 08:12:57,061 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_security.xml
+2024-03-09 08:12:57,161 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/security/ir.model.access.csv
+2024-03-09 08:12:59,523 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/base_demo.xml
+2024-03-09 08:12:59,815 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_currency_demo.xml
+2024-03-09 08:13:00,809 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_bank_demo.xml
+2024-03-09 08:13:00,826 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_partner_demo.xml
+2024-03-09 08:13:01,985 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_partner_demo.yml
+2024-03-09 08:13:06,645 502333 INFO test_sale_commission_plus_10 odoo.modules.loading: loading base/res/res_partner_image_demo.xml
+2024-03-09 08:13:09,530 502333 INFO test_sale_commission_plus_10 odoo.modules.module: odoo.addons.base.tests.test_acl running tests.
+2024-03-09 08:13:09,531 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: test_field_crud_restriction (odoo.addons.base.tests.test_acl.TestACL)
+2024-03-09 08:13:09,531 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: ` Read/Write RPC access to restricted field should be forbidden
+2024-03-09 08:13:09,778 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: test_field_visibility_restriction (odoo.addons.base.tests.test_acl.TestACL)
+2024-03-09 08:13:09,779 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: ` Check that model-level ``groups`` parameter effectively restricts access to that field for users who do not belong to one of the explicitly allowed groups
+2024-03-09 08:13:09,951 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: test_fields_browse_restriction (odoo.addons.base.tests.test_acl.TestACL)
+2024-03-09 08:13:09,951 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: ` Test access to records having restricted fields
+2024-03-09 08:13:09,988 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: test_m2o_field_create_edit_invisibility (odoo.addons.base.tests.test_acl.TestACL)
+2024-03-09 08:13:09,988 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: ` Test many2one field Create and Edit option visibility based on access rights of relation field
+2024-03-09 08:13:10,030 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: test_m2o_field_create_edit_visibility (odoo.addons.base.tests.test_acl.TestACL)
+2024-03-09 08:13:10,030 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: ` Test many2one field Create and Edit option visibility based on access rights of relation field
+2024-03-09 08:13:10,186 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: test_view_create_edit_button_invisibility (odoo.addons.base.tests.test_acl.TestACL)
+2024-03-09 08:13:10,186 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: ` Test form view Create, Edit, Delete button visibility based on access right of model
+2024-03-09 08:13:10,225 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: test_view_create_edit_button_visibility (odoo.addons.base.tests.test_acl.TestACL)
+2024-03-09 08:13:10,226 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: ` Test form view Create, Edit, Delete button visibility based on access right of model
+2024-03-09 08:13:10,382 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: test_ir_rule (odoo.addons.base.tests.test_acl.TestIrRule)
+2024-03-09 08:13:10,723 502333 INFO test_sale_commission_plus_10 odoo.models.unlink: User #1 deleted ir.model.data records with IDs: [3709, 3707, 3706, 4476, 3710, 3708, 3703, 4702]
+2024-03-09 08:13:10,734 502333 INFO test_sale_commission_plus_10 odoo.models.unlink: User #1 deleted ir.rule records with IDs: [1, 20, 6, 8, 4, 5, 15, 7]
+2024-03-09 08:13:10,749 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: Ran 8 tests in 1.218s
+2024-03-09 08:13:10,749 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_acl: OK
+2024-03-09 08:13:10,749 502333 INFO test_sale_commission_plus_10 odoo.modules.module: odoo.addons.base.tests.test_api running tests.
+2024-03-09 08:13:10,749 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_00_query (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,750 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Build a recordset, and check its contents.
+2024-03-09 08:13:10,753 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_01_query_offset (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,753 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Build a recordset with offset, and check equivalence.
+2024-03-09 08:13:10,757 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_02_query_limit (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,757 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Build a recordset with offset, and check equivalence.
+2024-03-09 08:13:10,761 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_03_query_offset_limit (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,761 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Build a recordset with offset and limit, and check equivalence.
+2024-03-09 08:13:10,765 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_04_query_count (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,765 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Test the search method with count=True.
+2024-03-09 08:13:10,769 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_05_immutable (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,769 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check that a recordset remains the same, even after updates.
+2024-03-09 08:13:10,796 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_06_fields (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,797 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check that relation fields return records, recordsets or nulls.
+2024-03-09 08:13:10,865 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_07_null (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,866 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check behavior of null instances.
+2024-03-09 08:13:10,872 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_40_new_new (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,872 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Call new-style methods in the new API style.
+2024-03-09 08:13:10,899 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_45_new_new (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,899 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Call new-style methods on records (new API style).
+2024-03-09 08:13:10,973 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_50_environment (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:10,973 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Test environment on records.
+2024-03-09 08:13:11,111 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_55_draft (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,111 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Test draft mode nesting.
+2024-03-09 08:13:11,112 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_60_cache (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,113 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check the record cache behavior
+2024-03-09 08:13:11,487 502333 INFO test_sale_commission_plus_10 odoo.models.unlink: User #1 deleted res.partner records with IDs: [47]
+2024-03-09 08:13:11,514 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_60_prefetch (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,515 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check the record cache prefetching
+2024-03-09 08:13:11,551 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_60_prefetch_object (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,551 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check the prefetching model.
+2024-03-09 08:13:11,643 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_60_prefetch_read (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,643 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check that reading a field computes it on self only.
+2024-03-09 08:13:11,733 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_70_one (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,733 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check method one().
+2024-03-09 08:13:11,737 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_80_contains (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,737 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Test membership on recordset.
+2024-03-09 08:13:11,741 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_80_filter (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,741 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check filter on recordsets.
+2024-03-09 08:13:11,776 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_80_map (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,776 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check map on recordsets.
+2024-03-09 08:13:11,819 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_80_set_operations (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,819 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check set operations on recordsets.
+2024-03-09 08:13:11,915 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: test_80_sorted (odoo.addons.base.tests.test_api.TestAPI)
+2024-03-09 08:13:11,915 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: ` Check sorted on recordsets.
+2024-03-09 08:13:11,952 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: Ran 22 tests in 1.202s
+2024-03-09 08:13:11,952 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_api: OK
+2024-03-09 08:13:11,953 502333 INFO test_sale_commission_plus_10 odoo.modules.module: odoo.addons.base.tests.test_base running tests.
+2024-03-09 08:13:11,954 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_00_res_partner_name_create (odoo.addons.base.tests.test_base.TestBase)
+2024-03-09 08:13:12,103 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_10_res_partner_find_or_create (odoo.addons.base.tests.test_base.TestBase)
+2024-03-09 08:13:12,283 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_15_res_partner_name_search (odoo.addons.base.tests.test_base.TestBase)
+2024-03-09 08:13:12,439 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_20_res_partner_address_sync (odoo.addons.base.tests.test_base.TestBase)
+2024-03-09 08:13:12,571 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_30_res_partner_first_contact_sync (odoo.addons.base.tests.test_base.TestBase)
+2024-03-09 08:13:12,571 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: ` Test initial creation of company/contact pair where contact address gets copied to company
+2024-03-09 08:13:12,661 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_40_res_partner_address_get (odoo.addons.base.tests.test_base.TestBase)
+2024-03-09 08:13:12,661 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: ` Test address_get address resolution mechanism: it should first go down through descendants, stopping when encountering another is_copmany entity, then go up, stopping again at the first is_company entity or the root ancestor and if nothing matches, it should use the provided partner itself
+2024-03-09 08:13:13,048 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_50_res_partner_commercial_sync (odoo.addons.base.tests.test_base.TestBase)
+2024-03-09 08:13:13,504 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_60_read_group (odoo.addons.base.tests.test_base.TestBase)
+2024-03-09 08:13:13,997 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_res_group_copy (odoo.addons.base.tests.test_base.TestGroups)
+2024-03-09 08:13:14,257 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_res_group_recursion (odoo.addons.base.tests.test_base.TestGroups)
+2024-03-09 08:13:14,640 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_res_groups_fullname_search (odoo.addons.base.tests.test_base.TestGroups)
+2024-03-09 08:13:14,658 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_duplicate_children_01 (odoo.addons.base.tests.test_base.TestParentStore)
+2024-03-09 08:13:14,658 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: ` Duplicate the children then reassign them to the new parent (1st method).
+2024-03-09 08:13:14,750 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_duplicate_children_02 (odoo.addons.base.tests.test_base.TestParentStore)
+2024-03-09 08:13:14,750 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: ` Duplicate the children then reassign them to the new parent (2nd method).
+2024-03-09 08:13:14,870 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_duplicate_children_03 (odoo.addons.base.tests.test_base.TestParentStore)
+2024-03-09 08:13:14,870 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: ` Duplicate the children then reassign them to the new parent (3rd method).
+2024-03-09 08:13:14,980 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_duplicate_parent (odoo.addons.base.tests.test_base.TestParentStore)
+2024-03-09 08:13:14,981 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: ` Duplicate the parent category and verify that the children have been duplicated too
+2024-03-09 08:13:15,065 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_100_res_partner_recursion (odoo.addons.base.tests.test_base.TestPartnerRecursion)
+2024-03-09 08:13:15,184 502333 INFO test_sale_commission_plus_10 odoo.addons.base.tests.test_base: test_101_res_partner_recursion (odoo.addons.base.tests.test_base.TestPartnerRecursion)

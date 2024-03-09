@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, fields, models
+from lxml import etree
 
 
 class SaleOrder(models.Model):
@@ -16,6 +17,32 @@ class SaleOrder(models.Model):
     commission_total = fields.Float(
         string="Commissions", compute="_compute_commission_total",
         store=True, copy=False)
+
+    def recompute_lines_agents(self):
+        self.mapped('order_line').recompute_agents()
+
+    @api.model
+    def fields_view_get(self, view_id=None, view_type='form', toolbar=False,
+                        submenu=False):
+        """Add to the existing context of the field `order_line` "partner_id"
+        key for avoiding to be replaced by other view inheritance.
+
+        We have to do this processing in text mode without evaling context, as
+        it can contain JS stuff.
+        """
+        res = super(SaleOrder, self).fields_view_get(
+            view_id=view_id, view_type=view_type, toolbar=toolbar,
+            submenu=submenu,
+        )
+        if view_type == 'form':
+            doc = etree.XML(res['arch'])
+            for node in doc.xpath("//field[@name='order_line']"):
+                node_val = node.get('context', '{}').strip()[1:-1]
+                elems = node_val.split(',') if node_val else []
+                to_add = ["'partner_id': partner_id"]
+                node.set('context', '{' + ', '.join(elems + to_add) + '}')
+            res['arch'] = etree.tostring(doc)
+        return res
 
     @api.onchange('partner_id', 'company_id')
     def onchange_partner_id(self):
@@ -51,11 +78,6 @@ class SaleOrder(models.Model):
             line.agents = line._prepare_line_agents(self.partner_id._line_agents())
             line.reval_commission = False
 
-    @api.multi
-    def recompute_lines_agents(self):
-        for order in self:
-            order._recompute_lines_agents()
-
 
 class SaleOrderLine(models.Model):
     _inherit = "sale.order.line"
@@ -69,7 +91,7 @@ class SaleOrderLine(models.Model):
         string="Agents & commissions",
         comodel_name="sale.order.line.agent", inverse_name="object_id",
         help="Agents/Commissions related to the sale order line.",
-        copy=True, readonly=True,
+        copy=True,
         default=_default_agents)
     commission_free = fields.Boolean(
         string="Comm. free", related="product_id.commission_free",
@@ -183,25 +205,20 @@ class SaleOrderLine(models.Model):
 
 
 class SaleOrderLineAgent(models.Model):
+    _inherit = "sale.commission.line.mixin"
     _name = "sale.order.line.agent"
     _rec_name = "agent"
 
     object_id = fields.Many2one(
         comodel_name="sale.order.line",
         oldname='sale_line',
-        ondelete="cascade",
-        required=True, copy=False)
+    )
     agent = fields.Many2one(
         comodel_name="res.partner", required=True, ondelete="restrict",
         domain="[('agent', '=', True')]")
     commission = fields.Many2one(
         comodel_name="sale.commission", required=True, ondelete="restrict")
     amount = fields.Float(compute="_compute_amount", store=True)
-
-    _sql_constraints = [
-        ('unique_agent', 'UNIQUE(object_id, agent)',
-         'You can only add one time each agent.')
-    ]
 
     @api.onchange('agent')
     def onchange_agent(self):

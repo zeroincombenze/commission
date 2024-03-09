@@ -48,8 +48,6 @@
                         attrs="{'invisible':[('state', '=', 'cancel')]}"/>
             </xpath>
             <field name="amount_total" position="after">
-                <field name="sale_agent_id"
-                       attrs="{'invisible':[('sale_agent_id', '=', False)]}"/>
                 <field name="commission_total"
                        widget="monetary"
                        options="{'currency_field': 'currency_id'}"/>

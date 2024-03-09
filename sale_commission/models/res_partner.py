@@ -32,14 +32,6 @@ class ResPartner(models.Model):
     settlements = fields.One2many(
         comodel_name="sale.commission.settlement", inverse_name="agent",
         readonly=True)
-    head_agent = fields.Many2one(
-        string="Head Agent", comodel_name="res.partner",
-        domain=[('agent_type', '=', 'agent')],
-        help="Head agent, if exists"
-        )
-    head_commission = fields.Many2one(
-        string="Head Commission", comodel_name="sale.commission",
-        help="Default commission assigned to head agent")
 
     @api.onchange('agent_type')
     def onchange_agent_type(self):

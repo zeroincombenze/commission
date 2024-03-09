@@ -5,7 +5,8 @@
         <field name="model">sale.commission.settlement</field>
         <field name="arch" type="xml">
             <tree string="Settlements"
-                  colors="red: state == 'cancel'; gray: state == 'invoiced'">
+                  colors="red: state == 'cancel'; gray: state == 'invoiced'"
+                  create="false">
                 <field name="agent"/>
                 <field name="date_from"/>
                 <field name="date_to"/>
@@ -31,7 +32,7 @@
                 <group expand="1" string="Group By">
                     <filter string="Agent" name="group_agent" context="{'group_by': 'agent'}"/>
                     <filter string="Date from month" name="group_date" context="{'group_by': 'date_from:month'}"/>
-                 </group>
+                </group>
             </search>
         </field>
     </record>
@@ -72,14 +73,11 @@
                             <field name="customer_state"/>
                             <field name="date"/>
                             <field name="invoice"/>
-                            <field name="object_id"/>
+                            <field name="invoice_line"/>
                             <field name="inv_line_quantity"/>
                             <field name="inv_line_price_unit"/>
                             <field name="inv_line_discount"/>
                             <field name="inv_line_subtotal"/>
-                            <!-- 
-                            <field name="inv_line_currency_id"/>
-                            -->
                             <field name="commission"/>
                             <field name="settled_amount"/>
                         </tree>
@@ -104,7 +102,7 @@
                 <field name="customer"/>
                 <field name="agent"/>
                 <field name="invoice"/>
-                <field name="object_id"/>
+                <field name="invoice_line"/>
                 <field name="inv_line_quantity" sum="Quantity total"/>
                 <field name="inv_line_price_unit"/>
                 <field name="inv_line_discount"/>
@@ -130,16 +128,16 @@
                 <group expand="1" string="Group By">
                     <filter string="Agent" name="group_agent" context="{'group_by': 'agent'}"/>
                     <filter string="Date month" name="group_date" context="{'group_by': 'date:month'}"/>
-                 </group>
+                </group>
             </search>
         </field>
     </record>
 
     <record id="view_settlement_line_graph" model="ir.ui.view">
-         <field name="name">sale.commission.settlement.line.graph</field>
-         <field name="model">sale.commission.settlement.line</field>
-         <field name="arch" type="xml">
-             <graph string="Settlement analysis" type="pivot">
+        <field name="name">sale.commission.settlement.line.graph</field>
+        <field name="model">sale.commission.settlement.line</field>
+        <field name="arch" type="xml">
+            <graph string="Settlement analysis" type="pivot">
                 <field name="agent" type="row"/>
                 <field name="date" interval="month" type="col"/>
                 <field name="settled_amount" type="measure"/>

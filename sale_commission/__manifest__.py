@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Sales commissions",
-    "version": "10.0.11.0.5",
+    "version": "10.0.11.0.7",
     "category": "Sales Management",
     "summary": "Sales commissions",
-    "author": ("Odoo Community Association (OCA),Pexego,Savoir-faire,Abstract"
-               ",Avanzosc,Agile Business Group sagl,SHS-AV s.r.l."),
+    "author": ("Odoo Community Association (OCA),Tecnativa,"
+               "Avanzosc,Agile Business Group sagl,SHS-AV s.r.l."),
     "website": "https://www.zeroincombenze.it/crm",
-    "development_status": "Alpha",
+    "development_status": "Beta",
     "license": "AGPL-3",
     "depends": [
         "account",
@@ -22,7 +22,7 @@
         "views/res_partner_view.xml",
         "views/sale_order_view.xml",
         "views/account_invoice_view.xml",
-        "views/settlement_view.xml",
+        "views/sale_commission_settlement_view.xml",
         "wizard/wizard_settle.xml",
         "wizard/wizard_invoice.xml",
         "report/report_sale.xml",

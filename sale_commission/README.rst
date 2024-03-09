@@ -1,5 +1,5 @@
 ================================================
-|icon| Sales commissions/Provvigioni 10.0.11.0.5
+|icon| Sales commissions/Provvigioni 10.0.11.0.7
 ================================================
 
 .. |icon| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission/static/description/icon.png
@@ -23,6 +23,17 @@ You can define which base amount is going to be taken into account: net amount
 
 
 |it| Modulo per gestione provvigioni agenti
+
+Si può assegnare un agente in anagrafica cliente per permettere di calcolare
+la provvigione nelle righe degli ordini di vendita e di conseguenza nelle
+relative fatture.
+
+I dati sono modificabili per ogni riga del documento.
+
+Si possono generare le liquidazioni agenti per il pagamento delle stesse.
+La liquidazione può essere calcolata sulla vendita oppure sul pagato.
+
+I provvigioni sono calcolate al prezzo o al margine del prodotto.
 
 
 |thumbnail|
@@ -125,23 +136,35 @@ An Enhancement Proposal may be submitted if your idea gains ground.
 ChangeLog History | Cronologia modifiche
 ----------------------------------------
 
-10.0.11.0.5 (2024-02-05)
-~~~~~~~~~~~~~~~~~~~~~~~~
+10.0.1.0.7 (2024-03-09)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* [IMP] head_agent moved into sale_commission_plus module
+* [IMP[ agent_id moved into sale_commision_plus module
+* [QUA] Test coverage 71% (663: 193+470) [11 TestPoints] - quality rating 46 (target 100)
+
+10.0.1.0.6 (2024-02-07)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* [FIX] Sale order cannot update commisions
+* [QUA] Test coverage 70% (677: 204+473) [11 TestPoints] - quality rating 45 (target 100)
+
+10.0.1.0.5 (2024-02-05)
+~~~~~~~~~~~~~~~~~~~~~~~
 
 * [IMP] Integration with OCA module
 * [IMP] sale_agent_id on invoice header
+* [QUA] Test coverage 72% (589: 163+426) [11 TestPoints] - quality rating 47 (target 100)
 
-10.0.11.0.4 (2023-04-06)
-~~~~~~~~~~~~~~~~~~~~~~~~
+10.0.1.0.4 (2023-04-06)
+~~~~~~~~~~~~~~~~~~~~~~~
 
 * [FIX] Error in invoice update / Errore in cambio dati fattura
 
-10.0.11.0.3 (2023-03-06)
-~~~~~~~~~~~~~~~~~~~~~~~~
+10.0.1.0.3 (2023-03-06)
+~~~~~~~~~~~~~~~~~~~~~~~
 
 * [FIX] Crash after change shipping or invoice address / Crash al cambio di indirizzo
-* [QUA] Test coverage 72% (589: 163+426) [11 TestPoints] - quality rating 47 (target 100)
-* [QUA] Test coverage 72% (593: 164+429) [11 TestPoints] - quality rating 47 (target 100)
 
 
 
@@ -158,9 +181,7 @@ Authors | Autori
 ----------------
 
 * `Odoo Community Association (OCA) <https://odoo-community.org>`__
-* `Pexego <https://www.pexego.es>`__
-* `Savoir-faire <https://savoirfairelinux.com>`__
-* `Abstract <https://www.abstract.it>`__
+* Tecnativa <False>
 * `Avanzosc <https://https:>`__
 * `Agile Business Group sagl <https://www.agilebg.com>`__
 * `SHS-AV s.r.l. <https://www.zeroincombenze.it>`__
@@ -171,14 +192,15 @@ Authors | Autori
 Contributors | Partecipanti
 ---------------------------
 
+* `Davide Corio <davide.corio@domsense.com>`__
 * `Joao Alfredo Gama Batista <joao.gama@savoirfairelinux.com>`__
 * `Sandy Carter <sandy.carter@savoirfairelinux.com>`__
-* `Davide Corio <davide.corio@abstract.it>`__
 * `Giorgio Borelli <giorgio.borelli@abstract.it>`__
 * `Daniel Campos <danielcampos@avanzosc.es>`__
 * `Pedro M. Baeza <pedro.baeza@serviciosbaeza.com>`__
 * `Oihane Crucelaegui <oihanecruce@gmail.com>`__
 * `Nicola Malcontenti <nicola.malcontenti@agilebg.com>`__
+* `Aitor Bouzas <aitor.bouzas@adaptivecity.com>`__
 * `Antonio Maria Vigliotti <antoniomaria.vigliotti@gmail.com>`__
 
 
@@ -207,9 +229,9 @@ La distribuzione `Zeroincombenze® <https://www.zeroincombenze.it/>`__ è proget
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2024-02-05
+Last Update / Ultimo aggiornamento: 2024-03-09
 
-.. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-black.png
+.. |Maturity| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: 
 .. |license gpl| image:: https://img.shields.io/badge/licence-LGPL--3-7379c3.svg

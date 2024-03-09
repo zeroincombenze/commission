@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from odoo import api, exceptions, fields, models, _
+from odoo.exceptions import UserError
 import odoo.addons.decimal_precision as dp
 
 
@@ -33,6 +34,11 @@ class Settlement(models.Model):
     currency_id = fields.Many2one(
         comodel_name='res.currency', readonly=True,
         default=_default_currency)
+    company_id = fields.Many2one(
+        comodel_name='res.company',
+        default=lambda self: self.env.user.company_id,
+        required=True
+    )
 
     @api.depends('lines', 'lines.settled_amount')
     def _compute_total(self):
@@ -73,11 +79,12 @@ class Settlement(models.Model):
                      'in_refund'),
             'date_invoice': date,
             'journal_id': journal.id,
-            'company_id': self.env.user.company_id.id,
+            'company_id': settlement.company_id.id,
             'state': 'draft',
         })
-        # Get other invoice values from partner onchange
+        # Get other invoice values from onchanges
         invoice._onchange_partner_id()
+        invoice._onchange_journal_id()
         return invoice._convert_to_write(invoice._cache)
 
     def _prepare_invoice_line(self, settlement, invoice, product):
@@ -112,9 +119,15 @@ class Settlement(models.Model):
         """
         return []
 
+    def create_invoice_header(self, journal, date):
+        """Hook that can be used in order to group invoices or
+        find open invoices
+        """
+        invoice_vals = self._prepare_invoice_header(self, journal, date=date)
+        return self.env['account.invoice'].create(invoice_vals)
+
     @api.multi
     def make_invoices(self, journal, product, date=False):
-        invoice_obj = self.env['account.invoice']
         invoice_line_obj = self.env['account.invoice.line']
         for settlement in self:
             # select the proper journal according to settlement's amount
@@ -124,14 +137,17 @@ class Settlement(models.Model):
             invoice_journal = (journal if
                                (settlement.total + extra_total) >= 0 else
                                False)
-            invoice_vals = self._prepare_invoice_header(
-                settlement, invoice_journal, date=date)
-            invoice = invoice_obj.create(invoice_vals)
+            if not invoice_journal:
+                raise UserError(
+                    _('Journal %s is not applicable for quantity %s')
+                    % (journal.display_name, settlement.total + extra_total))
+            invoice = settlement.create_invoice_header(journal, date)
             invoice_line_vals = self._prepare_invoice_line(
                 settlement, invoice, product)
             invoice_line_obj.create(invoice_line_vals)
             for invoice_line_vals in extra_invoice_lines:
                 invoice_line_obj.create(invoice_line_vals)
+            invoice.compute_taxes()
             settlement.state = 'invoiced'
             settlement.invoice = invoice.id
 
@@ -153,27 +169,29 @@ class SettlementLine(models.Model):
         required=True,
     )
     date = fields.Date(related="agent_line.invoice_date", store=True)
-    object_id = fields.Many2one(
+    invoice_line = fields.Many2one(
         comodel_name='account.invoice.line', store=True,
-        oldname='invoice_line',
         copy=False,
         related='agent_line.object_id')
     invoice = fields.Many2one(
         comodel_name='account.invoice', store=True, string="Invoice",
-        related='object_id.invoice_id', copy=False)
+        related='invoice_line.invoice_id')
     agent = fields.Many2one(
         comodel_name="res.partner", readonly=True, related="agent_line.agent",
         copy=False, store=True)
     settled_amount = fields.Float(
         related="agent_line.amount", readonly=True, store=True)
+    currency_id = fields.Many2one(
+        related="agent_line.currency_id",
+        store=True,
+        readonly=True,
+    )
     commission = fields.Many2one(
         comodel_name="sale.commission", related="agent_line.commission")
     company_id = fields.Many2one(
-        related='agent_line.object_id.company_id',
-        readonly=True, store=True)
-    currency_id = fields.Many2one(
-        related='agent_line.object_id.currency_id',
-        readonly=True, store=True)
+        comodel_name='res.company',
+        related='settlement.company_id',
+    )
     customer = fields.Many2one(related="invoice.partner_id",
                                readonly=True, copy=False, store=True)
     inv_line_quantity = fields.Float(
@@ -196,3 +214,11 @@ class SettlementLine(models.Model):
     customer_state = fields.Many2one(
         related="invoice.partner_id.state_id",
         readonly=True, copy=False, store=True)
+
+    @api.constrains('company_id', 'agent_line')
+    def _check_company(self):
+        for record in self:
+            if record.agent_line.company_id != record.company_id:
+                raise UserError(_(
+                    'Company must be the same'
+                ))
