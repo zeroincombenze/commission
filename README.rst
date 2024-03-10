@@ -1,11 +1,9 @@
-
 ================================
 |Zeroincombenze| commission 10.0
 ================================
-|Build Status| |Codecov Status| |license gpl| |Try Me|
-
 
 .. contents::
+
 
 
 Overview / Panoramica
@@ -13,33 +11,35 @@ Overview / Panoramica
 
 |en| All management related with commissions and incentive in Odoo.
 
+
 |it| Moduli per la gestione delle provvigioni
 
 Avaiable Addons / Moduli disponibili
 ------------------------------------
 
-+-------------------------+------------+------------+----------------------------------------------------------------------------------+
-| Name / Nome             | Version    | OCA Ver.   | Description / Descrizione                                                        |
-+-------------------------+------------+------------+----------------------------------------------------------------------------------+
-| hr_commission           | |halt|     | |halt|     | HR commissions                                                                   |
-+-------------------------+------------+------------+----------------------------------------------------------------------------------+
-| sale_agent_profile      | 10.0.0.1.1 | |no_check| | Set default agent authorization user profile                                     |
-+-------------------------+------------+------------+----------------------------------------------------------------------------------+
-| sale_commission         | 10.0.11.0. | 10.0.11.0. | Sales commissions                                                                |
-+-------------------------+------------+------------+----------------------------------------------------------------------------------+
-| sale_commission_formula | |no_check| | 10.0.11.0. | Sale commissions computed by formulas                                            |
-+-------------------------+------------+------------+----------------------------------------------------------------------------------+
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| Name / Nome                          | Version    | OCA Ver.   | Description / Descrizione                                                        |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| hr_commission                        | |halt|     | |halt|     | HR commissions                                                                   |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_agent_profile                   | 10.0.0.1.1 | |no_check| | Set default agent authorization user profile                                     |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_commission                      | 10.0.11.0. | 10.0.2.6.0 | Sales commissions                                                                |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_commission_areamanager          | 10.0.1.0.0 | 10.0.1.1.0 | Add head agent on sale agent                                                     |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_commission_bi                   | 10.0.0.1.0 | |no_check| | Add commission values in invoice BI                                              |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_commission_formula              | 10.0.1.0.2 | 10.0.1.0.1 | Sale commissions computed by formulas                                            |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_commission_geo_assign           | |no_check| | 10.0.1.0.0 | Assign agents to partners according to their location                            |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| sale_commission_pricelist            | |no_check| | 10.0.1.0.0 | Sales commissions by pricelist                                                   |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
+| website_sale_commission_lead_geo_ass | |no_check| | 10.0.1.0.0 | Assign agents to leads according to their location                               |
++--------------------------------------+------------+------------+----------------------------------------------------------------------------------+
 
 
-OCA comparation / Confronto con OCA
------------------------------------
-
-
-+-----------------------------------------------------------------+-------------------+----------------+--------------------------------+
-| Description / Descrizione                                       | Zeroincombenze    | OCA            | Notes / Note                   |
-+-----------------------------------------------------------------+-------------------+----------------+--------------------------------+
-| Coverage / Copertura test                                       |  |Codecov Status| | |OCA Codecov|  |                                |
-+-----------------------------------------------------------------+-------------------+----------------+--------------------------------+
 
 
 Getting started / Come iniziare
@@ -51,9 +51,18 @@ Getting started / Come iniziare
 Prerequisites / Prerequisiti
 ----------------------------
 
-
 * python 2.7+ (best 2.7.5+)
 * postgresql 9.2+ (best 9.5)
+
+::
+
+    cd $HOME
+    # Follow statements activate deployment, installation and upgrade tools
+    cd $HOME
+    [[ ! -d ./tools ]] && git clone https://github.com/zeroincombenze/tools.git
+    cd ./tools
+    ./install_tools.sh -pUT
+    source $HOME/devel/activate_tools
 
 
 Installation / Installazione
@@ -62,44 +71,34 @@ Installation / Installazione
 +---------------------------------+------------------------------------------+
 | |en|                            | |it|                                     |
 +---------------------------------+------------------------------------------+
-| These instruction are just an   | Istruzioni di esempio valide solo per    |
-| example to remember what        | distribuzioni Linux CentOS 7, Ubuntu 14+ |
-| you have to do on Linux.        | e Debian 8+                              |
+| These instructions are just an  | Istruzioni di esempio valide solo per    |
+| example; use on Linux CentOS 7+ | distribuzioni Linux CentOS 7+,           |
+| Ubuntu 14+ and Debian 8+        | Ubuntu 14+ e Debian 8+                   |
 |                                 |                                          |
 | Installation is built with:     | L'installazione è costruita con:         |
 +---------------------------------+------------------------------------------+
-| `Zeroincombenze Tools <https://github.com/zeroincombenze/tools>`__         |
+| `Zeroincombenze Tools <https://zeroincombenze-tools.readthedocs.io/>`__ |
 +---------------------------------+------------------------------------------+
 | Suggested deployment is:        | Posizione suggerita per l'installazione: |
 +---------------------------------+------------------------------------------+
-| /opt/odoo/10.0/commission/                                                 |
+| $HOME/10.0 |
 +----------------------------------------------------------------------------+
 
 ::
 
-    cd $HOME
-    git clone https://github.com/zeroincombenze/tools.git
-    cd ./tools
-    ./install_tools.sh -p
-    source /opt/odoo/dev/activate_tools
-    odoo_install_repository commission -b 10.0 -O zero
-    sudo manage_odoo requirements -b 10.0 -vsy -o /opt/odoo/10.0
+    # Odoo repository installation; OCB repository must be installed
+    deploy_odoo clone -r commission -b 10.0 -G zero -p $HOME/10.0
+    # Upgrade virtual environment
+    vem amend $HOME/10.0/venv_odoo
 
 
 Upgrade / Aggiornamento
 -----------------------
 
-+---------------------------------+------------------------------------------+
-| |en|                            | |it|                                     |
-+---------------------------------+------------------------------------------+
-| When you want upgrade and you   | Per aggiornare, se avete installato con  |
-| installed using above           | le istruzioni di cui sopra:              |
-| statements:                     |                                          |
-+---------------------------------+------------------------------------------+
-
 ::
 
-    odoo_install_repository commission -b 10.0 -O zero -U
+    deploy_odoo update -r commission -b 10.0 -G zero -p $HOME/10.0
+    vem amend $HOME/10.0/venv_odoo
     # Adjust following statements as per your system
     sudo systemctl restart odoo
 
@@ -107,8 +106,7 @@ Upgrade / Aggiornamento
 Support / Supporto
 ------------------
 
-
-|Zeroincombenze| This project is mainly maintained by the `SHS-AV s.r.l. <https://www.zeroincombenze.it/>`__
+|Zeroincombenze| This project is mainly supported by the `SHS-AV s.r.l. <https://www.zeroincombenze.it/>`__
 
 
 
@@ -121,17 +119,88 @@ and/or submit pull requests on `GitHub Issues
 
 In case of trouble, please check there if your issue has already been reported.
 
+
 Proposals for enhancement
 -------------------------
-
 
 |en| If you have a proposal to change on oh these modules, you may want to send an email to <cc@shs-av.com> for initial feedback.
 An Enhancement Proposal may be submitted if your idea gains ground.
 
 |it| Se hai proposte per migliorare uno dei moduli, puoi inviare una mail a <cc@shs-av.com> per un iniziale contatto.
 
-Credits / Didascalie
-====================
+
+ChangeLog History / Cronologia modifiche
+----------------------------------------
+
+sale_commission_formula: 10.0.0.1.2 (2024-03-10)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* [IMP] Documentation upgrade
+
+
+sale_commission_bi: 10.0.0.1.1 (2024-03-10)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* [IMP[ Inherit agent_id from sale_commission module
+* [QUA] Test coverage 73% (60: 16+44) [0 TestPoints] - quality rating 45 (target 100)
+
+
+
+sale_commission_areamanager: 10.0.0.1.0 (2024-03-10)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Initial implementation / Implementazione iniziale
+* [IMP] Inherit head_agent from sale_commission module
+* [QUA] Test coverage 33% (48: 32+16) [0 TestPoints] - quality rating 21 (target 100)
+
+
+sale_commission: 10.0.1.0.7 (2024-03-10)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* [IMP] head_agent moved into sale_commission_areamanager module
+* [IMP[ agent_id moved into sale_commision_bi module
+* [IMP] Aligned to OCA module | Allineaato al modulo OCA
+* [IMP] Commission BI | Business Intelligence delle provvigioni
+* [IMP] Settlement lines | Menù con righe liquidazioni
+* [QUA] Test coverage 83% (458: 80+378) [11 TestPoints] - quality rating 54 (target 100)
+
+
+sale_commission: 10.0.1.0.6 (2024-02-07)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* [FIX] Sale order cannot update commisions
+* [QUA] Test coverage 70% (677: 204+473) [11 TestPoints] - quality rating 45 (target 100)
+
+
+sale_commission_bi: 10.0.0.1.0 (2024-02-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Initial implementation / Implementazione iniziale
+* [QUA] Test coverage 100% (10: 0+10) [0 TestPoints] - quality rating 61 (target 100)
+
+
+sale_commission: 10.0.1.0.5 (2024-02-05)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* [IMP] Integration with OCA module
+* [IMP] sale_agent_id on invoice header
+* [QUA] Test coverage 72% (589: 163+426) [11 TestPoints] - quality rating 47 (target 100)
+
+
+sale_commission: 10.0.1.0.4 (2023-04-06)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* [FIX] Error in invoice update / Errore in cambio dati fattura
+
+
+sale_commission: 10.0.1.0.3 (2023-03-06)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* [FIX] Crash after change shipping or invoice address / Crash al cambio di indirizzo
+
+
+Credits / Ringraziamenti
+========================
 
 Copyright
 ---------
@@ -141,58 +210,33 @@ Odoo is a trademark of `Odoo S.A. <https://www.odoo.com/>`__ (formerly OpenERP)
 
 ----------------
 
-
 |en| **zeroincombenze®** is a trademark of `SHS-AV s.r.l. <https://www.shs-av.com/>`__
 which distributes and promotes ready-to-use **Odoo** on own cloud infrastructure.
-`Zeroincombenze® distribution of Odoo <https://wiki.zeroincombenze.org/en/Odoo>`__
+`Zeroincombenze® distribution of Odoo <https://www.zeroincombenze.it/>`__
 is mainly designed to cover Italian law and markeplace.
 
 |it| **zeroincombenze®** è un marchio registrato da `SHS-AV s.r.l. <https://www.shs-av.com/>`__
 che distribuisce e promuove **Odoo** pronto all'uso sulla propria infrastuttura.
-La distribuzione `Zeroincombenze® <https://wiki.zeroincombenze.org/en/Odoo>`__ è progettata per le esigenze del mercato italiano.
+La distribuzione `Zeroincombenze® <https://www.zeroincombenze.it/>`__ è progettata per le esigenze del mercato italiano.
 
-
-|chat_with_us|
-
-
+|
 |
 
 
-Last Update / Ultimo aggiornamento: 2019-10-11
+Last Update / Ultimo aggiornamento: 2024-03-10
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-red.png
     :target: https://odoo-community.org/page/development-status
-    :alt: Alfa
-.. |Build Status| image:: https://travis-ci.org/zeroincombenze/commission.svg?branch=10.0
-    :target: https://travis-ci.org/zeroincombenze/commission
-    :alt: github.com
+    :alt: 
 .. |license gpl| image:: https://img.shields.io/badge/licence-LGPL--3-7379c3.svg
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |license opl| image:: https://img.shields.io/badge/licence-OPL-7379c3.svg
-    :target: https://www.odoo.com/documentation/user/9.0/legal/licenses/licenses.html
+    :target: https://www.odoo.com/documentation/user/14.0/legal/licenses/licenses.html
     :alt: License: OPL
-.. |Coverage Status| image:: https://coveralls.io/repos/github/zeroincombenze/commission/badge.svg?branch=10.0
-    :target: https://coveralls.io/github/zeroincombenze/commission?branch=10.0
-    :alt: Coverage
-.. |Codecov Status| image:: https://codecov.io/gh/zeroincombenze/commission/branch/10.0/graph/badge.svg
-    :target: https://codecov.io/gh/zeroincombenze/commission/branch/10.0
-    :alt: Codecov
-.. |Tech Doc| image:: https://www.zeroincombenze.it/wp-content/uploads/ci-ct/prd/button-docs-10.svg
-    :target: https://wiki.zeroincombenze.org/en/Odoo/10.0/dev
-    :alt: Technical Documentation
-.. |Help| image:: https://www.zeroincombenze.it/wp-content/uploads/ci-ct/prd/button-help-10.svg
-    :target: https://wiki.zeroincombenze.org/it/Odoo/10.0/man
-    :alt: Technical Documentation
 .. |Try Me| image:: https://www.zeroincombenze.it/wp-content/uploads/ci-ct/prd/button-try-it-10.svg
     :target: https://erp10.zeroincombenze.it
     :alt: Try Me
-.. |OCA Codecov| image:: https://codecov.io/gh/OCA/commission/branch/10.0/graph/badge.svg
-    :target: https://codecov.io/gh/OCA/commission/branch/10.0
-    :alt: Codecov
-.. |Odoo Italia Associazione| image:: https://www.odoo-italia.org/images/Immagini/Odoo%20Italia%20-%20126x56.png
-   :target: https://odoo-italia.org
-   :alt: Odoo Italia Associazione
 .. |Zeroincombenze| image:: https://avatars0.githubusercontent.com/u/6972555?s=460&v=4
    :target: https://www.zeroincombenze.it/
    :alt: Zeroincombenze
@@ -216,5 +260,3 @@ Last Update / Ultimo aggiornamento: 2019-10-11
    :target: https://github.com/zeroincombenze/grymb/blob/master/certificates/ade/scope/Desktoptelematico.md
 .. |FatturaPA| image:: https://raw.githubusercontent.com/zeroincombenze/grymb/master/certificates/ade/icons/fatturapa.png
    :target: https://github.com/zeroincombenze/grymb/blob/master/certificates/ade/scope/fatturapa.md
-.. |chat_with_us| image:: https://www.shs-av.com/wp-content/chat_with_us.gif
-   :target: https://tawk.to/85d4f6e06e68dd4e358797643fe5ee67540e408b
