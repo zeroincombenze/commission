@@ -1,5 +1,8 @@
 Description | Descrizione,OCA,Z0incombenze(R),Note(s)
-Commission type | Tipi provvigione,Fixed or by section,Fissa o per fasce,See sale_commission_formula
+Commission type | Tipi provvigione,Fixed or by section,Fissa o per fasce,More with *sale_commission_formula*
 Invoice state | Stato fattura,Open or paid,Fatturato o pagato,
 Amount type | Tipo importo,Gross or net,Margine o prezzo,
 Settlement date to | Data liquidazione,Day to excluded,Incluso sino a,Comportamento diverso
+Recalculate commission | Ricalcolo provvigioni,Draft document,Documenti in bozza o validati,Comportamento diverso
+Commission type menu | Menù tipo provvigione,unprotect,Solo manager,Comportamento diverso
+Settlements analisys | Analisi liquidazioni,Account report,Account BI,Comportamento diverso

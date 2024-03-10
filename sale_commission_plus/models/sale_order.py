@@ -28,15 +28,3 @@ class SaleOrder(models.Model):
         string="Sale Agent",
         compute="_compute_sale_agent",
         store=True, readonly=True)
-
-
-class SaleOrderLine(models.Model):
-    _inherit = "sale.order.line"
-
-    agent = fields.Many2one(
-        comodel_name="res.partner", required=True, ondelete="restrict",
-        domain="[('agent', '=', True')]")
-    commission = fields.Many2one(
-        comodel_name="sale.commission", required=True, ondelete="restrict")
-
-

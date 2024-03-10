@@ -8,9 +8,10 @@
         <field name="arch" type="xml">
             <xpath expr="//page[@name='agent_information']/group[1]/group[2]" position="after">
                 <group>
-                <field name="head_agent"/>
-                    <field name="head_agent" attrs="{'invisible': [('area_manager', '=', True)]}" context="{'default_agent': True, 'default_area_manager': True}"/>
-                <field name="head_commission"
+                    <field name="area_manager"/>
+                    <field name="head_agent"
+                           attrs="{'invisible': [('area_manager', '=', True)]}" context="{'default_agent': True, 'default_area_manager': True}"/>
+                    <field name="head_commission"
                        attrs="{'invisible': [('area_manager', '=', True)], 'required': [('head_agent', '=', True)]}"/>
                 </group>
                 <group colspan="4" string="Related Agents" attrs="{'invisible': [('area_manager', '=', False)]}">

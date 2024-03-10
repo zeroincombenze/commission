@@ -44,17 +44,49 @@ I provvigioni sono calcolate al prezzo o al margine del prodotto.
 Features | Caratteristiche
 --------------------------
 
-+----------------------------------------+---------------------+--------------------+-----------------------------+
-| Description | Descrizione              | OCA                 | Z0incombenze(R)    | Note(s)                     |
-+----------------------------------------+---------------------+--------------------+-----------------------------+
-| Commission type | Tipi provvigione     | Fixed or by section | Fissa o per fasce  | See sale_commission_formula |
-+----------------------------------------+---------------------+--------------------+-----------------------------+
-| Invoice state | Stato fattura          | Open or paid        | Fatturato o pagato |                             |
-+----------------------------------------+---------------------+--------------------+-----------------------------+
-| Amount type | Tipo importo             | Gross or net        | Margine o prezzo   |                             |
-+----------------------------------------+---------------------+--------------------+-----------------------------+
-| Settlement date to | Data liquidazione | Day to excluded     | Incluso sino a     | Comportamento diverso       |
-+----------------------------------------+---------------------+--------------------+-----------------------------+
++------------------------------------------------+---------------------+-------------------------------+-------------------------------------+
+| Description | Descrizione                      | OCA                 | Z0incombenze(R)               | Note(s)                             |
++------------------------------------------------+---------------------+-------------------------------+-------------------------------------+
+| Commission type | Tipi provvigione             | Fixed or by section | Fissa o per fasce             | More with *sale_commission_formula* |
++------------------------------------------------+---------------------+-------------------------------+-------------------------------------+
+| Invoice state | Stato fattura                  | Open or paid        | Fatturato o pagato            |                                     |
++------------------------------------------------+---------------------+-------------------------------+-------------------------------------+
+| Amount type | Tipo importo                     | Gross or net        | Margine o prezzo              |                                     |
++------------------------------------------------+---------------------+-------------------------------+-------------------------------------+
+| Settlement date to | Data liquidazione         | Day to excluded     | Incluso sino a                | Comportamento diverso               |
++------------------------------------------------+---------------------+-------------------------------+-------------------------------------+
+| Recalculate commission | Ricalcolo provvigioni | Draft document      | Documenti in bozza o validati | Comportamento diverso               |
++------------------------------------------------+---------------------+-------------------------------+-------------------------------------+
+| Commission type menu | Menù tipo provvigione   | unprotect           | Solo manager                  | Comportamento diverso               |
++------------------------------------------------+---------------------+-------------------------------+-------------------------------------+
+| Settlements analisys | Analisi liquidazioni    | Account report      | Account BI                    | Comportamento diverso               |
++------------------------------------------------+---------------------+-------------------------------+-------------------------------------+
+
+
+
+Configuration | Configurazione
+------------------------------
+
+☰ Sales > Commission Management > Commission types
+
+☰ Sales > Commission Management > Agents
+
+☰ Sales > Customers > Customers > Assign customers to agents
+
+
+
+Usage | Utilizzo
+----------------
+
+☰ Invoicing > Customer Invoices
+
+☰ Sales > Commission Management > Settle Commission
+
+Reporting
+
+☰ Sales > Commission Management > Settlements
+
+☰ Invoicing > Reports > Businsess Intelligence > Commission analysis
 
 
 
@@ -158,6 +190,9 @@ ChangeLog History | Cronologia modifiche
 
 * [IMP] head_agent moved into sale_commission_areamanager module
 * [IMP[ agent_id moved into sale_commision_plus module
+* [IMP] Aligned to OCA module | Allineaato al modulo OCA
+* [IMP] Commission BI | Business Intelligence delle provvigioni
+* [IMP] Settlement lines | Menù con righe liquidazioni
 * [QUA] Test coverage 83% (458: 80+378) [11 TestPoints] - quality rating 54 (target 100)
 
 10.0.1.0.6 (2024-02-07)
@@ -198,11 +233,10 @@ Authors | Autori
 ----------------
 
 * `Odoo Community Association (OCA) <https://odoo-community.org>`__
-* Tecnativa <False>
+* `Tecnativa S. L. <https://www.tecnativa.com>`__
 * `Avanzosc <https://https:>`__
 * `Agile Business Group sagl <https://www.agilebg.com>`__
 * `SHS-AV s.r.l. <https://www.zeroincombenze.it>`__
-* Odoo Community Association (OCA) and other subjects <False>
 
 
 

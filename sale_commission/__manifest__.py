@@ -4,7 +4,7 @@
     "version": "10.0.11.0.6",
     "category": "Sales Management",
     "summary": "Sales commissions",
-    "author": ("Odoo Community Association (OCA),Tecnativa,"
+    "author": ("Odoo Community Association (OCA),Tecnativa S. L.,"
                "Avanzosc,Agile Business Group sagl,SHS-AV s.r.l."),
     "website": "https://www.zeroincombenze.it/crm",
     "development_status": "Beta",
@@ -13,7 +13,7 @@
         "account",
         "product",
         "sale",
-        "stock_account",
+        # "stock_account",
     ],
     "data": [
         "security/ir.model.access.csv",

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo (10.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 17:14+0000\n"
-"PO-Revision-Date: 2024-03-09 17:14+0000\n"
+"POT-Creation-Date: 2024-03-10 09:41+0000\n"
+"PO-Revision-Date: 2024-03-10 09:41+0000\n"
 "Last-Translator: Antonio M. Vigliotti <antoniomaria.vigliotti@gmail.com>\n"
 "Language-Team: Zeroincombenze (https://www.zeroincombenze.it)\n"
 "Language: it\n"
@@ -17,10 +17,10 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: sale_commission_plus
-#: code:addons/sale_commission_plus/models/settlement.py:38
-#, python-format
-msgid "Company must be the same"
-msgstr "Azienda devono be il modulo \" stessa"
+#: model:ir.model.fields,field_description:sale_commission_plus.field_account_invoice_line_agent_id_4154
+#: model:ir.model.fields,field_description:sale_commission_plus.field_sale_order_line_agent_id_4156
+msgid "Agent id"
+msgstr "Agent id"
 
 #. module: sale_commission_plus
 #: model:ir.model,name:sale_commission_plus.model_account_invoice
@@ -28,23 +28,24 @@ msgid "Invoice"
 msgstr "Fattura"
 
 #. module: sale_commission_plus
-#: model:ir.ui.view,arch_db:sale_commission_plus.invoice_line_agent_tree
-msgid "Invoice line agents and commissions"
-msgstr "Righe agenti e provvigioni in fattura"
-
-#. module: sale_commission_plus
-#: model:ir.ui.view,arch_db:sale_commission_plus.view_account_invoice_filter
-msgid "Line agents"
-msgstr "Riga agenti"
-
-#. module: sale_commission_plus
-#: model:ir.model,name:sale_commission_plus.model_res_partner
-msgid "Partner"
-msgstr "Nominativo"
+#: model:ir.model,name:sale_commission_plus.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Riga fattura"
 
 #. module: sale_commission_plus
 #: model:ir.model.fields,field_description:sale_commission_plus.field_account_invoice_sale_agent_id
+#: model:ir.model.fields,field_description:sale_commission_plus.field_sale_order_sale_agent_id
 msgid "Sale Agent"
 msgstr "Agente"
+
+#. module: sale_commission_plus
+#: model:ir.model,name:sale_commission_plus.model_sale_order
+msgid "Sales Order"
+msgstr "Ordine di vendita"
+
+#. module: sale_commission_plus
+#: model:ir.model,name:sale_commission_plus.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Riga ordine di vendita"
 
 

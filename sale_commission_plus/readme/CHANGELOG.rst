@@ -3,4 +3,4 @@
 
 * Initial implementation / Implementazione iniziale
 * [IMP[ Inherit agent_id from sale_commision module
-* [QUA] Test coverage 69% (64: 20+44) [0 TestPoints] - quality rating 42 (target 100)
+* [QUA] Test coverage 68% (50: 16+34) [0 TestPoints] - quality rating 41 (target 100)

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo (10.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 19:58+0000\n"
-"PO-Revision-Date: 2024-03-09 19:58+0000\n"
+"POT-Creation-Date: 2024-03-10 09:08+0000\n"
+"PO-Revision-Date: 2024-03-10 09:08+0000\n"
 "Last-Translator: Antonio M. Vigliotti <antoniomaria.vigliotti@gmail.com>\n"
 "Language-Team: Zeroincombenze (https://www.zeroincombenze.it)\n"
 "Language: it\n"
@@ -55,7 +55,7 @@ msgstr "Fattura"
 #: model:ir.model.fields,field_description:sale_commission_areamanager.field_res_partner_area_manager
 #: model:ir.model.fields,field_description:sale_commission_areamanager.field_res_users_area_manager
 msgid "Is Area Manager"
-msgstr "Ii Area Manager"
+msgstr "E' responsabile area"
 
 #. module: sale_commission_areamanager
 #: model:ir.model,name:sale_commission_areamanager.model_res_partner
@@ -76,6 +76,6 @@ msgstr "Ordine di vendita"
 #: model:ir.model.fields,help:sale_commission_areamanager.field_res_partner_area_manager
 #: model:ir.model.fields,help:sale_commission_areamanager.field_res_users_area_manager
 msgid "This agent is an area manager"
-msgstr "Questo agente ii an area manager"
+msgstr "Questo Agente è un Responsabile Area"
 
 

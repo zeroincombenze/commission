@@ -3,6 +3,9 @@
 
 * [IMP] head_agent moved into sale_commission_areamanager module
 * [IMP[ agent_id moved into sale_commision_plus module
+* [IMP] Aligned to OCA module | Allineaato al modulo OCA
+* [IMP] Commission BI | Business Intelligence delle provvigioni
+* [IMP] Settlement lines | Menù con righe liquidazioni
 * [QUA] Test coverage 83% (458: 80+378) [11 TestPoints] - quality rating 54 (target 100)
 
 10.0.1.0.6 (2024-02-07)

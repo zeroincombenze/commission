@@ -100,7 +100,7 @@ msgstr "Agenti e provvigioni"
 #: model:ir.model.fields,help:sale_commission.field_account_invoice_line_agents
 #: model:ir.model.fields,help:sale_commission.field_sale_commission_mixin_agents
 msgid "Agents/Commissions related to the invoice line."
-msgstr "Agenti/Provvigioni collegate alla riga fattura."
+msgstr "Agenti/provvigioni collegati alla riga fattura."
 
 #. module: sale_commission
 #: model:ir.model.fields,help:sale_commission.field_sale_order_line_agents
@@ -421,7 +421,7 @@ msgstr "Righe agenti e provvigioni in fattura"
 #. module: sale_commission
 #: selection:sale.commission.settlement,state:0
 msgid "Invoiced"
-msgstr "Fatturato"
+msgstr "Fatturato/a"
 
 #. module: sale_commission
 #: model:ir.model.fields,field_description:sale_commission.field_sale_commission_make_invoice_journal
@@ -499,7 +499,7 @@ msgstr "Fatturare"
 #. module: sale_commission
 #: model:ir.ui.view,arch_db:sale_commission.view_settled_wizard
 msgid "Make settlements"
-msgstr "Liquidare provvigioni"
+msgstr "Creare liquidazioni"
 
 #. module: sale_commission
 #: model:ir.model,name:sale_commission.model_sale_commission_mixin
@@ -526,7 +526,7 @@ msgstr "Nome"
 #. module: sale_commission
 #: selection:sale.commission,amount_base_type:0
 msgid "Net Amount"
-msgstr "Provvigioni al netto"
+msgstr "Provvigione al netto"
 
 #. module: sale_commission
 #: code:addons/sale_commission/models/sale_commission_mixin.py:52
@@ -629,7 +629,7 @@ msgstr "Fasce"
 #. module: sale_commission
 #: model:ir.ui.view,arch_db:sale_commission.view_settled_wizard
 msgid "Select the date up to which you want to make the settlements:"
-msgstr "Selezionare la data finale per il calcolo delle provvigioni:"
+msgstr "Selezionare la data finale per il calcolo della liquidazione:"
 
 #. module: sale_commission
 #: selection:res.partner,settlement:0
@@ -732,7 +732,7 @@ msgstr "Imponibile totale"
 #: code:addons/sale_commission/models/sale_commission.py:54
 #, python-format
 msgid "The lower limit cannot be greater than upper one."
-msgstr "Limite minimo maggiore del massimo."
+msgstr "Il limite inferiore non può essere più grande di quello superiore."
 
 #. module: sale_commission
 #: model:ir.model.fields,help:sale_commission.field_res_partner_commission
@@ -783,7 +783,7 @@ msgstr "Sino a"
 #: sql_constraint:account.invoice.line.agent:0
 #: sql_constraint:sale.commission.line.mixin:0 sql_constraint:sale.order.line.agent:0
 msgid "You can only add one time each agent."
-msgstr "Si può aggiungere un agente solo una volta."
+msgstr "Si può aggiungere un agente soltanto una volta."
 
 #. module: sale_commission
 #: code:addons/sale_commission/models/settlement.py:54
@@ -794,12 +794,12 @@ msgstr "Non è possibile eliminare liquidazioni fatturate."
 #. module: sale_commission
 #: model:ir.ui.view,arch_db:sale_commission.sale_commission_make_invoice_form
 msgid "_Cancel"
-msgstr "_Cancel"
+msgstr ""
 
 #. module: sale_commission
 #: model:ir.model,name:sale_commission.model_account_invoice_line_agent
 msgid "account.invoice.line.agent"
-msgstr "account.invoice.line.agent"
+msgstr ""
 
 #. module: sale_commission
 #: model:ir.ui.view,arch_db:sale_commission.sale_commission_make_invoice_form
@@ -810,22 +810,22 @@ msgstr "o"
 #. module: sale_commission
 #: model:ir.model,name:sale_commission.model_sale_commission_make_invoice
 msgid "sale.commission.make.invoice"
-msgstr "sale.commission.make.invoice"
+msgstr ""
 
 #. module: sale_commission
 #: model:ir.model,name:sale_commission.model_sale_commission_make_settle
 msgid "sale.commission.make.settle"
-msgstr "sale.commission.make.settle"
+msgstr ""
 
 #. module: sale_commission
 #: model:ir.model,name:sale_commission.model_sale_commission_settlement_line
 msgid "sale.commission.settlement.line"
-msgstr "sale.commission.settlement.line"
+msgstr ""
 
 #. module: sale_commission
 #: model:ir.model,name:sale_commission.model_sale_order_line_agent
 msgid "sale.order.line.agent"
-msgstr "sale.order.line.agent"
+msgstr ""
 
 #. module: sale_commission
 #: model:ir.ui.view,arch_db:sale_commission.sale_commission_form

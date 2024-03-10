@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+# Copyright 2014-2019 Tecnativa - Pedro M. Baeza
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
 from odoo import api, fields, models
 from lxml import etree
@@ -54,7 +56,8 @@ class SaleOrderLine(models.Model):
 
     agents = fields.One2many(
         string="Agents & commissions",
-        comodel_name="sale.order.line.agent", inverse_name="object_id",
+        comodel_name="sale.order.line.agent",
+        inverse_name="object_id",
         help="Agents/Commissions related to the sale order line.")
 
     def _prepare_agents_vals(self):

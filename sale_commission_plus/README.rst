@@ -2,7 +2,7 @@
 |icon| Sales commissions plus/Estensione provvigioni 10.0.1.0.0
 ===============================================================
 
-**Add head agent on sale agent**
+**Add agent on document header**
 
 .. |icon| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission_plus/static/description/icon.png
 
@@ -14,10 +14,16 @@
 Overview | Panoramica
 =====================
 
-|en| This module adds head agent field on agent view
+|en| This module adds agent field on sale order header and on account invoice header,
+if there is only one sale agent in all document lines.
+
+Agent may be used in filter bar and in Business Intelligence.
 
 
-|it| Questo modulo aggiunge il campo capo-area in anagrafica agente
+|it| Questo modulo aggiunge il campo agente nella testata delgi ordini e delle fatture,
+se tutte le righe del documento riferiscono ad un unico agente.
+
+L'agente può essere utilizzato nella barra di filtro o nella Business Intelligence.
 
 
 |thumbnail|
@@ -125,7 +131,7 @@ ChangeLog History | Cronologia modifiche
 
 * Initial implementation / Implementazione iniziale
 * [IMP[ Inherit agent_id from sale_commision module
-* [QUA] Test coverage 69% (64: 20+44) [0 TestPoints] - quality rating 42 (target 100)
+* [QUA] Test coverage 68% (50: 16+34) [0 TestPoints] - quality rating 41 (target 100)
 
 
 

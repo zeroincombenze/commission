@@ -43,6 +43,13 @@ prossimo rilascio è previsto l'allineamento dei nomi campo.
 .. |thumbnail| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission_areamanager/static/description/description.png
 
 
+Configuration | Configurazione
+------------------------------
+
+☰ Sales > Commission Management > Agents > Set Area Manager structure
+
+
+
 Getting started | Primi passi
 =============================
 

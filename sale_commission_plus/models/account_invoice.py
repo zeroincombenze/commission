@@ -29,14 +29,3 @@ class AccountInvoice(models.Model):
         compute="_compute_sale_agent",
         store=True, readonly=True)
 
-
-class AccountInvoiceLine(models.Model):
-    _inherit = "account.invoice.line"
-
-    agent = fields.Many2one(
-        comodel_name="res.partner",
-        domain="[('agent', '=', True)]",
-        ondelete="restrict",
-        required=True)
-    commission = fields.Many2one(
-        comodel_name="sale.commission", ondelete="restrict", required=True)

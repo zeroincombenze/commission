@@ -66,6 +66,6 @@
         <field name="help">This report performs analysis on your commissions added in invoice lines. You can check the amount and lines that will be settled by date, product, product category, aget, etc. Use this report to perform analysis on invoice lines agents not beeing settled yet.</field>
     </record>
 
-    <menuitem action="action_sale_commission_analysis_report" id="menu_sale_commissions_analysis" parent="account.account_reports_management_menu" sequence="15"/>
+    <menuitem action="action_sale_commission_analysis_report" id="menu_sale_commissions_analysis" parent="account.account_reports_business_intelligence_menu" sequence="25"/>
 
 </odoo>
