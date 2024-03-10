@@ -19,8 +19,10 @@ class SaleCommissionLineMixin(models.AbstractModel):
     def _get_commission_amount(
             self, commission, subtotal, commission_free, product, quantity):
         self.ensure_one()
-        if commission.commission_type == 'formula' and \
-                not commission_free and commission:
+        if (
+                commission.commission_type == 'formula'
+                and not commission_free and commission
+        ):
             formula = commission.formula
             results = self._get_formula_input_dict()
             safe_eval(formula, results, mode="exec", nocopy=True)

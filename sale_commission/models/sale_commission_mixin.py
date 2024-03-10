@@ -51,7 +51,15 @@ class SaleCommissionMixin(models.AbstractModel):
             elif len(line.agents) == 0:
                 line.commission_status = _("No commission agents")
             elif len(line.agents) == 1:
-                line.commission_status = _("1 commission agent")
+                if line.agents.amount == 0.0:
+                    line.commission_status = _("No commission agents")
+                else:
+                    if line.agents.commission.commission_type == 'fixed':
+                        info = " (" + str(line.agents.commission.fix_qty) + "%)"
+                    else:
+                        info = " (%4.2f)" % line.agents.amount
+                    line.commission_status = _(
+                        "1 commission agent") + info
             else:
                 line.commission_status = _(
                     "%s commission agents"
