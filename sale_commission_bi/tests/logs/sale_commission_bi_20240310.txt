@@ -1,0 +1,37 @@
+2024-03-10 12:29:41,000 2565755 DAEMON test_sale_commission_bi_10 run_odoo_debug.sh: cd /home/odoo/10.0/venv_odoo && source ./bin/activate
+2024-03-10 11:29:47,639 2567491 INFO ? odoo: Odoo version 10.0
+2024-03-10 11:29:47,640 2567491 INFO ? odoo: Using configuration file at /home/odoo/10.0/commission/sale_commission_bi/tests/logs/zero10.commission.sale_commission_bi.conf
+2024-03-10 11:29:47,640 2567491 INFO ? odoo: addons paths: ['/home/odoo/.local/share/Odoo10/addons/addons/10.0', u'/home/odoo/10.0/odoo/addons', u'/home/odoo/10.0/addons', u'/home/odoo/.local/share/Odoo10/addons', u'/home/odoo/10.0/account-analytic', u'/home/odoo/10.0/account-budgeting', u'/home/odoo/10.0/account-closing', u'/home/odoo/10.0/account-consolidation', u'/home/odoo/10.0/account-financial-reporting', u'/home/odoo/10.0/account-financial-tools', u'/home/odoo/10.0/account-fiscal-rule', u'/home/odoo/10.0/account-invoice-reporting', u'/home/odoo/10.0/account-invoicing', u'/home/odoo/10.0/account-payment', u'/home/odoo/10.0/account-reconcile', u'/home/odoo/10.0/bank-payment', u'/home/odoo/10.0/bank-statement-import', u'/home/odoo/10.0/calendar', u'/home/odoo/10.0/commission', u'/home/odoo/10.0/community-data-files', u'/home/odoo/10.0/connector', u'/home/odoo/10.0/contract', u'/home/odoo/10.0/crm', u'/home/odoo/10.0/currency', u'/home/odoo/10.0/data-protection', u'/home/odoo/10.0/delivery-carrier', u'/home/odoo/10.0/e-commerce', u'/home/odoo/10.0/edi', u'/home/odoo/10.0/hr', u'/home/odoo/10.0/intrastat-extrastat', u'/home/odoo/10.0/knowledge', u'/home/odoo/10.0/l10n-italy', u'/home/odoo/10.0/l10n-italy-supplemental', u'/home/odoo/10.0/maintenance', u'/home/odoo/10.0/management-system', u'/home/odoo/10.0/manufacture', u'/home/odoo/10.0/margin-analysis', u'/home/odoo/10.0/mis-builder', u'/home/odoo/10.0/multi-company', u'/home/odoo/10.0/partner-contact', u'/home/odoo/10.0/product-attribute', u'/home/odoo/10.0/product-variant', u'/home/odoo/10.0/profiles', u'/home/odoo/10.0/project', u'/home/odoo/10.0/purchase-reporting', u'/home/odoo/10.0/purchase-workflow', u'/home/odoo/10.0/queue', u'/home/odoo/10.0/report-print-send', u'/home/odoo/10.0/reporting-engine', u'/home/odoo/10.0/rma', u'/home/odoo/10.0/sale-financial', u'/home/odoo/10.0/sale-reporting', u'/home/odoo/10.0/sale-workflow', u'/home/odoo/10.0/search-engine', u'/home/odoo/10.0/server-auth', u'/home/odoo/10.0/server-tools', u'/home/odoo/10.0/server-ux', u'/home/odoo/10.0/social', u'/home/odoo/10.0/stock-logistics-barcode', u'/home/odoo/10.0/stock-logistics-reporting', u'/home/odoo/10.0/stock-logistics-tracking', u'/home/odoo/10.0/stock-logistics-transport', u'/home/odoo/10.0/stock-logistics-warehouse', u'/home/odoo/10.0/stock-logistics-workflow', u'/home/odoo/10.0/storage', u'/home/odoo/10.0/timesheet', u'/home/odoo/10.0/uncovered', u'/home/odoo/10.0/web', u'/home/odoo/10.0/website', u'/home/odoo/10.0/wms', u'/home/odoo/10.0/zerobug-test']
+2024-03-10 11:29:47,640 2567491 INFO ? odoo: database: odoo10@localhost:default
+2024-03-10 11:29:47,660 2567491 INFO ? odoo.service.server: HTTP service (werkzeug) running on nb200z0.:39176
+2024-03-10 11:29:47,686 2567491 INFO test_sale_commission_bi_10 odoo.modules.loading: loading 1 modules...
+2024-03-10 11:29:47,780 2567491 INFO test_sale_commission_bi_10 odoo.modules.loading: 1 modules loaded in 0.09s, 0 queries
+2024-03-10 11:29:48,776 2567491 INFO test_sale_commission_bi_10 odoo.modules.loading: loading 34 modules...
+2024-03-10 11:29:48,895 2567491 INFO test_sale_commission_bi_10 odoo.addons.report.models.report: Will use the Wkhtmltopdf binary at /home/odoo/10.0/venv_odoo/bin/wkhtmltopdf
+2024-03-10 11:29:49,026 2567491 INFO test_sale_commission_bi_10 odoo.modules.loading: 34 modules loaded in 0.25s, 0 queries
+2024-03-10 11:29:49,031 2567491 INFO test_sale_commission_bi_10 odoo.modules.loading: loading 35 modules...
+2024-03-10 11:29:49,450 2567491 INFO test_sale_commission_bi_10 odoo.modules.registry: module sale_commission_bi: creating or updating database tables
+2024-03-10 11:29:49,668 2567491 INFO test_sale_commission_bi_10 odoo.models: Storing computed values of sale.order fields sale_agent_id
+2024-03-10 11:29:49,670 2567491 INFO test_sale_commission_bi_10 odoo.models: Storing computed values of account.invoice fields sale_agent_id
+2024-03-10 11:29:49,866 2567491 INFO test_sale_commission_bi_10 odoo.modules.loading: loading sale_commission_bi/views/account_invoice_view.xml
+2024-03-10 11:29:50,093 2567491 INFO test_sale_commission_bi_10 odoo.modules.loading: 35 modules loaded in 1.06s, 12 queries
+2024-03-10 11:29:50,723 2567491 INFO test_sale_commission_bi_10 odoo.modules.loading: Modules loaded.
+2024-03-10 11:29:50,729 2567491 INFO test_sale_commission_bi_10 odoo.modules.loading: All post-tested in 0.00s, 0 queries
+2024-03-10 11:29:50,731 2567491 INFO test_sale_commission_bi_10 odoo.modules.registry: Registry changed, signaling through the database
+2024-03-10 11:29:50,732 2567491 INFO test_sale_commission_bi_10 odoo.service.server: Initiating shutdown
+2024-03-10 11:29:50,732 2567491 INFO test_sale_commission_bi_10 odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+
++===================================================================
+| please test [36msale_commission_bi[0m (10.0): [32mSUCCESS![0m
++===================================================================
+
+[1;37;44m$ coverage report --rcfile=/home/odoo/10.0/commission/sale_commission_bi/tests/logs/coverage_sale_commission_bi_10rc -m
+[34;107mName                                                                      Stmts   Miss  Cover   Missing
+-------------------------------------------------------------------------------------------------------
+/home/odoo/10.0/commission/sale_commission_bi/models/account_invoice.py      19      8    58%   10, 16-20, 22, 24
+/home/odoo/10.0/commission/sale_commission_bi/models/invoice_report.py       10      0   100%
+/home/odoo/10.0/commission/sale_commission_bi/models/sale_order.py           19      8    58%   10, 16-20, 22, 24
+/home/odoo/10.0/commission/sale_commission_bi/post_install.py                12      0   100%
+-------------------------------------------------------------------------------------------------------
+TOTAL                                                                        60     16    73%
+[0m
