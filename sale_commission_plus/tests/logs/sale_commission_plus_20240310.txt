@@ -1,0 +1,96 @@
+2024-03-10 07:34:54,000 2028267 DAEMON test_sale_commission_plus_10 run_odoo_debug.sh: cd /home/odoo/10.0/venv_odoo && source ./bin/activate
+2024-03-10 06:35:01,256 2030198 INFO ? odoo: Odoo version 10.0
+2024-03-10 06:35:01,257 2030198 INFO ? odoo: Using configuration file at /home/odoo/10.0/commission/sale_commission_plus/tests/logs/zero10.commission.sale_commission_plus.conf
+2024-03-10 06:35:01,257 2030198 INFO ? odoo: addons paths: ['/home/odoo/.local/share/Odoo10/addons/addons/10.0', u'/home/odoo/10.0/odoo/addons', u'/home/odoo/10.0/addons', u'/home/odoo/.local/share/Odoo10/addons', u'/home/odoo/10.0/account-analytic', u'/home/odoo/10.0/account-budgeting', u'/home/odoo/10.0/account-closing', u'/home/odoo/10.0/account-consolidation', u'/home/odoo/10.0/account-financial-reporting', u'/home/odoo/10.0/account-financial-tools', u'/home/odoo/10.0/account-fiscal-rule', u'/home/odoo/10.0/account-invoice-reporting', u'/home/odoo/10.0/account-invoicing', u'/home/odoo/10.0/account-payment', u'/home/odoo/10.0/account-reconcile', u'/home/odoo/10.0/bank-payment', u'/home/odoo/10.0/bank-statement-import', u'/home/odoo/10.0/calendar', u'/home/odoo/10.0/commission', u'/home/odoo/10.0/community-data-files', u'/home/odoo/10.0/connector', u'/home/odoo/10.0/contract', u'/home/odoo/10.0/crm', u'/home/odoo/10.0/currency', u'/home/odoo/10.0/data-protection', u'/home/odoo/10.0/delivery-carrier', u'/home/odoo/10.0/e-commerce', u'/home/odoo/10.0/edi', u'/home/odoo/10.0/hr', u'/home/odoo/10.0/intrastat-extrastat', u'/home/odoo/10.0/knowledge', u'/home/odoo/10.0/l10n-italy', u'/home/odoo/10.0/l10n-italy-supplemental', u'/home/odoo/10.0/maintenance', u'/home/odoo/10.0/management-system', u'/home/odoo/10.0/manufacture', u'/home/odoo/10.0/margin-analysis', u'/home/odoo/10.0/mis-builder', u'/home/odoo/10.0/multi-company', u'/home/odoo/10.0/partner-contact', u'/home/odoo/10.0/product-attribute', u'/home/odoo/10.0/product-variant', u'/home/odoo/10.0/profiles', u'/home/odoo/10.0/project', u'/home/odoo/10.0/purchase-reporting', u'/home/odoo/10.0/purchase-workflow', u'/home/odoo/10.0/queue', u'/home/odoo/10.0/report-print-send', u'/home/odoo/10.0/reporting-engine', u'/home/odoo/10.0/rma', u'/home/odoo/10.0/sale-financial', u'/home/odoo/10.0/sale-reporting', u'/home/odoo/10.0/sale-workflow', u'/home/odoo/10.0/search-engine', u'/home/odoo/10.0/server-auth', u'/home/odoo/10.0/server-tools', u'/home/odoo/10.0/server-ux', u'/home/odoo/10.0/social', u'/home/odoo/10.0/stock-logistics-barcode', u'/home/odoo/10.0/stock-logistics-reporting', u'/home/odoo/10.0/stock-logistics-tracking', u'/home/odoo/10.0/stock-logistics-transport', u'/home/odoo/10.0/stock-logistics-warehouse', u'/home/odoo/10.0/stock-logistics-workflow', u'/home/odoo/10.0/storage', u'/home/odoo/10.0/timesheet', u'/home/odoo/10.0/uncovered', u'/home/odoo/10.0/web', u'/home/odoo/10.0/website', u'/home/odoo/10.0/wms', u'/home/odoo/10.0/zerobug-test']
+2024-03-10 06:35:01,258 2030198 INFO ? odoo: database: odoo10@localhost:default
+2024-03-10 06:35:01,278 2030198 INFO ? odoo.service.server: HTTP service (werkzeug) running on nb200z0.:21490
+2024-03-10 06:35:01,301 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: loading 1 modules...
+2024-03-10 06:35:01,430 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: 1 modules loaded in 0.13s, 0 queries
+2024-03-10 06:35:02,933 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: loading 40 modules...
+2024-03-10 06:35:03,086 2030198 INFO test_sale_commission_plus_10 odoo.addons.report.models.report: Will use the Wkhtmltopdf binary at /home/odoo/10.0/venv_odoo/bin/wkhtmltopdf
+2024-03-10 06:35:03,294 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: 40 modules loaded in 0.36s, 0 queries
+2024-03-10 06:35:03,300 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: loading 41 modules...
+2024-03-10 06:35:04,007 2030198 INFO test_sale_commission_plus_10 odoo.modules.registry: module sale_commission_plus: creating or updating database tables
+2024-03-10 06:35:04,279 2030198 INFO test_sale_commission_plus_10 odoo.sql_db: bad query: ALTER TABLE "account_invoice_line" ALTER COLUMN "agent" SET NOT NULL
+2024-03-10 06:35:04,279 2030198 WARNING test_sale_commission_plus_10 odoo.models: WARNING: unable to set column agent of table account_invoice_line not null !
+Try to re-run: openerp-server --update=module
+If it doesn't work, update records and execute manually:
+ALTER TABLE account_invoice_line ALTER COLUMN agent SET NOT NULL
+Traceback (most recent call last):
+  File "/home/odoo/10.0/odoo/models.py", line 2546, in _auto_init
+    cr.execute('ALTER TABLE "%s" ALTER COLUMN "%s" SET NOT NULL' % (self._table, name))
+  File "/home/odoo/10.0/odoo/sql_db.py", line 154, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/odoo/10.0/odoo/sql_db.py", line 231, in execute
+    res = self._obj.execute(query, params)
+NotNullViolation: column "agent" contains null values
+
+2024-03-10 06:35:04,296 2030198 INFO test_sale_commission_plus_10 odoo.sql_db: bad query: ALTER TABLE "account_invoice_line" ALTER COLUMN "commission" SET NOT NULL
+2024-03-10 06:35:04,296 2030198 WARNING test_sale_commission_plus_10 odoo.models: WARNING: unable to set column commission of table account_invoice_line not null !
+Try to re-run: openerp-server --update=module
+If it doesn't work, update records and execute manually:
+ALTER TABLE account_invoice_line ALTER COLUMN commission SET NOT NULL
+Traceback (most recent call last):
+  File "/home/odoo/10.0/odoo/models.py", line 2546, in _auto_init
+    cr.execute('ALTER TABLE "%s" ALTER COLUMN "%s" SET NOT NULL' % (self._table, name))
+  File "/home/odoo/10.0/odoo/sql_db.py", line 154, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/odoo/10.0/odoo/sql_db.py", line 231, in execute
+    res = self._obj.execute(query, params)
+NotNullViolation: column "commission" contains null values
+
+2024-03-10 06:35:04,402 2030198 INFO test_sale_commission_plus_10 odoo.sql_db: bad query: ALTER TABLE "sale_order_line" ALTER COLUMN "agent" SET NOT NULL
+2024-03-10 06:35:04,402 2030198 WARNING test_sale_commission_plus_10 odoo.models: WARNING: unable to set column agent of table sale_order_line not null !
+Try to re-run: openerp-server --update=module
+If it doesn't work, update records and execute manually:
+ALTER TABLE sale_order_line ALTER COLUMN agent SET NOT NULL
+Traceback (most recent call last):
+  File "/home/odoo/10.0/odoo/models.py", line 2546, in _auto_init
+    cr.execute('ALTER TABLE "%s" ALTER COLUMN "%s" SET NOT NULL' % (self._table, name))
+  File "/home/odoo/10.0/odoo/sql_db.py", line 154, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/odoo/10.0/odoo/sql_db.py", line 231, in execute
+    res = self._obj.execute(query, params)
+NotNullViolation: column "agent" contains null values
+
+2024-03-10 06:35:04,420 2030198 INFO test_sale_commission_plus_10 odoo.sql_db: bad query: ALTER TABLE "sale_order_line" ALTER COLUMN "commission" SET NOT NULL
+2024-03-10 06:35:04,420 2030198 WARNING test_sale_commission_plus_10 odoo.models: WARNING: unable to set column commission of table sale_order_line not null !
+Try to re-run: openerp-server --update=module
+If it doesn't work, update records and execute manually:
+ALTER TABLE sale_order_line ALTER COLUMN commission SET NOT NULL
+Traceback (most recent call last):
+  File "/home/odoo/10.0/odoo/models.py", line 2546, in _auto_init
+    cr.execute('ALTER TABLE "%s" ALTER COLUMN "%s" SET NOT NULL' % (self._table, name))
+  File "/home/odoo/10.0/odoo/sql_db.py", line 154, in wrapper
+    return f(self, *args, **kwargs)
+  File "/home/odoo/10.0/odoo/sql_db.py", line 231, in execute
+    res = self._obj.execute(query, params)
+NotNullViolation: column "commission" contains null values
+
+2024-03-10 06:35:04,587 2030198 INFO test_sale_commission_plus_10 odoo.addons.auth_crypt.models.res_users: Hashing passwords, may be slow for databases with many users...
+2024-03-10 06:35:04,635 2030198 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of sale.commission.settlement.line fields customer, inv_line_currency_id, inv_line_discount, inv_line_price_unit, inv_line_quantity
+2024-03-10 06:35:04,637 2030198 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of sale.order fields sale_agent_id
+2024-03-10 06:35:04,638 2030198 INFO test_sale_commission_plus_10 odoo.models: Storing computed values of account.invoice fields sale_agent_id
+2024-03-10 06:35:04,939 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: loading sale_commission_plus/views/account_invoice_view.xml
+2024-03-10 06:35:05,222 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: loading sale_commission_plus/views/sale_commission_settlement_view.xml
+2024-03-10 06:35:05,566 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: 41 modules loaded in 2.27s, 21 queries
+2024-03-10 06:35:06,289 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: Modules loaded.
+2024-03-10 06:35:06,300 2030198 INFO test_sale_commission_plus_10 odoo.modules.loading: All post-tested in 0.00s, 0 queries
+2024-03-10 06:35:06,302 2030198 INFO test_sale_commission_plus_10 odoo.modules.registry: Registry changed, signaling through the database
+2024-03-10 06:35:06,303 2030198 INFO test_sale_commission_plus_10 odoo.service.server: Initiating shutdown
+2024-03-10 06:35:06,303 2030198 INFO test_sale_commission_plus_10 odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown.
+
++===================================================================
+| please test [36msale_commission_plus[0m (10.0): [32mSUCCESS![0m
++===================================================================
+
+[1;37;44m$ coverage report --rcfile=/home/odoo/10.0/commission/sale_commission_plus/tests/logs/coverage_sale_commission_plus_10rc -m
+[34;107mName                                                                        Stmts   Miss  Cover   Missing
+---------------------------------------------------------------------------------------------------------
+/home/odoo/10.0/commission/sale_commission_plus/models/account_invoice.py      23      8    65%   10, 16-20, 22, 24
+/home/odoo/10.0/commission/sale_commission_plus/models/res_partner.py           3      0   100%
+/home/odoo/10.0/commission/sale_commission_plus/models/sale_order.py           23      8    65%   10, 16-20, 22, 24
+/home/odoo/10.0/commission/sale_commission_plus/models/settlement.py           15      4    73%   30-33
+---------------------------------------------------------------------------------------------------------
+TOTAL                                                                          64     20    69%
+[0m

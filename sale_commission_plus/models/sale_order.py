@@ -3,15 +3,15 @@
 from odoo import api, fields, models
 
 
-class AccountInvoice(models.Model):
-    _inherit = "account.invoice"
+class SaleOrder(models.Model):
+    _inherit = "sale.order"
 
-    @api.depends('invoice_line_ids.agents')
+    @api.depends('order_line.agents')
     def _compute_sale_agent(self):
         # Set agent_id on document header if there is only 1 agent in the document
         for record in self:
             sale_agent_id = None
-            for line in record.invoice_line_ids:
+            for line in record.order_line:
                 for agent in line.agents:
                     if not sale_agent_id:
                         sale_agent_id = agent.agent
@@ -30,13 +30,13 @@ class AccountInvoice(models.Model):
         store=True, readonly=True)
 
 
-class AccountInvoiceLine(models.Model):
-    _inherit = "account.invoice.line"
+class SaleOrderLine(models.Model):
+    _inherit = "sale.order.line"
 
     agent = fields.Many2one(
-        comodel_name="res.partner",
-        domain="[('agent', '=', True)]",
-        ondelete="restrict",
-        required=True)
+        comodel_name="res.partner", required=True, ondelete="restrict",
+        domain="[('agent', '=', True')]")
     commission = fields.Many2one(
-        comodel_name="sale.commission", ondelete="restrict", required=True)
+        comodel_name="sale.commission", required=True, ondelete="restrict")
+
+

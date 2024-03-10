@@ -1,9 +1,9 @@
-10.0.1.0.7 (2024-03-09)
+10.0.1.0.7 (2024-03-10)
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-* [IMP] head_agent moved into sale_commission_plus module
+* [IMP] head_agent moved into sale_commission_areamanager module
 * [IMP[ agent_id moved into sale_commision_plus module
-* [QUA] Test coverage 71% (663: 193+470) [11 TestPoints] - quality rating 46 (target 100)
+* [QUA] Test coverage 83% (458: 80+378) [11 TestPoints] - quality rating 54 (target 100)
 
 10.0.1.0.6 (2024-02-07)
 ~~~~~~~~~~~~~~~~~~~~~~~~

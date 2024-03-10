@@ -16,10 +16,26 @@ Overview | Panoramica
 
 |en| This module extends the functionality of Sale Commission and allow
 you to compute settlement to the Area Manager agent.
-Area Manager is computed when saving Sale Order or Account Invoice
+Area Manager is computed when saving Sale Order or Account Invoice.
+
+This module was split from sale_agent od Zeroincombenze(R) distribution,
+in order to align code with OCA repositories.
+
+Currently field names keep Zeroincombenze(R) name, next version will be align names
+with OCA module.
 
 
-|it| Questo modulo aggiunge il campo capo-area in anagrafica agente
+|it| Questo modulo estende le funzionalità del modulo provvigioni e permette
+di calcolare la provvigione per capo area.
+
+In anagrafica agente è inserito il campo capo area.
+
+Questo modulo è nato dalla divisione del modulo provvigioni della distribuzione
+Zeroincombenze(R), nell'ambito del progetto di riallineamento codice con i cataloghi
+OCA.
+
+Al momento i nomi dei campi sono ancora originali di Zeroincombenze(R); nel
+prossimo rilascio è previsto l'allineamento dei nomi campo.
 
 
 |thumbnail|
@@ -122,12 +138,11 @@ An Enhancement Proposal may be submitted if your idea gains ground.
 ChangeLog History | Cronologia modifiche
 ----------------------------------------
 
-10.0.0.1.0 (2024-03-09)
+10.0.0.1.0 (2024-03-10)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 * Initial implementation / Implementazione iniziale
 * [IMP] Inherit head_agent from sale_commission module
-* [IMP[ Inherit agent_id from sale_commision module
 * [QUA] Test coverage 33% (48: 32+16) [0 TestPoints] - quality rating 21 (target 100)
 
 
@@ -145,7 +160,7 @@ Authors | Autori
 ----------------
 
 * `SHS-AV s.r.l. <https://www.zeroincombenze.it>`__
-* Agile Business Group <False>
+* `Agile Business Group sagl <https://www.agilebg.com>`__
 
 
 
@@ -182,7 +197,7 @@ La distribuzione `Zeroincombenze® <https://www.zeroincombenze.it/>`__ è proget
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2024-03-09
+Last Update / Ultimo aggiornamento: 2024-03-10
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Sales commissions",
-    "version": "10.0.11.0.7",
+    "version": "10.0.11.0.6",
     "category": "Sales Management",
     "summary": "Sales commissions",
     "author": ("Odoo Community Association (OCA),Tecnativa,"
@@ -17,15 +17,19 @@
     ],
     "data": [
         "security/ir.model.access.csv",
+        "security/security.xml",
         "views/sale_commission_view.xml",
         "views/product_template_view.xml",
         "views/res_partner_view.xml",
         "views/sale_order_view.xml",
         "views/account_invoice_view.xml",
         "views/sale_commission_settlement_view.xml",
+        "views/sale_commission_settlement_report.xml",
+        "views/report_settlement_templates.xml",
+        "report/sale_commission_analysis_report_view.xml",
         "wizard/wizard_settle.xml",
         "wizard/wizard_invoice.xml",
-        "report/report_sale.xml",
+        # "report/report_sale.xml",
     ],
     "demo": ["demo/sale_agent_demo.xml"],
     "maintainer": "Antonio M. Vigliotti <antoniomaria.vigliotti@gmail.com>",

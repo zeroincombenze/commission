@@ -37,15 +37,3 @@ class ResPartner(models.Model):
     def onchange_agent_type(self):
         if self.agent_type == 'agent' and self.agent:
             self.supplier = True
-
-    @api.multi
-    def _line_agents(self):
-        agents = []
-        for partner in self:
-            for agent in partner.agents:
-                agents_vals = {
-                    "agent": agent.id,
-                    "commission": agent.commission.id
-                }
-                agents.append(agents_vals)
-        return agents

@@ -1,5 +1,5 @@
 ================================================
-|icon| Sales commissions/Provvigioni 10.0.11.0.7
+|icon| Sales commissions/Provvigioni 10.0.11.0.6
 ================================================
 
 .. |icon| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission/static/description/icon.png
@@ -39,6 +39,23 @@ I provvigioni sono calcolate al prezzo o al margine del prodotto.
 |thumbnail|
 
 .. |thumbnail| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission/static/description/description.png
+
+
+Features | Caratteristiche
+--------------------------
+
++----------------------------------------+---------------------+--------------------+-----------------------------+
+| Description | Descrizione              | OCA                 | Z0incombenze(R)    | Note(s)                     |
++----------------------------------------+---------------------+--------------------+-----------------------------+
+| Commission type | Tipi provvigione     | Fixed or by section | Fissa o per fasce  | See sale_commission_formula |
++----------------------------------------+---------------------+--------------------+-----------------------------+
+| Invoice state | Stato fattura          | Open or paid        | Fatturato o pagato |                             |
++----------------------------------------+---------------------+--------------------+-----------------------------+
+| Amount type | Tipo importo             | Gross or net        | Margine o prezzo   |                             |
++----------------------------------------+---------------------+--------------------+-----------------------------+
+| Settlement date to | Data liquidazione | Day to excluded     | Incluso sino a     | Comportamento diverso       |
++----------------------------------------+---------------------+--------------------+-----------------------------+
+
 
 
 Getting started | Primi passi
@@ -136,12 +153,12 @@ An Enhancement Proposal may be submitted if your idea gains ground.
 ChangeLog History | Cronologia modifiche
 ----------------------------------------
 
-10.0.1.0.7 (2024-03-09)
+10.0.1.0.7 (2024-03-10)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-* [IMP] head_agent moved into sale_commission_plus module
+* [IMP] head_agent moved into sale_commission_areamanager module
 * [IMP[ agent_id moved into sale_commision_plus module
-* [QUA] Test coverage 71% (663: 193+470) [11 TestPoints] - quality rating 46 (target 100)
+* [QUA] Test coverage 83% (458: 80+378) [11 TestPoints] - quality rating 54 (target 100)
 
 10.0.1.0.6 (2024-02-07)
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -229,7 +246,7 @@ La distribuzione `Zeroincombenze® <https://www.zeroincombenze.it/>`__ è proget
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2024-03-09
+Last Update / Ultimo aggiornamento: 2024-03-10
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status

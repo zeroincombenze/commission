@@ -2,7 +2,6 @@
 
 from odoo import api, exceptions, fields, models, _
 from odoo.exceptions import UserError
-import odoo.addons.decimal_precision as dp
 
 
 class Settlement(models.Model):
@@ -171,14 +170,13 @@ class SettlementLine(models.Model):
     date = fields.Date(related="agent_line.invoice_date", store=True)
     invoice_line = fields.Many2one(
         comodel_name='account.invoice.line', store=True,
-        copy=False,
         related='agent_line.object_id')
     invoice = fields.Many2one(
         comodel_name='account.invoice', store=True, string="Invoice",
         related='invoice_line.invoice_id')
     agent = fields.Many2one(
         comodel_name="res.partner", readonly=True, related="agent_line.agent",
-        copy=False, store=True)
+        store=True)
     settled_amount = fields.Float(
         related="agent_line.amount", readonly=True, store=True)
     currency_id = fields.Many2one(
@@ -192,28 +190,6 @@ class SettlementLine(models.Model):
         comodel_name='res.company',
         related='settlement.company_id',
     )
-    customer = fields.Many2one(related="invoice.partner_id",
-                               readonly=True, copy=False, store=True)
-    inv_line_quantity = fields.Float(
-        related="agent_line.object_id.quantity",
-        readonly=True, copy=False, store=True,
-        digits=dp.get_precision('Product Unit of Measure'))
-    inv_line_currency_id = fields.Many2one(
-        related="agent_line.object_id.currency_id",
-        readonly=True, copy=False, store=True)
-    inv_line_price_unit = fields.Float(
-        related="agent_line.object_id.price_unit",
-        readonly=True, copy=False, store=True,
-        digits=dp.get_precision('Product Price'))
-    inv_line_discount = fields.Float(
-        related="agent_line.object_id.discount",
-        readonly=True, store=True,
-        digits=dp.get_precision('Discount'))
-    inv_line_subtotal = fields.Monetary(string='Line Amount',
-                                        related="agent_line.inv_line_subtotal")
-    customer_state = fields.Many2one(
-        related="invoice.partner_id.state_id",
-        readonly=True, copy=False, store=True)
 
     @api.constrains('company_id', 'agent_line')
     def _check_company(self):

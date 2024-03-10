@@ -68,16 +68,9 @@
                 <group string="Commission lines" colspan="4">
                     <field name="lines" nolabel="1">
                         <tree string="Settlement lines">
-                            <!-- <field name="company_id"/>  -->
-                            <field name="customer"/>
-                            <field name="customer_state"/>
                             <field name="date"/>
                             <field name="invoice"/>
                             <field name="invoice_line"/>
-                            <field name="inv_line_quantity"/>
-                            <field name="inv_line_price_unit"/>
-                            <field name="inv_line_discount"/>
-                            <field name="inv_line_subtotal"/>
                             <field name="commission"/>
                             <field name="settled_amount"/>
                         </tree>
@@ -99,14 +92,9 @@
         <field name="arch" type="xml">
             <tree string="Settlement lines" create="false">
                 <field name="date"/>
-                <field name="customer"/>
                 <field name="agent"/>
                 <field name="invoice"/>
                 <field name="invoice_line"/>
-                <field name="inv_line_quantity" sum="Quantity total"/>
-                <field name="inv_line_price_unit"/>
-                <field name="inv_line_discount"/>
-                <field name="inv_line_subtotal" sum="Taxable total"/>
                 <field name="commission"/>
                 <field name="settled_amount" sum="Settled total"/>
             </tree>
@@ -141,7 +129,19 @@
                 <field name="agent" type="row"/>
                 <field name="date" interval="month" type="col"/>
                 <field name="settled_amount" type="measure"/>
-             </graph>
+            </graph>
+        </field>
+    </record>
+
+    <record id="view_settlement_line_pivot" model="ir.ui.view">
+         <field name="name">sale.commission.settlement.line.pivot</field>
+         <field name="model">sale.commission.settlement.line</field>
+         <field name="arch" type="xml">
+             <pivot string="Settlement analysis">
+                <field name="agent" type="row"/>
+                <field name="date" interval="month" type="col"/>
+                <field name="settled_amount" type="measure"/>
+             </pivot>
          </field>
     </record>
 
@@ -153,10 +153,22 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.actions.act_window" id="action_settle_commission_line">
+        <field name="name">Settlement lines</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sale.commission.settlement.line</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,pivot,graph</field>
+    </record>
+
     <menuitem name="Settlements"
               id="menu_sattle_commissions"
               parent="menu_sale_commissions_management"
               action="action_settle_commission" />
 
+    <menuitem name="Settlement lines"
+              id="menu_settle_commission_lines"
+              parent="menu_sale_commissions_management"
+              action="action_settle_commission_line" />
 
 </odoo>

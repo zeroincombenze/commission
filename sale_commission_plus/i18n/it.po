@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo (10.0)\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-09 10:09+0000\n"
-"PO-Revision-Date: 2024-03-09 10:09+0000\n"
+"POT-Creation-Date: 2024-03-09 17:14+0000\n"
+"PO-Revision-Date: 2024-03-09 17:14+0000\n"
 "Last-Translator: Antonio M. Vigliotti <antoniomaria.vigliotti@gmail.com>\n"
 "Language-Team: Zeroincombenze (https://www.zeroincombenze.it)\n"
 "Language: it\n"
@@ -15,6 +15,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. module: sale_commission_plus
+#: code:addons/sale_commission_plus/models/settlement.py:38
+#, python-format
+msgid "Company must be the same"
+msgstr "Azienda devono be il modulo \" stessa"
 
 #. module: sale_commission_plus
 #: model:ir.model,name:sale_commission_plus.model_account_invoice

@@ -9,7 +9,10 @@
     "development_status": "Beta",
     "license": "AGPL-3",
     "depends": ["sale_commission"],
-    "data": ["views/account_invoice_view.xml"],
+    "data": [
+        "views/account_invoice_view.xml",
+        "views/sale_commission_settlement_view.xml",
+    ],
     "maintainer": "Antonio M. Vigliotti <antoniomaria.vigliotti@gmail.com>",
     "installable": True,
 }

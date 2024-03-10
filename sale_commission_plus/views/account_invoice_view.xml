@@ -5,12 +5,14 @@
         <field name="name">account.invoice.line.agent.tree</field>
         <field name="model">account.invoice.line.agent</field>
         <field name="arch" type="xml">
+
             <tree string="Invoice line agents and commissions" editable="bottom">
                 <field name="agent"
                        context="{'default_agent': True, 'default_customer': False, 'default_supplier': True}" />
                 <field name="commission" />
                 <field name="amount" />
             </tree>
+
         </field>
     </record>
 
@@ -19,11 +21,13 @@
         <field name="model">account.invoice.line</field>
         <field name="inherit_id" ref="account.view_invoice_line_form" />
         <field name="arch" type="xml">
+
             <field name="company_id" position="after">
                 <field name="commission_free"/>
                 <field name="agents"
                        attrs="{'invisible': [('commission_free', '=', True)]}"/>
             </field>
+
         </field>
     </record>
 
@@ -37,6 +41,7 @@
                 <field name="sale_agent_id"
                        attrs="{'invisible':[('sale_agent_id', '=', False)]}"/>
             </field>
+
         </field>
     </record>
 

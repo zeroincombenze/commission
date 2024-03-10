@@ -1,0 +1,5 @@
+Description | Descrizione,OCA,Z0incombenze(R),Note(s)
+Commission type | Tipi provvigione,Fixed or by section,Fissa o per fasce,See sale_commission_formula
+Invoice state | Stato fattura,Open or paid,Fatturato o pagato,
+Amount type | Tipo importo,Gross or net,Margine o prezzo,
+Settlement date to | Data liquidazione,Day to excluded,Incluso sino a,Comportamento diverso
