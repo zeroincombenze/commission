@@ -17,7 +17,10 @@ Overview | Panoramica
 |en| Missed description
 
 
-|it| Descrizione non disponibile
+|it| Questo modulo aggiunge il campo agente nella testata degli ordini e delle fatture,
+se tutte le righe del documento riferiscono ad un unico agente.
+
+L'agente può essere utilizzato nella barra di filtro o nella Business Intelligence.
 
 
 |thumbnail|
@@ -120,7 +123,14 @@ An Enhancement Proposal may be submitted if your idea gains ground.
 ChangeLog History | Cronologia modifiche
 ----------------------------------------
 
-10.0.0.1.0 (2024-01-22)
+10.0.0.1.1 (2024-03-10)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+* [IMP[ Inherit agent_id from sale_commission module
+* [QUA] Test coverage 73% (60: 16+44) [0 TestPoints] - quality rating 45 (target 100)
+
+
+10.0.0.1.0 (2024-02-05)
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 * Initial implementation / Implementazione iniziale
@@ -175,9 +185,9 @@ La distribuzione `Zeroincombenze® <https://www.zeroincombenze.it/>`__ è proget
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2024-02-05
+Last Update / Ultimo aggiornamento: 2024-03-10
 
-.. |Maturity| image:: https://img.shields.io/badge/maturity-Alfa-black.png
+.. |Maturity| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: 
 .. |license gpl| image:: https://img.shields.io/badge/licence-LGPL--3-7379c3.svg

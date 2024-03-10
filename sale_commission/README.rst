@@ -189,7 +189,7 @@ ChangeLog History | Cronologia modifiche
 ~~~~~~~~~~~~~~~~~~~~~~~
 
 * [IMP] head_agent moved into sale_commission_areamanager module
-* [IMP[ agent_id moved into sale_commision_plus module
+* [IMP[ agent_id moved into sale_commision_bi module
 * [IMP] Aligned to OCA module | Allineaato al modulo OCA
 * [IMP] Commission BI | Business Intelligence delle provvigioni
 * [IMP] Settlement lines | Menù con righe liquidazioni
