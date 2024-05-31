@@ -1,5 +1,5 @@
 ================================================
-|icon| Sales commissions/Provvigioni 10.0.11.0.6
+|icon| Sales commissions/Provvigioni 10.0.11.0.7
 ================================================
 
 .. |icon| image:: https://raw.githubusercontent.com/zeroincombenze/commission/10.0/sale_commission/static/description/icon.png
@@ -280,7 +280,7 @@ La distribuzione `Zeroincombenze® <https://www.zeroincombenze.it/>`__ è proget
 
 This module is part of commission project.
 
-Last Update / Ultimo aggiornamento: 2024-03-10
+Last Update / Ultimo aggiornamento: 2024-05-31
 
 .. |Maturity| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     "name": "Sales commissions",
-    "version": "10.0.11.0.6",
+    "version": "10.0.11.0.7",
     "category": "Sales Management",
     "summary": "Sales commissions",
     "author": ("Odoo Community Association (OCA),Tecnativa S. L.,"

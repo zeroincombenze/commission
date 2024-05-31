@@ -13,11 +13,19 @@ MODULE_TO_CHECK = "sale_commission_areamanager"
 def check_installed_plus(cr):
     with api.Environment.manage():
         env = api.Environment(cr, SUPERUSER_ID, {})
+        disable_check = env["ir.config_parameter"].search(
+            [("key", "=", "disable_module_incompatibility")]
+        )
+        disable_check = disable_check and eval(disable_check[0].value) or False
         ir_module = env["ir.module.module"]
-        if not ir_module.search([("name", "=", MODULE_TO_CHECK),
-                                 ("state", "=", ("installed", "to upgrade"))]):
+        if not disable_check and not ir_module.search(
+                [("name", "=", MODULE_TO_CHECK),
+                 ("state", "=", ("installed", "to upgrade"))]):
             raise UserError(
-                "Please, install module %s before upgrade module %s!"
+                "Please, install module '%s' before upgrade module '%s'\n"
+                "or set system parameter <disable_module_incompatibility> to True "
+                "in order to force this upgrade.\n\n"
+                "You are warned this choice might be dangerous!"
                 % (MODULE_TO_CHECK, THIS_MODULE))
 
 
