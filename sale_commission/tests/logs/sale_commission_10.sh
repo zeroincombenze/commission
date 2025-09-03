@@ -1,1 +1,0 @@
-cd /home/odoo/10.0; /home/odoo/10.0/odoo-bin --stop-after-init -d test_sale_commission_10 --config=/home/odoo/10.0/commission/sale_commission/tests/logs/zero10.commission.sale_commission.conf --log-level=error -i account,analytic,barcodes,base,base_setup,bus,decimal_precision,mail,procurement,product,report,sale,sales_team,stock,stock_account,web,web_kanban,web_planner,web_tour
